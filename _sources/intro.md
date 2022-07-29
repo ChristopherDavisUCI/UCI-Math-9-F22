@@ -1,4 +1,4 @@
-# UC Irvine, Math 10, Fall 2022, Python portion
+# UC Irvine, Math 9, Fall 2022, Python portion
 
 **Introduction to Programming for Numerical Analysis**
 
