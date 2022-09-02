@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -151,6 +153,55 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../Week2/NumPy.html">
      NumPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/PythonicCode.html">
+     Pythonic code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/NewtonsMethod.html">
+     Newton’s Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Pillow.html">
+     Pillow image processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/ObjectOriented.html">
+     Brief introduction to object-oriented programming
     </a>
    </li>
   </ul>
@@ -430,8 +481,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="python-data-types">
 <h1>Python data types<a class="headerlink" href="#python-data-types" title="Permalink to this headline">#</a></h1>
+<p>We will be working with many different Python data types in Math 9, both built-in data types as well as data types defined in external libraries, like the library NumPy.  We’ll start this portion of the class by introducing some of the many different data types.</p>
 <section id="lists-and-strings">
 <h2>lists and strings<a class="headerlink" href="#lists-and-strings" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w3HxawiC-7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>We start with two data types that seem very different but which share a lot of common functionality.</p>
+<p>We can indicate that an object is a string using quotation marks (either single or double quotation marks).  Here we define the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> to be the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">world&quot;</span></code>.  You can check the type of an object by using the <code class="docutils literal notranslate"><span class="pre">type</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello, world&quot;</span>
@@ -463,6 +517,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Just like we made a string by using quotation marks, here we make a list by using square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -482,6 +537,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is one of the many similarities between strings and lists (as well as many other data types in Python): you can use the following indexing notation to extract a part of the object.  Notice that numbering in Python starts at 0.  I will usually try to refer to this as the “zeroth” element or the “initial” element.  For example, the initial element in the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">world&quot;</span></code> is the letter <code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -506,6 +562,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Another similarity between strings and lists is that both have a notion of length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -530,6 +587,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Because indexing starts at 0 and the string <code class="docutils literal notranslate"><span class="pre">s</span></code> has length 12, using <code class="docutils literal notranslate"><span class="pre">s[12]</span></code> will raise an error.  Unfortunately, many Python error messages are difficult to read, but this one is pretty clear, <code class="docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">string</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.  (I usually start reading at the bottom of the error message.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
@@ -547,6 +605,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>If you want to get the last element in a string (or list) <code class="docutils literal notranslate"><span class="pre">s</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">s[len(s)-1]</span></code>, but much more common is to use the negative indexing shorthand <code class="docutils literal notranslate"><span class="pre">s[-1]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -583,6 +642,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Another use of indexing is to get a sequence of elements (in a string, or a list, or …).  Calling <code class="docutils literal notranslate"><span class="pre">s[1:4]</span></code> will include <code class="docutils literal notranslate"><span class="pre">s[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">s[2]</span></code>, <code class="docutils literal notranslate"><span class="pre">s[3]</span></code>, but it will not include <code class="docutils literal notranslate"><span class="pre">s[4]</span></code>.  That is a common convention in Python: the right endpoint is usually not included.</p>
+<p>This type of indexing is called <em>slicing</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
@@ -607,6 +668,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>The string <code class="docutils literal notranslate"><span class="pre">s[:5]</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">s[0:5]</span></code>.  One benefit of the “right endpoint is not included” convention is that <code class="docutils literal notranslate"><span class="pre">s[:5]</span></code> will be length 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -631,6 +693,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Similarly, the notation <code class="docutils literal notranslate"><span class="pre">s[3:]</span></code> will go from the element <code class="docutils literal notranslate"><span class="pre">s[3]</span></code> to the end.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
@@ -667,6 +730,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Another type of slicing will specify the step size (this is similar to the colon notation from Matlab, although with Python slicing, the step size goes at the end, whereas in Matlab the step size goes in the middle).  For example, <code class="docutils literal notranslate"><span class="pre">s[1:7:2]</span></code> will include <code class="docutils literal notranslate"><span class="pre">s[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">s[3]</span></code>, <code class="docutils literal notranslate"><span class="pre">s[5]</span></code>, but not <code class="docutils literal notranslate"><span class="pre">s[7]</span></code> because right endpoints are not included.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
@@ -691,6 +755,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>The following gets all the even-indexed elements in <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
@@ -703,6 +768,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">s[1::2]</span></code> gets all the odd-indexed elements in <code class="docutils literal notranslate"><span class="pre">s</span></code> (we start at index 1 and go up in steps of 2).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
@@ -718,6 +784,8 @@ title="Print to PDF"
 </section>
 <section id="lists-tuples-and-sets">
 <h2>lists, tuples, and sets<a class="headerlink" href="#lists-tuples-and-sets" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1UNVtDrO1Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>In the previous section, we considered two data types (lists and strings) which seem quite different.  Here we will look at three data types (lists, tuples, and sets) that on the surface seem very similar.  The difference between lists and tuples is more subtle, but sets are very different from these other two.</p>
+<p>As we already saw, you can construct a list using square brackets.  To construct a tuple, you can use round parentheses, and to construct a set you can use curly brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -763,6 +831,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is a first difference with sets: like the mathematical notion of a set, sets in Python do not allow repeated elements.  Notice how there is only a single 1 shown in <code class="docutils literal notranslate"><span class="pre">myset</span></code>, even though we defined <code class="docutils literal notranslate"><span class="pre">myset</span></code> using <code class="docutils literal notranslate"><span class="pre">myset</span> <span class="pre">=</span> <span class="pre">{3,1,4,1}</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myset</span>
@@ -775,6 +844,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is a major difference between sets and the other two: sets do not support indexing.  This is because, like the mathematical notion of a set, sets in Python do not have a notion of order… there is no “zeroth” element in a set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -816,6 +886,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Sets, tuples, and lists all have a notion of length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
@@ -852,6 +923,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is a first difference between lists and tuples: you can change elements in a list but not in a tuple.  This is usually described as saying that tuples are “immutable”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">17</span>
@@ -900,6 +972,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Another consequence of lists being mutable and tuples being immutable is that lists have an <code class="docutils literal notranslate"><span class="pre">append</span></code> method and tuples do not.  (A <em>method</em> is very similar to a function.  It is like a function which is attached to a specific data type.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
@@ -936,6 +1009,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>It might seem like lists are better than tuples in every way.  One key advantage of a tuple over a list is that you can use tuples in certain situations where lists are not allowed.  As an example, an element in a set is allowed to be a tuple, but you cannot put a list into a set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
@@ -987,6 +1061,7 @@ title="Print to PDF"
 </section>
 <section id="ranges-and-for-loops">
 <h2>ranges and for loops<a class="headerlink" href="#ranges-and-for-loops" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kgBLbHldfXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>A Python range object is maybe a little more unusual (or at least more specialized) than the other Python data types we have seen before.  On the other hand, range objects usually show up very early when learning Python, because many of the most basic types of for loops are made using range objects.  Before we see those for loop examples using range objects, let’s see some for loop examples using the data types we have already met.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello, world&quot;</span>
@@ -1037,6 +1112,7 @@ d
 </div>
 </div>
 </div>
+<p>It may come as a surprise that white space in Python is very meaningful.  For example, notice how all three of the following <code class="docutils literal notranslate"><span class="pre">print</span></code> statements are indented the same amount.  Python repeats each of these three <code class="docutils literal notranslate"><span class="pre">print</span></code> statements each iteration looping through the for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mystring</span><span class="p">:</span>
@@ -1087,6 +1163,7 @@ d
 </div>
 </div>
 </div>
+<p>On the other hand, in the following, only the <code class="docutils literal notranslate"><span class="pre">print(x)</span></code> command is indented, so only that command is repeated by the for loop.  The other two <code class="docutils literal notranslate"><span class="pre">print</span></code> commands are executed after the for loop has completed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mystring</span><span class="p">:</span>
@@ -1158,6 +1235,7 @@ d
 </div>
 </div>
 </div>
+<p>Here is our first example of a range object.  In this case, it is used as a quick way to repeat the print statement 5 times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -1175,6 +1253,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>We never used the <code class="docutils literal notranslate"><span class="pre">i</span></code> variable in the previous example.  Here is an example using the <code class="docutils literal notranslate"><span class="pre">i</span></code> variable.  The syntax is very similar to the slicing syntax from above: in particular, the step size comes at the end.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
@@ -1190,6 +1269,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>You can just as easily move backwards (both in slicing and in range objects) by specifying a negative step size.  Notice that, like usual in Python, the right endpoint (3 in this case) is not included.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
@@ -1209,6 +1289,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">range(10,3,-1)</span></code> above is its own type of object, a <code class="docutils literal notranslate"><span class="pre">range</span></code> object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myrange</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1271,6 +1352,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Range objects support slicing.  That’s not too important; maybe the most interesting thing about slicing in the context of range objects is that it again produces a range object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myrange2</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">100</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
@@ -1283,6 +1365,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>You can also compute the length of a range object, the same way as you can compute the length of a string, list, tuple, or set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">myrange2</span><span class="p">)</span>
@@ -1298,6 +1381,7 @@ Hello, world
 </section>
 <section id="ints-floats-and-bools">
 <h2>ints, floats, and bools<a class="headerlink" href="#ints-floats-and-bools" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MiESeoWkTWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>We’re almost done with what I consider the “essential” Python data types.  We will introduce three more data types in this section, and we will introduce dictionaries in the next section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">2</span>
@@ -1305,6 +1389,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>The result of the following expression is the Boolean value <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Be sure to notice that the word <code class="docutils literal notranslate"><span class="pre">True</span></code> is capitalized (and be sure not to put it in quotation marks; it is not a string).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">==</span> <span class="mi">5</span>
@@ -1370,6 +1455,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">==</span> <span class="pre">5</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, you probably expect <code class="docutils literal notranslate"><span class="pre">range(z)</span></code> to work the same as <code class="docutils literal notranslate"><span class="pre">range(5)</span></code>, but there is a subtle difference.  The problem is that because <code class="docutils literal notranslate"><span class="pre">z</span></code> was defined as <code class="docutils literal notranslate"><span class="pre">10/2</span></code>, Python set its data type as a floating point number (like a decimal, not an integer), and range objects can only be created using integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1423,6 +1509,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Because computers can only specify decimals (floats, real numbers) to a finite degree of precision, some subtleties are inevitable.  One consequence is that it is almost never correct to ask if two floating points are equal.  Here is an example where two floats are obviously mathematically equal, but Python reports them as being unequal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.3</span>
@@ -1438,6 +1525,7 @@ Hello, world
 </section>
 <section id="dictionaries">
 <h2>dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t2CNZ80OGLg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>The last built-in Python data type I want to introduce in this portion of the class is the dictionary data type.  Here is an example of constructing a dictionary.  The portions before the colons are called “keys” and the portions after the colons are called “values”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
@@ -1457,6 +1545,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>The next two errors are saying that <code class="docutils literal notranslate"><span class="pre">20</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> (the integers, not the strings) do not occur as keys in <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
@@ -1491,6 +1580,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Here is an example of adding a new key to the dictionary.  Notice how it gets displayed without quotation marks, because <code class="docutils literal notranslate"><span class="pre">0</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> (the first one is an integer, while the second one is a string).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -1510,6 +1600,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>We can also change a value associated to a key using the same kind of syntax.  Notice how the old value gets deleted; there cannot be repeated keys in a dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">85</span>
@@ -1529,6 +1620,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>I probably should have done this earlier, but here is how you access the value associated for example to the key <code class="docutils literal notranslate"><span class="pre">&quot;C&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
@@ -1541,6 +1633,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Here we add a new key, and the value is itself a dictionary.  The two things to notice in this next example are that both <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> show up as keys, and that a dictionary can be a value in a dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;first word&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">:</span> <span class="s2">&quot;second word&quot;</span><span class="p">}</span>
@@ -1566,6 +1659,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Remember that lists were not allowed to go in sets, but tuples were allowed.  It is the same with keys in dictionaries.  (Values in dictionaries can be anything, but there are restrictions on keys; the same restrictions as on elements in sets.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]}</span>
@@ -1595,6 +1689,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>We get the exact same error if we try to make the list <code class="docutils literal notranslate"><span class="pre">[4,1]</span></code> a key in our dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1612,6 +1707,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>But making the tuple <code class="docutils literal notranslate"><span class="pre">(4,1)</span></code> a key in our dictionary works fine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1641,13 +1737,14 @@ Hello, world
 </section>
 <section id="converting-from-one-type-to-another">
 <h2>Converting from one type to another<a class="headerlink" href="#converting-from-one-type-to-another" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nCx1VB-vSUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Here is the syntax for creating a tuple out of <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.  Notice that it does not actually change the value of <code class="docutils literal notranslate"><span class="pre">mylist</span></code> itself.  (If something gets displayed as a result of the operation, as <code class="docutils literal notranslate"><span class="pre">(3,1,4,1)</span></code> does in this case, that is often a hint that the original object did not change.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">tuple</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
@@ -1672,6 +1769,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>If you actually want to be able to use that tuple you’ve created, you need to save it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
@@ -1703,6 +1801,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Many of the objects we have seen so far can be converted into other data types.  For example, this is what happens when you convert from a string to a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
@@ -1722,6 +1821,7 @@ Hello, world
 </div>
 </div>
 </div>
+<p>Maybe you would have expected to get a list of words instead of a list of characters.  The fact that we get a list of characters is very similar to what happens if we iterate over the elements in the string using a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
@@ -1745,6 +1845,7 @@ d
 </div>
 </div>
 </div>
+<p>Here is an example where conversion does not work.  This particular list <code class="docutils literal notranslate"><span class="pre">mylist</span></code> cannot be converted to a dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span>
@@ -1774,6 +1875,7 @@ d
 </div>
 </div>
 </div>
+<p>Some lists can be converted to a dictionary.  For example, this list of length-2 tuples can be converted.  Python interprets the 0th element in each tuple as the key and the 1st element in each tuple as the value.  (Remember that keys can’t be repeated in a dictionary, which is why we only see the key <code class="docutils literal notranslate"><span class="pre">1</span></code> one time.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist2</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">)]</span>
@@ -1793,6 +1895,7 @@ d
 </div>
 </div>
 </div>
+<p>A surprisingly useful conversion (that is often done automatically) is going from the Boolean values <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> to the integer values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> (respectively).  One reason this is useful is that if you add together the elements in a list or array of Trues and Falses, the result will be exactly the number of Trues.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -1817,6 +1920,7 @@ d
 </div>
 </div>
 </div>
+<p>You can also add an integer to a Boolean value, and Python will automatically convert the Boolean value to an integer before doing the addition.  This functionality itself is not very important, but it’s very important to remember in general that <code class="docutils literal notranslate"><span class="pre">True</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">1</span></code> and that <code class="docutils literal notranslate"><span class="pre">False</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="o">+</span><span class="kc">True</span>
@@ -1832,6 +1936,7 @@ d
 </section>
 <section id="timing-comparisons">
 <h2>Timing comparisons<a class="headerlink" href="#timing-comparisons" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oxYzQwF97QM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>A fundamental example of sets over lists and tuples is that you can search in a set much faster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10000000</span>
@@ -1844,6 +1949,7 @@ d
 </div>
 </div>
 </div>
+<p>That integer is pretty hard to read.  Notice that we <strong>cannot</strong> make exponents in Python using the caret symbol, instead you have to use <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">^</span><span class="mi">7</span>
@@ -1868,6 +1974,7 @@ d
 </div>
 </div>
 </div>
+<p>Let’s make a range object and convert it into a list, into a tuple, and into a set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -1896,6 +2003,7 @@ d
 </div>
 </div>
 </div>
+<p>Here we use the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> to check if <code class="docutils literal notranslate"><span class="pre">0</span></code> is in the corresponding object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="ow">in</span> <span class="n">mylist</span>
@@ -1920,6 +2028,7 @@ d
 </div>
 </div>
 </div>
+<p>Here is a special feature of Jupyter notebooks, where we can time how long an operation takes.  I usually only pay attention to the left-most number, which in this case says 36.2 nanoseconds, where one nanosecond is <span class="math notranslate nohighlight">\(10^{-9}\)</span> seconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1933,6 +2042,7 @@ d
 </div>
 </div>
 </div>
+<p>Very similar speed for checking in <code class="docutils literal notranslate"><span class="pre">mytuple</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1946,6 +2056,7 @@ d
 </div>
 </div>
 </div>
+<p>I said that checking in a set was faster, but it doesn’t seem to be, it’s actually slower in this case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1959,6 +2070,7 @@ d
 </div>
 </div>
 </div>
+<p>But the reason checking for <code class="docutils literal notranslate"><span class="pre">0</span></code> was fast in the above examples was because Python could find the element <code class="docutils literal notranslate"><span class="pre">0</span></code> very quickly, since it was at the beginning of the set and the beginning of the tuple.  If we instead check for <code class="docutils literal notranslate"><span class="pre">1</span></code>, which is not in the list (or the tuple or the set), then we will see that the set version of searching is much faster.  Notice that the unit for the list version is <code class="docutils literal notranslate"><span class="pre">ms</span></code> rather than <code class="docutils literal notranslate"><span class="pre">ns</span></code>, which represents <span class="math notranslate nohighlight">\(10^{-3}\)</span> seconds.  So in this case, the set version is about one million (!) times faster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1985,6 +2097,7 @@ d
 </div>
 </div>
 </div>
+<p>The fact that we can search in a set very fast is related to the restrictions on the elements that can go in a set.  (For example, remember that we are not allowed to put a list into a set.)  For the same underlying reason, searching for a key in a dictionary is also very fast.</p>
 </section>
 </section>
 

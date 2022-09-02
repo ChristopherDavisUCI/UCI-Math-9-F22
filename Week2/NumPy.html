@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 3" href="../Week3/Week3-Intro.html" />
     <link rel="prev" title="Week 2" href="Week2-Intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -152,6 +153,55 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      NumPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/PythonicCode.html">
+     Pythonic code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/NewtonsMethod.html">
+     Newton’s Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Pillow.html">
+     Pillow image processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/ObjectOriented.html">
+     Brief introduction to object-oriented programming
     </a>
    </li>
   </ul>
@@ -334,6 +384,33 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#regular-arrays">
    Regular arrays
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3">
+     Example 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4">
+     Example 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5">
+     Example 5
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#random-numbers">
@@ -429,6 +506,33 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#regular-arrays">
    Regular arrays
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3">
+     Example 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4">
+     Example 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5">
+     Example 5
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#random-numbers">
@@ -513,6 +617,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="numpy">
 <h1>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h1>
+<p>We always import NumPy using the standard <code class="docutils literal notranslate"><span class="pre">np</span></code> abbreviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -522,10 +627,14 @@ title="Print to PDF"
 </div>
 <section id="regular-arrays">
 <h2>Regular arrays<a class="headerlink" href="#regular-arrays" title="Permalink to this headline">#</a></h2>
-<p>For each of the following, create the corresponding NumPy array.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8Iw8O5qNvvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>To learn some different methods for creating NumPy arrays, we will make the following arrays.  (The next one is written as a list, but our primary goal is to make the NumPy array version.)</p>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>[0, 0, 0, …, 0] (length 10)</p></li>
 </ul>
+<p>Here we use <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>.  Many Matlab functions have an equivalent version in NumPy, and <code class="docutils literal notranslate"><span class="pre">zeros</span></code> is one such example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -538,6 +647,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Just as an aside, there is also a very elegant way to make a list (not a NumPy array) of 10 zeros using what is called <em>list comprehension</em>.  (We will introduce list comprehension more systematically <a class="reference internal" href="../Week3/PythonicCode.html#list-comp"><span class="std std-ref">later in the course</span></a>.)  The underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> in the following is just a way of naming a variable that we will never refer to again; it could be replaced by any variable name and the result would be the same.</p>
+<p>Here is the list comprehension way to make a list of 10 zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -550,6 +661,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>One other way of making this list is based on the following, which uses <code class="docutils literal notranslate"><span class="pre">+</span></code> to concatenate two lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -562,6 +674,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>So if we want to add <code class="docutils literal notranslate"><span class="pre">[0]</span></code> to itself 10 times, we can use <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>
@@ -574,9 +687,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>A five row, seven column matrix containing all 4s.</p></li>
 </ul>
+<p>Here we’re trying to make a 5x7 NumPy array of all zeros (then we will add 4 to it).  The following is a common mistake I make.  The error message is not too helpful the first time you see it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
@@ -594,7 +711,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Notice in the documentation that the first argument for <code class="docutils literal notranslate"><span class="pre">shape</span></code> is supposed to be an integer or a tuple of integers.  The second positional argument is called <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, and NumPy is trying to interpret our second input <code class="docutils literal notranslate"><span class="pre">7</span></code> as a <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.  That was our mistake; we should have given a single input argument as a tuple, not two separate input arguments.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">)</span>
 </pre></div>
@@ -664,6 +782,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is the correct way to make a 5x7 NumPy array of all zeros.  Notice the extra set of parentheses around <code class="docutils literal notranslate"><span class="pre">(5,7)</span></code>.  The inner parentheses make a tuple, and the outer parentheses go together with the <code class="docutils literal notranslate"><span class="pre">zeros</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -680,6 +799,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Once we have the array of all zeros, it’s easy to get the array of all 4s.  We just add 4, and NumPy automatically “broadcasts” the 4 to all of the entries in the array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span><span class="o">+</span><span class="mi">4</span>
@@ -696,6 +816,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is a similar strategy, using the <code class="docutils literal notranslate"><span class="pre">ones</span></code> function instead of the <code class="docutils literal notranslate"><span class="pre">zeros</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -728,6 +849,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>If we would rather have integers on the inside (notice how the decimal point goes away), we can specify <code class="docutils literal notranslate"><span class="pre">int</span></code> as the <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
@@ -744,9 +866,13 @@ zeros(...)
 </div>
 </div>
 </div>
+</section>
+<section id="example-3">
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>[0, …, 100] (length 5, evenly distributed).</p></li>
 </ul>
+<p>In Matlab, this would be made using <code class="docutils literal notranslate"><span class="pre">linspace</span></code>, and NumPy has its own version of <code class="docutils literal notranslate"><span class="pre">linspace</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -759,9 +885,13 @@ zeros(...)
 </div>
 </div>
 </div>
+</section>
+<section id="example-4">
+<span id="x3-array"></span><h3>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The 3x3 matrix <span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1 \\ 2 &amp; 2 &amp; 2 \end{pmatrix}\)</span></p></li>
 </ul>
+<p>Here is a first way to make this matrix.  It’s again using broadcasting.  For example, when <code class="docutils literal notranslate"><span class="pre">i</span></code> is 2, we broadcast 2 to the second row.  (The second row is specified by <code class="docutils literal notranslate"><span class="pre">arr[2]</span></code>.)  We will later see ways to make this sort of matrix avoiding the for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -785,11 +915,15 @@ zeros(...)
 </div>
 </div>
 </div>
+</section>
+<section id="example-5">
+<h3>Example 5<a class="headerlink" href="#example-5" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>The 2x5 matrix <span class="math notranslate nohighlight">\(
 \begin{pmatrix} 2 &amp; 5 &amp; 8 &amp; 11 &amp; 14 \\ 17 &amp; 20 &amp; 23 &amp; 26 &amp; 29 \end{pmatrix}
 \)</span></p></li>
 </ul>
+<p>We start with a nested for loop approach to make this matrix.  We will print out the current version of the array each step through the for loops.  Notice especially how <code class="docutils literal notranslate"><span class="pre">arr[i,j]</span></code> refers to the entry in the i-th row and the j-th column.  The following is almost correct, but it doesn’t get the bottom row right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -825,6 +959,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is a final version of this approach.  We make the code a little more stable by replacing some of the numbers with variables, for example, we replace the 3 above with the variable <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="mi">5</span>
@@ -844,6 +979,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is an easier way to make the same NumPy array.  Here is a first step: <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> is the NumPy analogue of <code class="docutils literal notranslate"><span class="pre">range</span></code> from Python (or the colon function from Matlab).  (We’ll see later that <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> has the advantage over <code class="docutils literal notranslate"><span class="pre">range</span></code> that it can use non-integer step sizes.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -856,6 +992,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Remember that the right endpoint is usually not included in Python.  Since we want our array to end at 29, we should list some number bigger than 29 (and less than or equal to 32) as our right endpoint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -868,6 +1005,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Now we will use the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> method to turn this length-10 one-dimensional NumPy array into a 2x5 two-dimensional NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -882,11 +1020,13 @@ zeros(...)
 </div>
 </div>
 </section>
+</section>
 <section id="random-numbers">
 <h2>Random numbers<a class="headerlink" href="#random-numbers" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UGqkJ2Z3RwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><ul class="simple">
 <li><p>Make a length 10 NumPy array of random integers between 0 (inclusive) and 40 (exclusive).</p></li>
 </ul>
+<p>You will often see code like the following in code examples, but this is actually the “old” way of getting random numbers in NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -899,7 +1039,13 @@ zeros(...)
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Notice the portion of the documentation:</p>
+<blockquote>
+<div><p>New code should use the <code class="docutils literal notranslate"><span class="pre">integers</span></code> method of a <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code>
+instance instead; please see the :ref:<code class="docutils literal notranslate"><span class="pre">random-quick-start</span></code></p>
+</div></blockquote>
+<p>For the rest of the course, we will use this <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> method.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">)</span>
 </pre></div>
@@ -986,6 +1132,7 @@ randint(...) method of numpy.random.mtrand.RandomState instance
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> approach to random numbers is a good example of object-oriented programming, because we are making a new object, which we call <code class="docutils literal notranslate"><span class="pre">rng</span></code> here, and we are using methods on that object to produce random numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1005,6 +1152,7 @@ randint(...) method of numpy.random.mtrand.RandomState instance
 </div>
 </div>
 </div>
+<p>The note above said to use the <code class="docutils literal notranslate"><span class="pre">integers</span></code> method, which is what we do here.  This is the <em>modern</em> way (as of Summer 2022) to make random numbers in NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -1024,6 +1172,7 @@ randint(...) method of numpy.random.mtrand.RandomState instance
 </div>
 </div>
 </div>
+<p>For the rest of this section, we will see a variety of examples of different sorts of methods we can use from our random number generator <code class="docutils literal notranslate"><span class="pre">rng</span></code> object.</p>
 <ul class="simple">
 <li><p>Choose 6 of those numbers (with replacement) and put them into a NumPy array.</p></li>
 </ul>
@@ -1042,6 +1191,7 @@ randint(...) method of numpy.random.mtrand.RandomState instance
 <ul class="simple">
 <li><p>Make a three row, five column NumPy array of random real numbers between -1 and 4.</p></li>
 </ul>
+<p>The following is what I would have expected, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> method does not allow us to specify a low and a high value for getting random floats.  Instead <code class="docutils literal notranslate"><span class="pre">random</span></code> will always get us random numbers between 0 and 1, and if we want our random numbers in a different range, then we need to rescale the outputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -1061,7 +1211,8 @@ randint(...) method of numpy.random.mtrand.RandomState instance
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Notice that the outputs are between 0 and 1.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">)</span>
 </pre></div>
@@ -1136,6 +1287,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The random numbers in <code class="docutils literal notranslate"><span class="pre">arr</span></code> span from 0 to 1 (a distance of 1 apart).  We want to go between -1 and 4, so we eventually want a width of 5.  That is why we will multiply by 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">*</span><span class="mi">5</span>
@@ -1150,6 +1302,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The above array goes between 0 and 5, but we want it to go between -1 and 4, so we subract 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">*</span><span class="mi">5</span><span class="o">-</span><span class="mi">1</span>
@@ -1164,6 +1317,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is a way to make this array all at once (of course the specific random numbers will be different).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
@@ -1181,7 +1335,8 @@ random(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>Make a length 10 NumPy array of random numbers following a normal distribution with mean 2 and standard deviation 0.1.</p></li>
 </ul>
-<div class="cell docutils container">
+<p>As just a last example in this section, here is how we can make normally distributed random numbers.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span>
 </pre></div>
@@ -1287,6 +1442,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Notice that the result of the following does seem to be clustered around 2.  That makes sense because we had mean 2 with a relatively low standard deviation (0.1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -1300,6 +1456,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The array is displayed almost like it’s two-dimensional, but notice that there is only one set of brackets.  It really is one-dimensional, as we can verify by checking its <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
@@ -1315,6 +1472,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </section>
 <section id="changing-rows-and-columns">
 <h2>Changing rows and columns<a class="headerlink" href="#changing-rows-and-columns" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cTBXH47Go_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Here we’re going to start with (a slight variant of) the code from an <a class="reference internal" href="#x3-array"><span class="std std-ref">earlier example</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -1361,6 +1519,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>If we use indexing of the form <code class="docutils literal notranslate"><span class="pre">arr[i]</span></code> where <code class="docutils literal notranslate"><span class="pre">arr</span></code> is a two-dimensional array, this <code class="docutils literal notranslate"><span class="pre">arr[i]</span></code> will represent the i-th row of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -1373,6 +1532,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here we set the second row (where as always we start counting from 0) to be all 13s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span>
@@ -1395,6 +1555,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Accessing a column is slightly harder.  You should read <code class="docutils literal notranslate"><span class="pre">arr[:,2]</span></code> as indicating “every row, the second column”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
@@ -1417,6 +1578,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The same sort of indexing with a colon could be used with rows.  Here <code class="docutils literal notranslate"><span class="pre">arr[1,:]</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">arr[1]</span></code>.  The <code class="docutils literal notranslate"><span class="pre">:</span></code> in this case can be read as, “every column”.  In the following, we go to row 1 and set all of its entries to be 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1439,6 +1601,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>In the following, we are storing the second column with the variable name <code class="docutils literal notranslate"><span class="pre">v</span></code>.  This column is a one-dimensional NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
@@ -1446,6 +1609,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">v</span></code> is displayed horizontally.  Looking at <code class="docutils literal notranslate"><span class="pre">v</span></code>, there is no evidence that this corresponds to a column in our array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span>
@@ -1458,6 +1622,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is how a length-1 tuple is displayed in Python, in this case, the length-1 tuple that has only the number 4 in it is written <code class="docutils literal notranslate"><span class="pre">(4,)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">shape</span>
@@ -1470,6 +1635,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The following code is trying to assign the 3rd row to have the values <code class="docutils literal notranslate"><span class="pre">[2,10]</span></code>.  In this case, we get an error message.  The error message says that we cannot <em>broadcast</em> from shape <code class="docutils literal notranslate"><span class="pre">(2,)</span></code> to shape <code class="docutils literal notranslate"><span class="pre">(4,)</span></code>.  In this case, <code class="docutils literal notranslate"><span class="pre">[2,10]</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(2,)</span></code> and <code class="docutils literal notranslate"><span class="pre">arr[3]</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(4,)</span></code>.  Broadcasting is a difficult and important notion in NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
@@ -1487,6 +1653,8 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is an example of two different shapes where we can broadcast from one to the other.  In this case, <code class="docutils literal notranslate"><span class="pre">[1,3,4,7]</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(4,)</span></code> and <code class="docutils literal notranslate"><span class="pre">arr[:]</span></code> stands for all the entries in the entire array <code class="docutils literal notranslate"><span class="pre">arr</span></code>, which has shape <code class="docutils literal notranslate"><span class="pre">(4,4)</span></code>.  These two shapes are compatible with respect to broadcasting.</p>
+<p>Two shapes in NumPy are compatible with respect to broadcasting if, starting from the right-most dimension (the last dimension), the two dimensions are either equal or one of them is equal to 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
@@ -1540,6 +1708,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is a for-loop version of creating an array <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -1563,6 +1732,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is a way that uses broadcasting followed by taking the matrix transpose.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -1579,6 +1749,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is what <code class="docutils literal notranslate"><span class="pre">arr</span></code> looked like before we took the matrix transpose.  We broadcast from <code class="docutils literal notranslate"><span class="pre">np.arange(3)</span></code> to the 3x3 array <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  If we want to actually change <code class="docutils literal notranslate"><span class="pre">arr</span></code>, we need to reassign <code class="docutils literal notranslate"><span class="pre">arr</span></code> after taking the transpose, using <code class="docutils literal notranslate"><span class="pre">arr</span> <span class="pre">=</span> <span class="pre">arr.T</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
@@ -1616,6 +1787,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the code for another way (that avoids taking the transpose).  It is a little complicated, so we will break down below what was happening.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -1632,6 +1804,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Let’s look in particular at the right-hand side of <code class="docutils literal notranslate"><span class="pre">arr[:]</span> <span class="pre">=</span> <span class="pre">np.arange(3).reshape((3,1))</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -1653,6 +1826,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Notice that these dimensions are compatible: for the right-most dimensions, we have 1 and 3, which are compatible (since one of them is equal to 1), and in the next dimension, we have 3 and 3, which are compatible (since they are equal).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
@@ -1677,6 +1851,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>If we tried to reshape using <code class="docutils literal notranslate"><span class="pre">(2,1)</span></code>, we would get an error, because we can’t fit 3 numbers into an array of shape <code class="docutils literal notranslate"><span class="pre">(2,1)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -1694,6 +1869,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>A very convenient abbreviation to specify “just 1 column” is to use <code class="docutils literal notranslate"><span class="pre">.reshape((-1,1))</span></code>.  Then NumPy is automatically going to replace the <code class="docutils literal notranslate"><span class="pre">-1</span></code> with whatever positive integer is necessary to fill in all the numbers.  In this case, the <code class="docutils literal notranslate"><span class="pre">-1</span></code> gets replaced by <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -1741,6 +1917,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>As another example of this <code class="docutils literal notranslate"><span class="pre">-1</span></code> syntax, we get the following length-9 one-dimensional NumPy array.  NumPy automatically replaced the <code class="docutils literal notranslate"><span class="pre">-1</span></code> with a <code class="docutils literal notranslate"><span class="pre">9</span></code> in this case, because there were nine numbers in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1756,6 +1933,9 @@ normal(...) method of numpy.random._generator.Generator instance
 </section>
 <section id="timing-a-computation-with-a-numpy-array-vs-with-a-list">
 <h2>Timing a computation with a NumPy array vs with a list<a class="headerlink" href="#timing-a-computation-with-a-numpy-array-vs-with-a-list" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-rsk3-YRFnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>The main goal in this section is to see examples where code written using NumPy can run much faster than code written using base Python.</p>
+<p>We’ll make some examples using random numbers, so we start out by instantiating a random number generator object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1763,6 +1943,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Now we make a length one million list of random integers from 1 to 10 (not including 10).  We will be dividing by these numbers, so that’s why we don’t start with 0.  The <code class="docutils literal notranslate"><span class="pre">integers</span></code> method of <code class="docutils literal notranslate"><span class="pre">rng</span></code> is a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
@@ -1770,6 +1951,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the list version of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -1777,6 +1959,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here are the first 5 elements in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -1789,6 +1972,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Let’s compute <code class="docutils literal notranslate"><span class="pre">1.5</span></code> divided by each of these five numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.5</span><span class="o">/</span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -1801,6 +1985,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>If we try to do the same thing with a list, we get an error, saying we can’t combine the float 1.5 with the list <code class="docutils literal notranslate"><span class="pre">mylist</span></code> using the operator <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.5</span><span class="o">/</span><span class="n">mylist</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -1818,6 +2003,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is one way to make the list version, using a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1839,6 +2025,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>We haven’t carefully studied list comprehension yet (we will <a class="reference internal" href="../Week3/PythonicCode.html#list-comp"><span class="std std-ref">next week</span></a>), but just for contrast, here is how we can make this same list using list comprehension.  The list comprehension is definitely more elegant (often said to be more “Pythonic”) than the for loop version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1.5</span><span class="o">/</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">[:</span><span class="mi">5</span><span class="p">]]</span>
@@ -1851,6 +2038,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Let’s see how the timings compare.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1892,9 +2080,13 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Notice how the NumPy version is over one thousand times faster than the list versions.  My understanding is that there are two important reasons the NumPy version is much faster.  One reason is that the NumPy version of division is <em>vectorized</em>, meaning all the divisions are performed at once (no looping is required).  The other reason is that the entries in <code class="docutils literal notranslate"><span class="pre">arr</span></code> are attached to a specific data type, so no time is spent checking the data types of the elements in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
+<p>Also notice that, even though the list comprehension version is more elegant than the for loop version, the timings are very similar.</p>
 </section>
 <section id="counting-using-numpy">
 <h2>Counting using NumPy<a class="headerlink" href="#counting-using-numpy" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7QIKxp2B3iU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>We’ve seen examples of making arrays using NumPy and of performing basic arithmetic with NumPy arrays.  In this section, we’ll see some examples of counting using NumPy.  For example, if we want to make a probability estimate using the formula “number of successes divided by number of experiments”, then being able to count efficiently will be very helpful.</p>
+<p>Our example will involve random numbers.  We’ll start with a small number (<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">20</span></code>) of random numbers, and then later we will increase <code class="docutils literal notranslate"><span class="pre">n</span></code>.  In general, you should imagine that the bigger the sample, the more accurate our probability estimate should be.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1919,6 +2111,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the list version of the array <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  (Be sure to always use a somewhat random variable name like <code class="docutils literal notranslate"><span class="pre">mylist</span></code>, as opposed to something like <code class="docutils literal notranslate"><span class="pre">list</span></code>, because <code class="docutils literal notranslate"><span class="pre">list</span></code> is already a built-in term in Python.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -1929,6 +2122,7 @@ normal(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>How many of the integers are strictly less than 10?</p></li>
 </ul>
+<p>Here is a for-loop approach to the above question.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1951,6 +2145,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the list comprehension version of making this count; again, notice how much more concise this is than the for-loop approach.  (We will cover list comprehension more systematically <a class="reference internal" href="../Week3/PythonicCode.html#list-comp"><span class="std std-ref">next week</span></a>… for now just think of these list comprehension examples as previews.)  We get the same answer <code class="docutils literal notranslate"><span class="pre">13</span></code> as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">])</span>
@@ -1963,6 +2158,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>To explain the NumPy approach to counting, it helps to actually look at the values in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
@@ -1976,6 +2172,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">arr</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> creates what is called a Boolean array (meaning an array of <code class="docutils literal notranslate"><span class="pre">True</span></code>s and <code class="docutils literal notranslate"><span class="pre">False</span></code>s).  One way to think about this is, it is broadcasting the <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">10</span></code> portion to all of the entries in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  Be sure you understand how the following Boolean array relates to the numbers in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span>
@@ -1990,6 +2187,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>There are many different possible ways to count <code class="docutils literal notranslate"><span class="pre">True</span></code> in this Boolean array.  I believe the approach which is usually fastest is to use NumPy’s <code class="docutils literal notranslate"><span class="pre">count_nonzero</span></code> function.  (Remember that <code class="docutils literal notranslate"><span class="pre">True</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">1</span></code> and that <code class="docutils literal notranslate"><span class="pre">False</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">0</span></code>, so in a Boolean array, counting nonzero elements is the same as counting how often <code class="docutils literal notranslate"><span class="pre">True</span></code> occurs.)  Again, we get the same answer <code class="docutils literal notranslate"><span class="pre">13</span></code> as above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
@@ -2005,6 +2203,7 @@ normal(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>At what indices do these integers less than 10 occur?</p></li>
 </ul>
+<p>We use the NumPy function <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> to find indices where the value is <code class="docutils literal notranslate"><span class="pre">True</span></code> (compare this to <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> which we found above).  Notice that the resulting output is <em>not</em> a NumPy array… the output is a length-1 tuple which contains a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
@@ -2020,6 +2219,7 @@ normal(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>Make a new array containing only these integers.</p></li>
 </ul>
+<p>We first show the for-loop approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2042,6 +2242,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the list comprehension aproach.  We basically already did this approach above (the only difference is that we included a <code class="docutils literal notranslate"><span class="pre">len</span></code> wrapper above).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span>
@@ -2081,6 +2282,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The following is what is called “Boolean indexing” or “Applying a Boolean mask”.  You should read <code class="docutils literal notranslate"><span class="pre">arr[arr</span> <span class="pre">&lt;</span> <span class="pre">10]</span></code> similarly to how you would read <code class="docutils literal notranslate"><span class="pre">arr[:5]</span></code>.  Both are indicating which elements in <code class="docutils literal notranslate"><span class="pre">arr</span></code> to keep.  In the case of <code class="docutils literal notranslate"><span class="pre">arr[arr</span> <span class="pre">&lt;</span> <span class="pre">10]</span></code>, the part inside the brackets is a Boolean array, and we keep all the elements where <code class="docutils literal notranslate"><span class="pre">True</span></code> occurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">]</span>
@@ -2096,6 +2298,7 @@ normal(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>If you pick a random integer from such an array, what’s the probability it is less than 10?</p></li>
 </ul>
+<p>To get an accurate probability estimate, we want to use as large a value of <code class="docutils literal notranslate"><span class="pre">n</span></code> as can be handled in a reasonably short amount of time; ten million works well in this case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span>
@@ -2111,6 +2314,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the for-loop approach.  We think of <code class="docutils literal notranslate"><span class="pre">count</span></code> as the number of successes and we think of <code class="docutils literal notranslate"><span class="pre">n</span></code> as the number of experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2144,6 +2348,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The list comprehension takes a similar amount of time (it’s a little faster than the for-loop version).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -2157,6 +2362,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Again, the NumPy version is much faster, over 100 times faster than the list comprehension version (and nearly 200 times faster than the for-loop version).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -2170,6 +2376,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>To get a sense for how accurate our probability estimate is, we can run the estimate again with new random numbers and see how similar the probability is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
@@ -2177,6 +2384,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>In both cases, we get a probability estimate of approximately 0.594.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
@@ -2189,6 +2397,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>There are 101 numbers from -50 to 50 (inclusive), and 60 of those are strictly less than 10, so the exact probability is 60/101.  That exact value, 60/101, is very close to our probability estimates, so <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">10**7</span></code> in this case was a big enough sample size to get a very accurate probability estimate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">60</span><span class="o">/</span><span class="mi">101</span>
@@ -2204,6 +2413,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </section>
 <section id="logic-in-python-and-numpy">
 <h2>Logic in Python and NumPy<a class="headerlink" href="#logic-in-python-and-numpy" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vdB2jy5h8Nw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>General rule of thumb:</p>
 <ul class="simple">
 <li><p>In base Python, use <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
@@ -2254,6 +2464,7 @@ normal(...) method of numpy.random._generator.Generator instance
 <ul class="simple">
 <li><p>Find all the entries in <code class="docutils literal notranslate"><span class="pre">arr</span></code> and in <code class="docutils literal notranslate"><span class="pre">mylist</span></code> that are strictly between -10 and 10.</p></li>
 </ul>
+<p>Here is the list comprehension solution.  We use <code class="docutils literal notranslate"><span class="pre">and</span></code> because we are doing this in base Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)]</span>
@@ -2266,6 +2477,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is a more complicated approach, that’s just here as an excuse to use <code class="docutils literal notranslate"><span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">((</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">))]</span>
@@ -2278,6 +2490,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is the NumPy version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
@@ -2319,6 +2532,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>If we try to use <code class="docutils literal notranslate"><span class="pre">and</span></code> spelled out between these two Boolean arrays, we will get an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
@@ -2336,6 +2550,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>We need to use the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to combine these Boolean arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
@@ -2350,6 +2565,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here we find the values using Boolean indexing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)]</span>
@@ -2362,6 +2578,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Just for fun, here are some other ways to get the same arrays.  We use <code class="docutils literal notranslate"><span class="pre">~</span></code> to negate, and we use the vertical line <code class="docutils literal notranslate"><span class="pre">|</span></code> (sometimes called “pipe”) for <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[(</span><span class="o">~</span><span class="p">(</span><span class="n">arr</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">10</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">))]</span>
@@ -2374,6 +2591,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The following is the analogue of the complicated list example from above.  Notice how we replace <code class="docutils literal notranslate"><span class="pre">not</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> in the list version with <code class="docutils literal notranslate"><span class="pre">~</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> in this NumPy version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">arr</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">))]</span>
@@ -2389,7 +2607,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </section>
 <section id="the-axis-keyword-argument">
 <h2>The <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument<a class="headerlink" href="#the-axis-keyword-argument" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2FPjPFXBjFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><ul class="simple">
 <li><p>If you roll four distinct 6-sided dice, what is the probability that the biggest value is 5?</p></li>
 </ul>
 <div class="cell docutils container">
@@ -2399,6 +2617,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Here is an example of simulating this experiment using a NumPy random number generator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -2411,6 +2630,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Let’s try this using ten experiments and a for loop.  (We will eventually want to use many more experiments and we will want to avoid thee for loop.)  Think of <code class="docutils literal notranslate"><span class="pre">s</span></code> as standing for the number of successes.  In the following, we use <code class="docutils literal notranslate"><span class="pre">np.max</span></code> instead of the built-in Python function <code class="docutils literal notranslate"><span class="pre">max</span></code>.  In general, if you have a choice between using a NumPy version or a built-in Python version, you should always prefer the NumPy version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2430,6 +2650,7 @@ normal(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>What we just did is very slow.  Even for just one million experiments, the following took 13 seconds.  (It is slow enough that I wanted to use <code class="docutils literal notranslate"><span class="pre">%%time</span></code>, which runs once, instead of <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>, which runs multiple times and takes an average.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -2455,6 +2676,7 @@ Wall time: 14.3 s
 </div>
 </div>
 </div>
+<p>The key idea to making this computation more efficient is to work with a two-dimensional array, and to think of each row as corresponding to one experiment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2477,6 +2699,7 @@ Wall time: 14.3 s
 </div>
 </div>
 </div>
+<p>We can’t use <code class="docutils literal notranslate"><span class="pre">np.max</span></code> directly this context (at least, not without using the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument), because <code class="docutils literal notranslate"><span class="pre">np.max</span></code> will find the maximum of all 40 numbers in this array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2504,7 +2727,8 @@ Wall time: 14.3 s
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>As a first workaround, we could use NumPy’s <code class="docutils literal notranslate"><span class="pre">apply_along_axis</span></code> function.  The documentation shows that the first three input arguments are: a function, an axis, and an array.  In our case, the function will be <code class="docutils literal notranslate"><span class="pre">np.max</span></code> and the array will be <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  The main topic of this video is, what is meant by the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument?</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">)</span>
 </pre></div>
@@ -2626,6 +2850,7 @@ apply_along_axis(func1d, axis, arr, *args, **kwargs)
 </div>
 </div>
 </div>
+<p>Think of <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> as plugging in one row at a time, and think of <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> as plugging in one column at a time.  In the following example, we get 5 as our first value, because 5 is the maximum of the top row.  We get 6 as our next value, because 6 is the maximum of the next row, and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arr</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
@@ -2638,6 +2863,7 @@ apply_along_axis(func1d, axis, arr, *args, **kwargs)
 </div>
 </div>
 </div>
+<p>What if we used <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> instead?  Then we will get four 6s, because there are four columns, and each column has a 6 as its maximum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">arr</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
@@ -2650,6 +2876,7 @@ apply_along_axis(func1d, axis, arr, *args, **kwargs)
 </div>
 </div>
 </div>
+<p>There is a trick for getting “successes divided by experiments” as our probability estimate in this context.  We make a Boolean array <code class="docutils literal notranslate"><span class="pre">np.apply_along_axis(np.max,</span> <span class="pre">axis=1,</span> <span class="pre">arr=arr)</span> <span class="pre">==</span> <span class="pre">5</span></code>, and then we compute its average.  The intuition is that you can think of the Boolean array as containing 1s and 0s (even though it actually contains Trues and Falses), and if we take its average, that is the same as “number of Trues divided by total number”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
@@ -2665,6 +2892,7 @@ apply_along_axis(func1d, axis, arr, *args, **kwargs)
 </div>
 </div>
 </div>
+<p>This method is somewhat faster than our for loop method from above, but it still takes about 5 seconds, which is still fairly slow for only having one million experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -2686,6 +2914,7 @@ Wall time: 5.5 s
 </div>
 </div>
 </div>
+<p>The problem above is that <code class="docutils literal notranslate"><span class="pre">np.apply_along_axis</span></code> is very general, and is not optimized to the specific maximum computation we’re making.  We will replace it by using the <code class="docutils literal notranslate"><span class="pre">max</span></code> method of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  If we call <code class="docutils literal notranslate"><span class="pre">max()</span></code> on its own, we get the maximum of the whole array, which is not what we want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2714,6 +2943,7 @@ Wall time: 5.5 s
 </div>
 </div>
 </div>
+<p>If we check the documentation for <code class="docutils literal notranslate"><span class="pre">arr.max</span></code> (notice that you get documentation for this sort of method by calling <code class="docutils literal notranslate"><span class="pre">help(arr.max)</span></code>, not <code class="docutils literal notranslate"><span class="pre">help(arr.max()</span></code> and not <code class="docutils literal notranslate"><span class="pre">help(max)</span></code>), we see that this <code class="docutils literal notranslate"><span class="pre">max</span></code> method also accepts an <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument, just like <code class="docutils literal notranslate"><span class="pre">np.apply_along_axis</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
@@ -2737,6 +2967,7 @@ max(...) method of numpy.ndarray instance
 </div>
 </div>
 </div>
+<p>Here is an example of using the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument on a 10-row, 4-column NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2781,7 +3012,8 @@ max(...) method of numpy.ndarray instance
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>If we try to use <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> as an input argument to <code class="docutils literal notranslate"><span class="pre">mean</span></code> in this case, we will get an error, because the array is one-dimensional, so <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> does not exist.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
 
@@ -2821,6 +3053,7 @@ max(...) method of numpy.ndarray instance
 </div>
 </div>
 </div>
+<p>We could do <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, but for a one-dimensional NumPy array, we might as well just not provide an <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2836,6 +3069,7 @@ max(...) method of numpy.ndarray instance
 </div>
 </div>
 </div>
+<p>Here is the best version of our computation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exps</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
@@ -2851,6 +3085,7 @@ max(...) method of numpy.ndarray instance
 </div>
 </div>
 </div>
+<p>The code is not only concise but it is also very efficient.  Whereas even our NumPy code above took over 5 seconds, this is about one hundred times faster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -2874,10 +3109,11 @@ Wall time: 51.3 ms
 </section>
 <section id="an-exact-probability">
 <h2>An exact probability<a class="headerlink" href="#an-exact-probability" title="Permalink to this headline">#</a></h2>
-<p>The same question as last time, but now we will compute the exact probability.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nS-FIi17grE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>We ask the same question as last time, but now we will compute the exact probability.</p>
 <ul class="simple">
 <li><p>If you roll four distinct 6-sided dice, what is the probability that the biggest value is 5?</p></li>
 </ul>
+<p>Often computing the exact probability (at least using an exhaustive search where we check every possibility) is not feasible, but in this case, there are only <span class="math notranslate nohighlight">\(6^4\)</span> possible values (six different values for each of the four dice), so it’s no problem to compute all of the possibilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span><span class="o">**</span><span class="mi">4</span>
@@ -2890,6 +3126,7 @@ Wall time: 51.3 ms
 </div>
 </div>
 </div>
+<p>Here is a correct but inelegant way to make a list of all possible quadruples of integers from 1 to 6 (including 6).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_dice</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2902,6 +3139,7 @@ Wall time: 51.3 ms
 </div>
 </div>
 </div>
+<p>As a reality check, this list does have the correct length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">all_dice</span><span class="p">)</span>
@@ -2914,6 +3152,7 @@ Wall time: 51.3 ms
 </div>
 </div>
 </div>
+<p>Here are the first ten values in <code class="docutils literal notranslate"><span class="pre">all_dice</span></code>.  Do you see why it begins this way, and not for example <code class="docutils literal notranslate"><span class="pre">[(1,1,1,1),</span> <span class="pre">(2,1,1,1),</span> <span class="pre">...]</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_dice</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
@@ -2935,6 +3174,7 @@ Wall time: 51.3 ms
 </div>
 </div>
 </div>
+<p>What we really want to do is compute the Cartesian product of <code class="docutils literal notranslate"><span class="pre">[1,2,3,4,5,6]</span></code> with itself four times.  The standard way to do that in Python is to use the <code class="docutils literal notranslate"><span class="pre">itertools</span></code> library, which is part of the standard Python libraries (meaning it does not need to be installed).  We won’t import the whole module; we’ll just import its <code class="docutils literal notranslate"><span class="pre">product</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
@@ -2942,7 +3182,7 @@ Wall time: 51.3 ms
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
 </pre></div>
@@ -2997,6 +3237,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is an example of getting all possible (ordered) pairs of integers from 1 to 6.  It returns an itertools <code class="docutils literal notranslate"><span class="pre">product</span></code> object, but we can convert that object into a list if we want to see all the pairs at once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -3056,6 +3297,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is another example of using the <code class="docutils literal notranslate"><span class="pre">product</span></code> function without using the <code class="docutils literal notranslate"><span class="pre">repeat</span></code> keyword argument.  In this case, we’re getting the Cartesian product of the list <code class="docutils literal notranslate"><span class="pre">[&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;]</span></code> with the list <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">6]</span></code>.  In total, this product has <span class="math notranslate nohighlight">\(3 \cdot 2 = 6\)</span> elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
@@ -3068,6 +3310,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>One more example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
@@ -3106,6 +3349,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>The above example, using <code class="docutils literal notranslate"><span class="pre">repeat</span></code>, is the exact same as this next example, which explicitly lists the list three times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]))</span>
@@ -3144,6 +3388,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We’re now ready to use <code class="docutils literal notranslate"><span class="pre">product</span></code> to simulate every possible roll of four distinct six-sided dice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
@@ -3163,6 +3408,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Let’s convert this to a NumPy array, so we can use some of the earlier methods from this week.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp_list</span><span class="p">)</span>
@@ -3170,6 +3416,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>The array <code class="docutils literal notranslate"><span class="pre">arr</span></code> has 1296 rows and 4 columns.  We think of each row as corresponding to one possible outcome.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
@@ -3182,6 +3429,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We want to know, for what proportion of the rows, is the maximum value in that row equal to 5?  Because we want to get the maximum of each row, we use the <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> keyword argument.  (If we wanted to get the maximum of each column, we would instead use <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>.)  We compute the total number of “successes” by using <code class="docutils literal notranslate"><span class="pre">sum</span></code>, and then we divide by the number of rows, which is <code class="docutils literal notranslate"><span class="pre">arr.shape[0]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -3194,6 +3442,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>An abbreviation is to apply the <code class="docutils literal notranslate"><span class="pre">mean</span></code> method to our Boolean array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -3206,6 +3455,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Just for fun, here is another computation of the exact probability.  The first number in the difference, <span class="math notranslate nohighlight">\((5/6)^4\)</span>, is equal to the probability that none of the dice lands 6, and then we are subtracting the probability that none of the dice lands 5 or 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
@@ -3221,6 +3471,7 @@ class product(builtins.object)
 </section>
 <section id="any-and-all">
 <h2><code class="docutils literal notranslate"><span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code><a class="headerlink" href="#any-and-all" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0GeviCLROaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Make a 100 row, 4 column NumPy array <code class="docutils literal notranslate"><span class="pre">arr</span></code> of random real numbers between 0 and 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3239,6 +3490,7 @@ class product(builtins.object)
 <ul class="simple">
 <li><p>Find the sub-array of <code class="docutils literal notranslate"><span class="pre">arr</span></code> containing all rows in which at least one number is bigger than 0.9.</p></li>
 </ul>
+<p>Here are the first 5 rows of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -3255,6 +3507,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is a Boolean array corresponding to which elements are strictly greater than 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span>
@@ -3271,6 +3524,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>For each row, we want to know if any value in that row is <code class="docutils literal notranslate"><span class="pre">True</span></code>.  To compute this, we will use the <code class="docutils literal notranslate"><span class="pre">any</span></code> method, together with <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.  The reason we’re using <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> is because we are plugging in a full row at a time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -3283,6 +3537,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>If we wanted to count how many of these first 5 rows contain a number bigger than 0.9, we could use <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -3295,6 +3550,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>The question asked for us to find the rows which contain a number bigger than 0.9, so we will use Boolean indexing.  We are plugging in the <code class="docutils literal notranslate"><span class="pre">array([</span> <span class="pre">True,</span> <span class="pre">False,</span> <span class="pre">False,</span> <span class="pre">False,</span> <span class="pre">False])</span></code> from above into the square brackets, which is like saying, keep the top row, discard the next four rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">][(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -3307,6 +3563,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We now do the same thing to the full array.  This will be a little easier to read, because we can get rid of the <code class="docutils literal notranslate"><span class="pre">[:5]</span></code> slices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -3361,6 +3618,7 @@ class product(builtins.object)
 <ul class="simple">
 <li><p>Find the sub-array of <code class="docutils literal notranslate"><span class="pre">arr</span></code> containing all rows in which no numbers are between 0.4 and 0.6.</p></li>
 </ul>
+<p>One way to think about this is, we want the rows in which every element in that row is less than 0.4 or bigger than 0.6.  (We allow a single row to have both smaller and bigger elements; all we care about is that it does not contain any values that start with 0.4 or 0.5.)  Since we want a condition to be true for all the numbers in the row, we use <code class="docutils literal notranslate"><span class="pre">all(axis=1)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -3384,6 +3642,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>As a reality check, our Boolean array here is length 100.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(((</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -3396,6 +3655,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here again we’re using Boolean indexing.  We’re keeping all the rows of <code class="docutils literal notranslate"><span class="pre">arr</span></code> which satisfy this condition.  As you scroll through this array, notice how all the values that appear are either less than 0.4 or bigger than 0.6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[((</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.6</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -3447,6 +3707,7 @@ class product(builtins.object)
 </section>
 <section id="from-binary-to-decimal-version-1">
 <h2>From binary to decimal, version 1<a class="headerlink" href="#from-binary-to-decimal-version-1" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bXyqvBQ4wP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix} 1 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1 &amp; 1 \end{pmatrix} \mapsto \begin{pmatrix} 10 \\ 4 \\ 15 \end{pmatrix}
@@ -3454,6 +3715,9 @@ class product(builtins.object)
 <ul class="simple">
 <li><p>Write a function <code class="docutils literal notranslate"><span class="pre">to_bin</span></code> which takes in an m-by-n NumPy array of 0s and 1s, and as output returns a length m NumPy array of the corresponding integers, where we think of each row as representing the binary digits of an integer.</p></li>
 </ul>
+<p>For example, we think of the top row as representing <span class="math notranslate nohighlight">\(1 \cdot 2^3 + 0 \cdot 2^2 + 1 \cdot 2^1 + 0 \cdot 2^0 = 10\)</span>.</p>
+<p>(If I were writing this again, I would call the function <code class="docutils literal notranslate"><span class="pre">from_bin</span></code> instead of <code class="docutils literal notranslate"><span class="pre">to_bin</span></code>, but I’ll stick with <code class="docutils literal notranslate"><span class="pre">to_bin</span></code> to match what’s in the video.)</p>
+<p>Let’s start by getting a random array that can be our test input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -3468,6 +3732,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We assign <code class="docutils literal notranslate"><span class="pre">m</span></code> to be the number of rows and <code class="docutils literal notranslate"><span class="pre">n</span></code> to be the number of columns, using what is called tuple unpacking.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
@@ -3499,6 +3764,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We want to multiply the left-most column by <span class="math notranslate nohighlight">\(2^3\)</span>, the next column by <span class="math notranslate nohighlight">\(2^2\)</span>, and so on.  Here are the exponents.  The middle <code class="docutils literal notranslate"><span class="pre">-1</span></code> is telling NumPy where to stop (stop before -1), and the right-most <code class="docutils literal notranslate"><span class="pre">-1</span></code> is telling NumPy what the step size should be (go down by 1 each step).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -3511,6 +3777,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here are the coefficients we want to multiply the columns by.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -3523,6 +3790,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Using broadcasting, it’s very easy to make the multiplication.  And to add up along the rows, we use <code class="docutils literal notranslate"><span class="pre">sum(axis=1)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -3556,6 +3824,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here we check on a smaller array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]))</span>
@@ -3571,6 +3840,7 @@ class product(builtins.object)
 </section>
 <section id="from-binary-to-decimal-version-2">
 <h2>From binary to decimal, version 2<a class="headerlink" href="#from-binary-to-decimal-version-2" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AzN2i8NaSRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix} 1 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1 &amp; 1 \end{pmatrix} \mapsto \begin{pmatrix} 10 \\ 4 \\ 15 \end{pmatrix}
@@ -3607,6 +3877,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is the “usual” way of converting from a string to an integer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;0111&quot;</span><span class="p">)</span>
@@ -3619,6 +3890,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>But we can also tell Python that the string should be thought of as being written in binary.  For example, 0111 in binary should be thought of as <span class="math notranslate nohighlight">\(4+2+1 = 7\)</span>.  In the following, we’re specifying that the number is being written in “base-2”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;0111&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -3631,6 +3903,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Our “usual” number system is written in base-10.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;0111&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -3643,6 +3916,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here we make a length-4 NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
@@ -3650,6 +3924,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Or it’s probably more elegant to just take the top row of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -3669,6 +3944,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>How can we convert that into the string “0111”?  I feel like there might be an easier way that I’m missing, but this is what I’ve come up with.  As a preliminary step, here is a reminder of list comprehension which we won’t officially cover in Math 9 until <a class="reference internal" href="../Week3/PythonicCode.html#list-comp"><span class="std std-ref">next week</span></a>.  In the following, we use list comprehension to put the integers 0, 1, 1, 1 into a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">z</span><span class="p">]</span>
@@ -3681,6 +3957,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here we use list comprehension to put the strings “0”, “1”, “1”, “1” into a list.  It is the same as the previous command, except that we convert each integer to a string using <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">z</span><span class="p">]</span>
@@ -3693,6 +3970,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>I had initially thought the following would concatenate these strings (which would make sense, because <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;+&quot;1&quot;</span></code> concatenates the strings to produce the string <code class="docutils literal notranslate"><span class="pre">&quot;01&quot;</span></code>), but it doesn’t work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">z</span><span class="p">])</span>
@@ -3710,6 +3988,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>The following is the suggested way in Python to concatenate all the strings in a list together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">z</span><span class="p">])</span>
@@ -3722,6 +4001,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We want to apply that idea to every row in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  Let’s define a helper function to use.  Later we will see a way to write this sort of short function in a more concise way, using “lambda functions”.  (Caution.  A common programming mistake is to use something like <code class="docutils literal notranslate"><span class="pre">print</span></code> instead of <code class="docutils literal notranslate"><span class="pre">return</span></code>.  That’s very incorrect.  If you want your function to have an output, you need to use <code class="docutils literal notranslate"><span class="pre">return</span></code>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
@@ -3730,6 +4010,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Let’s test out our <code class="docutils literal notranslate"><span class="pre">helper</span></code> function on the 3rd row of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">helper</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
@@ -3775,6 +4056,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is a version <code class="docutils literal notranslate"><span class="pre">helper2</span></code> that treats the row as if it corresponds to binary digits.  We could do this all in one line, but it is more readable to break it up into two steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">helper2</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
@@ -3796,6 +4078,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here we’re using <code class="docutils literal notranslate"><span class="pre">apply_along_axis</span></code> again.  The function we want to apply is <code class="docutils literal notranslate"><span class="pre">helper2</span></code>, and we are applying along rows, so we use <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_bin2</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -3804,6 +4087,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>This doesn’t work because <code class="docutils literal notranslate"><span class="pre">A</span></code> is not defined.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin2</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -3842,6 +4126,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Notice how, for example, the top row corresponds to 7, the next row corresponds to 2, and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin2</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -3857,6 +4142,7 @@ class product(builtins.object)
 </section>
 <section id="raising-errors">
 <h2>Raising errors<a class="headerlink" href="#raising-errors" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1F9A0K7A6ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <ul class="simple">
 <li><p>Edit the <code class="docutils literal notranslate"><span class="pre">to_bin</span></code> function so that it raises an error if the input is not a NumPy array and it also raises an error if an entry is not 0 or 1.</p></li>
 </ul>
@@ -3901,6 +4187,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is the usual way to check the <code class="docutils literal notranslate"><span class="pre">type</span></code> of a variable, using the function <code class="docutils literal notranslate"><span class="pre">isinstance</span></code>.  It doesn’t literally check that the type is exactly a NumPy array, but what this checks is usually good enough.  (Technically, it checks if <code class="docutils literal notranslate"><span class="pre">arr</span></code> is a NumPy array or is a subclass of the class NumPy array.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
@@ -3925,6 +4212,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here is how we raise an error in Python.  In this case, we will raise a TypeError.  Don’t worry about learning the many different error types in Python; for Math 9, the important thing is to know the general syntax of how to raise an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_bin</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
@@ -3948,6 +4236,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Notice how the error message we wrote, “Input should be a NumPy array”, shows up in the following error message.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
@@ -3972,6 +4261,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Now we will work on the second portion, namely, checking that all of the entries are 0 or 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">==</span> <span class="mi">0</span>
@@ -4014,6 +4304,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>The array is acceptable if each entry is zero or one, so we use the vertical line <code class="docutils literal notranslate"><span class="pre">|</span></code> for “or”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -4035,6 +4326,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Because we are checking each entry (not each entry in a given row), we use the <code class="docutils literal notranslate"><span class="pre">all</span></code> method with no <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -4079,6 +4371,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>We haven’t emphasized the following type of assignment much, but here is how you set the 5th row, 2nd column to be 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
@@ -4107,6 +4400,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here this raises the error we chose, because one of the entries is 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
@@ -4131,6 +4425,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>A big “gotcha” in Python is that our assignment above also changed the original <code class="docutils literal notranslate"><span class="pre">arr</span></code> array.  (NumPy does this to save memory space.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_bin</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -4155,6 +4450,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">arr</span></code> got changed, even though we never changed it ourselves, we only changed <code class="docutils literal notranslate"><span class="pre">arr2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
@@ -4176,6 +4472,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>If you want to make sure the original array doesn’t get changed, use the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr3</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -4204,6 +4501,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Here we set all the even-indexed columns in row 6 to be equal to 99.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr3</span><span class="p">[</span><span class="mi">6</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
@@ -4232,6 +4530,7 @@ class product(builtins.object)
 </div>
 </div>
 </div>
+<p>Because we used the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method when we created <code class="docutils literal notranslate"><span class="pre">arr3</span></code>, the original array <code class="docutils literal notranslate"><span class="pre">arr</span></code> did not get changed by our assignment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
@@ -4289,6 +4588,13 @@ class product(builtins.object)
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Week 2</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Week3/Week3-Intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

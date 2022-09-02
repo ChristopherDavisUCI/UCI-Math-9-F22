@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -151,6 +153,55 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../Week2/NumPy.html">
      NumPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/PythonicCode.html">
+     Pythonic code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/NewtonsMethod.html">
+     Newton’s Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Pillow.html">
+     Pillow image processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/ObjectOriented.html">
+     Brief introduction to object-oriented programming
     </a>
    </li>
   </ul>
@@ -410,10 +461,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="alternating-list">
 <h1>Alternating list<a class="headerlink" href="#alternating-list" title="Permalink to this headline">#</a></h1>
+<p>The two most important parts of this section are that we will see how to define a function in Python, and we will get our first introduction to NumPy (which is the most important Python library for Math 9).  We will also see how to use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in Python.</p>
+<p>Our overall goal in this section is the following.</p>
 <p><strong>Goal</strong>: Write a function which takes input <code class="docutils literal notranslate"><span class="pre">n</span></code> and as output returns the length <code class="docutils literal notranslate"><span class="pre">n</span></code> list <code class="docutils literal notranslate"><span class="pre">[3,8,3,8,...]</span></code>.</p>
 <section id="writing-a-function-that-returns-a-constant-list">
 <h2>Writing a function that returns a constant list<a class="headerlink" href="#writing-a-function-that-returns-a-constant-list" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0i8ZhAUQ6Ik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Before getting to our goal of defining a function that produces an alternating list, we will see how to define a function that returns a constant list of all 3s.  (Later in this course we will see a more elegant way to do this, using what is called “list comprehension”, but here we will use a for loop.)</p>
 <p><strong>Preliminary Goal</strong>: Write a function which takes input <code class="docutils literal notranslate"><span class="pre">n</span></code> and as output returns the length <code class="docutils literal notranslate"><span class="pre">n</span></code> list <code class="docutils literal notranslate"><span class="pre">[3,3,3,...]</span></code>.</p>
+<p>Here is a first attempt to define a function <code class="docutils literal notranslate"><span class="pre">f</span></code>.  The overall syntax is correct (especially the indentations), but it does not return anything, as we can see by trying to call <code class="docutils literal notranslate"><span class="pre">f(5)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -431,6 +487,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>In the next definition we do correctly return something, but the indentation is wrong, the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement should not be indented twice.  The second indentation is forcing the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement to occur within the for loop, so we actually exit the function during the first step in the for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -454,6 +511,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is a correct solution to our “preliminary goal” from above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -489,6 +547,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>In the above, you should think of <code class="docutils literal notranslate"><span class="pre">n</span></code> as getting assigned to 5 or to 6, but that assignment is only happening locally within the function itself.  The value of <code class="docutils literal notranslate"><span class="pre">n</span></code> is not accessible to us outside of the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span>
@@ -506,6 +565,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Similarly, if we define <code class="docutils literal notranslate"><span class="pre">n</span></code> outside of the function (for example, <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">100</span></code>), that does not have any influence on the <code class="docutils literal notranslate"><span class="pre">n</span></code> in the definition of the function.  Nor does the <code class="docutils literal notranslate"><span class="pre">n</span></code> inside of the function have any influence on the <code class="docutils literal notranslate"><span class="pre">n</span></code> that we have defined to be 100 outside of the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
@@ -540,6 +600,7 @@ title="Print to PDF"
 </section>
 <section id="first-version-of-the-alternating-function">
 <h2>First version of the alternating function<a class="headerlink" href="#first-version-of-the-alternating-function" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/38tGfF_wqIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Now we will actually create the list that alternates between 3s and 8s.  Let’s start by giving our function defined above a more descriptive name.  We will use <code class="docutils literal notranslate"><span class="pre">const</span></code> instead of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">const</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -563,6 +624,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>We’re definitely not done yet, but let’s just get started by using our <code class="docutils literal notranslate"><span class="pre">const</span></code> function above.  It is definitely better to use the name <code class="docutils literal notranslate"><span class="pre">const</span></code> in the code, rather than copying the code from above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -584,6 +646,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Think of the next function as first making a constant list of all 3s, and then replacing all the odd-indexed elements by 8.  Using <code class="docutils literal notranslate"><span class="pre">range(1,n,2)</span></code> is a nice way to get access to those odd indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -595,6 +658,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Let’s check that the code works for both an even input as well as for an odd input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -622,6 +686,8 @@ title="Print to PDF"
 </section>
 <section id="checking-if-the-index-is-even-or-odd">
 <h2>Checking if the index is even or odd<a class="headerlink" href="#checking-if-the-index-is-even-or-odd" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7iGgfOrsmRc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Here we’ll write a different version of the function, which will use an if statement to check if the index is even or odd.  Notice that the above <code class="docutils literal notranslate"><span class="pre">alt1</span></code> code is longer than it looks, since it is also using the <code class="docutils literal notranslate"><span class="pre">const</span></code> function that we wrote earlier.</p>
+<p>Let’s first see how to check if an integer is even or odd.  We use the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator.  If you’ve seen modular arithmetic (for example in Math 13), <code class="docutils literal notranslate"><span class="pre">i%2</span></code> is like reducing <span class="math notranslate nohighlight">\(i\)</span> modulo 2.  Another way to think about it is that the result is the remainder obtained when dividing <span class="math notranslate nohighlight">\(i\)</span> by 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
@@ -653,6 +719,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>We can check if an integer <code class="docutils literal notranslate"><span class="pre">i</span></code> is even by checking <code class="docutils literal notranslate"><span class="pre">i%2</span> <span class="pre">==</span> <span class="pre">0</span></code>.  We use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, which works very similarly to in Matlab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -691,6 +758,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Here is a very similar version, where instead of <code class="docutils literal notranslate"><span class="pre">else</span></code> we use <code class="docutils literal notranslate"><span class="pre">elif</span></code>.  When using <code class="docutils literal notranslate"><span class="pre">elif</span></code>, you need to specify a condition.  These two versions do the same thing, because if the integer <code class="docutils literal notranslate"><span class="pre">i</span></code> is not even, it is always going to be odd.  You can have as many <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements as you want, although in this case, <code class="docutils literal notranslate"><span class="pre">i%2</span> <span class="pre">==</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">i%2</span> <span class="pre">==</span> <span class="pre">1</span></code> exhaust all the possibilities, so in this case, no later <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements (nor <code class="docutils literal notranslate"><span class="pre">else</span></code> statements) would ever be reached.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -731,7 +799,8 @@ title="Print to PDF"
 </div>
 </section>
 <section id="using-numpy">
-<h2>Using NumPy<a class="headerlink" href="#using-numpy" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Using NumPy<a class="headerlink" href="#using-numpy" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wz2mRdkVmcI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>The most important Python library for Math 9 is NumPy.  Because this is an external library, it needs to be installed on your computer before it can be used.  Once it is installed, it can be imported as in the following cell.  The convention (which we will always follow) is to abbreviate the library by <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -739,6 +808,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Many parts of NumPy are very similar to Matlab.  For example, NumPy has a <code class="docutils literal notranslate"><span class="pre">zeros</span></code> function, just like Matlab.  We write <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> rather than just <code class="docutils literal notranslate"><span class="pre">zeros</span></code>, so that Python knows this function is defined in the NumPy library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -746,6 +816,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>This <code class="docutils literal notranslate"><span class="pre">A</span></code> is yet another type of object in Python.  It is a type defined in the NumPy library, called <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.  The “nd” portion stands for “n-dimensional”.  In this case, <code class="docutils literal notranslate"><span class="pre">A</span></code> is two dimensional (it has a dimension of rows and a dimension of columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -784,6 +855,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>We are going to make a new version of our alternating function, this time using NumPy.  As a first step, here is a function that returns a length <code class="docutils literal notranslate"><span class="pre">n</span></code> NumPy array of all zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt3</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -817,6 +889,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>The decimal points are a hint that these zeros are floats rather than integers.  Just for practice with data types, let’s specify that <code class="docutils literal notranslate"><span class="pre">A</span></code> should hold integers, not floats.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">alt3</span><span class="p">(</span><span class="mi">7</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
@@ -848,6 +921,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>To change that data type from floats to integers, we will use the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">)</span>
@@ -918,6 +992,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here we specify that the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> should be 64-bit integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt3</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -958,6 +1033,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>NumPy supports many types of elementwise operations, just like Matlab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">+</span><span class="mi">3</span>
@@ -970,6 +1046,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Most standard types defined in Python do not support this sort of elementwise operation.  For example, <code class="docutils literal notranslate"><span class="pre">list</span></code> does not.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
@@ -1010,6 +1087,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>We now have a version of the alternating function that returns a NumPy array of all 3s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
@@ -1034,6 +1112,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is a convenient syntax (again, it does not work for lists) for setting the odd-indexed elements of <code class="docutils literal notranslate"><span class="pre">A</span></code> to be 8.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
@@ -1063,6 +1142,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>It’s always a good idea, when writing a function like this, to test it on both an even input and on an odd input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt3</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1123,6 +1203,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here we convert <code class="docutils literal notranslate"><span class="pre">mylist</span></code> to a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
@@ -1130,6 +1211,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Now, because <code class="docutils literal notranslate"><span class="pre">myarray</span></code> is a NumPy array, we can use the slice syntax to set the even-indexed entries to be equal to -17.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">17</span>
@@ -1149,6 +1231,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>If you really want to make this assignment using <code class="docutils literal notranslate"><span class="pre">mylist</span></code>, you need the right-hand side to be the same length as the number of slots you are trying to fill in.  (So the NumPy version is much easier to use.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">]</span>
@@ -1168,6 +1251,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>If you use the wrong number of terms on the right side, you will get an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">]</span>
@@ -1205,6 +1289,7 @@ zeros(...)
 </section>
 <section id="timing-different-strategies">
 <h2>Timing different strategies<a class="headerlink" href="#timing-different-strategies" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BM20r8_BcGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Here I have restarted this Jupyter notebook.  Let’s compare some of the functions we have defined.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt3</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1215,6 +1300,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>We need to remember to re-import NumPy each time we restart the notebook, otherwise we’ll get an error like in the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt3</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1267,6 +1353,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is another version, which is very similar to our original function from the top of this notebook (the only real difference is that I’m not using a separate <code class="docutils literal notranslate"><span class="pre">const</span></code> function in this case).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt4</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1292,6 +1379,8 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">alt3</span></code> and <code class="docutils literal notranslate"><span class="pre">alt4</span></code> basically produce the same output, but <code class="docutils literal notranslate"><span class="pre">alt3</span></code> returns a NumPy array whereas <code class="docutils literal notranslate"><span class="pre">alt4</span></code> returns a list.</p>
+<p>Let’s evaluate how long <code class="docutils literal notranslate"><span class="pre">alt4</span></code> takes in the case of input <code class="docutils literal notranslate"><span class="pre">10</span></code>.  Here is an example of the unit of time being µs, which stands for microsecond, which is <span class="math notranslate nohighlight">\(10^{-6}\)</span> seconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -1305,6 +1394,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>We have already used for loops and if statements.  A third type of fundamental programming construction is a while loop.  Just for practice with while loops (this will be our first time seeing them), let’s try to find a value of <code class="docutils literal notranslate"><span class="pre">n</span></code> such that <code class="docutils literal notranslate"><span class="pre">alt4(n)</span></code> takes over 5 seconds to complete.  I don’t know how to do this using the <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> Jupyter magic function, so instead, let’s use another Python library, the time library.  This is a standard library in Python, so you don’t need to install it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -1312,6 +1402,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>This number is not very meaningful by itself.  It becomes meaningful if we subtract another time from it, in which case we will get the number of seconds elapsed between the two calls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -1358,6 +1449,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here we keep multiplying <code class="docutils literal notranslate"><span class="pre">n</span></code> by 2 and checking the new time.  We will exit the while loop once we have a value of <code class="docutils literal notranslate"><span class="pre">n</span></code> which takes over 5 seconds to complete.  Try going through the following code, step-by-step, to convince yourself that this really does produce the first value of <code class="docutils literal notranslate"><span class="pre">n</span></code> we’ve found for which <code class="docutils literal notranslate"><span class="pre">alt4(n)</span></code> takes over 5 seconds to complete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1372,6 +1464,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here we check that the time really is bigger than 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>
@@ -1384,6 +1477,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>The following value of <code class="docutils literal notranslate"><span class="pre">n</span></code> is the length we were looking for.  So it took about 5.25 seconds to produce a length 52,428,800  list, alternating between 3s and 8s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span>
@@ -1406,6 +1500,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Notice how much faster it is using the NumPy version of our function.  For the same input <code class="docutils literal notranslate"><span class="pre">n</span></code>, the <code class="docutils literal notranslate"><span class="pre">alt3</span></code> function takes about a quarter of a second instead of over 5 seconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -1424,6 +1519,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>If you want the output to be a list instead of a NumPy array, you can convert to a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt3b</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1446,6 +1542,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Surprisingly (to me), making this conversion to a list really slows down the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -1464,6 +1561,7 @@ zeros(...)
 </div>
 </div>
 </div>
+<p>Here is a mix between the two methods.  It uses a for loop to assign the 8 values, instead of using the slicing syntax.  The main lesson is that, when possible, we should always try to avoid for loops.  The assignment using <code class="docutils literal notranslate"><span class="pre">A[1::2]</span> <span class="pre">=</span> <span class="pre">8</span></code> was much faster, over 10 times faster, than in the following where we make the same assignment using a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">alt3c</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>

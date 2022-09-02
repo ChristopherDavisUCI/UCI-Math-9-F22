@@ -1,0 +1,1514 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Newton’s Method &#8212; UC Irvine Math 9 Fall 2022 - Python portion</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 4" href="../Week4/Week4-Intro.html" />
+    <link rel="prev" title="Matplotlib" href="Matplotlib.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/penguins-rev.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 9 Fall 2022 - Python portion</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    UC Irvine, Math 9, Fall 2022, Python portion
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/PythonDataTypes.html">
+     Python data types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/AlternatingList.html">
+     Alternating list
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/NumPy.html">
+     NumPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week3-Intro.html">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="PythonicCode.html">
+     Pythonic code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Newton’s Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Pillow.html">
+     Pillow image processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/ObjectOriented.html">
+     Brief introduction to object-oriented programming
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-9-F22/main?urlpath=tree/Week3/NewtonsMethod.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/ChristopherDavisUCI/UCI-Math-9-F22"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Week3/NewtonsMethod.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-at-a-good-point">
+   Applying at a good point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-at-a-worse-point">
+   Applying at a worse point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-newton-s-method">
+   Analyzing Newton’s method
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Newton’s Method</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-at-a-good-point">
+   Applying at a good point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applying-at-a-worse-point">
+   Applying at a worse point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-newton-s-method">
+   Analyzing Newton’s method
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="newton-s-method">
+<h1>Newton’s Method<a class="headerlink" href="#newton-s-method" title="Permalink to this headline">#</a></h1>
+<p>The goal of this notebook is to show some examples of using Python to implement Newton’s Method, which attempts to approximate a root of a given function.</p>
+<section id="applying-at-a-good-point">
+<h2>Applying at a good point<a class="headerlink" href="#applying-at-a-good-point" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O_HhCf9s3F8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Newton’s Method is what’s called an <em>iterative</em> method, in that we start with a value, and then iteratively generate new values from the previous value.  How well Newton’s Method works depends greatly on the value we start with.  In this section, we will consider an example where Newton’s Method works well.</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(f(x) = x^3 - 2x + 2\)</span>.  Starting at <span class="math notranslate nohighlight">\(x_0 = -1.5\)</span>, apply Newton’s method three times to estimate a root of <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The goal of Newton’s Method is to approximate a root of a given function <span class="math notranslate nohighlight">\(f\)</span>.  To apply Newton’s Method, we need both <span class="math notranslate nohighlight">\(f\)</span> and the derivative of <span class="math notranslate nohighlight">\(f\)</span>.  In this case, we are just going to explicitly write out the derivative of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The iterative formula for Newton’s Method is <span class="math notranslate nohighlight">\(z \leadsto z - f(z)/f'(z)\)</span>.  At each stage of Newton’s Method, we have some approximate root <span class="math notranslate nohighlight">\(z\)</span>, and for the next stage we will use <span class="math notranslate nohighlight">\(z - f(z)/f'(z)\)</span> as our approximate root.  We define this function in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to apply Newton’s method three times, starting at <span class="math notranslate nohighlight">\(x_0 = -1.5\)</span>.  We will hold the successive values in a length-4 NumPy array <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  The zeroth element in <code class="docutils literal notranslate"><span class="pre">arr</span></code> will be <code class="docutils literal notranslate"><span class="pre">-1.5</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The zeros in <code class="docutils literal notranslate"><span class="pre">arr</span></code> are just place-holders.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.5,  0. ,  0. ,  0. ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because we have already defined <code class="docutils literal notranslate"><span class="pre">newt</span></code> above, it is very easy to fill in the subsequent values produced by Newton’s Method.  (I don’t see a way to find these numbers using, for example, list comprehension in place of the for loop.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In good situations, the values produced by Newton’s Method will be getting gradually closer to an actual root of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.5       , -1.84210526, -1.77282692, -1.76930129])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a reality check, let’s see if <code class="docutils literal notranslate"><span class="pre">newt(arr[2])</span></code> is actually <code class="docutils literal notranslate"><span class="pre">arr[3]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="o">-</span><span class="mf">1.77282692</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.7693012925504912
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get a sense for what Newton’s Method is doing, let’s plot <span class="math notranslate nohighlight">\(y = f(x)\)</span>.  We will use one of the pre-defined styles mentioned in a previous section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the graph, it is clear that this cubic polynomial has only one root, and it looks to be at approximately <span class="math notranslate nohighlight">\(x \approx -1.8\)</span>.  You should imagine starting at <span class="math notranslate nohighlight">\((-1.5, f(-1.5))\)</span>, drawing the tangent line to <span class="math notranslate nohighlight">\(y = f(x)\)</span> at that point, and finding the root of the tangent line (i.e., finding where the tangent line crosses the <span class="math notranslate nohighlight">\(x\)</span>-axis).  According to our implementation above, the tangent line should cross the <span class="math notranslate nohighlight">\(x\)</span>-axis at approximately <span class="math notranslate nohighlight">\(x = -1.842\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1118ca2c0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_21_1.png" src="../_images/NewtonsMethod_21_1.png" />
+</div>
+</div>
+<p>Let’s actually apply <code class="docutils literal notranslate"><span class="pre">f</span></code> to the elements in <code class="docutils literal notranslate"><span class="pre">arr</span></code> and see if the outputs are getting closer and closer to 0.  (One of the reasons we made <code class="docutils literal notranslate"><span class="pre">arr</span></code> as a NumPy array, as opposed to a list, is so that we could make this evaluation using <code class="docutils literal notranslate"><span class="pre">f(arr)</span></code>.  That syntax would not work if <code class="docutils literal notranslate"><span class="pre">arr</span></code> were a list.)  In this case, <code class="docutils literal notranslate"><span class="pre">f(arr[3])</span></code> is <span class="math notranslate nohighlight">\(-0.00006605...\)</span>, so by the third iteration of Newton’s Method, we have indeed gotten very close to an actual root of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.62500000e+00, -5.66700685e-01, -2.61909903e-02, -6.60651520e-05])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-at-a-worse-point">
+<h2>Applying at a worse point<a class="headerlink" href="#applying-at-a-worse-point" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0ZhC0g1ax1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>As mentioned above, the success of Newton’s Method depends heavily on the starting point.  In this section, we will see some of what can go wrong if we do not begin at a good point.</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(f(x) = x^3 - 2x + 2\)</span>.  Starting at <span class="math notranslate nohighlight">\(x_0 = -0.5\)</span>, apply Newton’s method three times to estimate a root of <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the same setup as in the previous ssection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="n">newt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1114a84c0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_28_1.png" src="../_images/NewtonsMethod_28_1.png" />
+</div>
+</div>
+<p>Again, this code is all the same as in the previous section, with the exception of the fact that we start here at -0.5 instead of at -1.5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.5       ,  1.8       ,  1.25181347,  0.71203147])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a reality check, we make sure that <code class="docutils literal notranslate"><span class="pre">newt(arr[1])</span></code> really is <code class="docutils literal notranslate"><span class="pre">arr[2]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">1.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2518134715025906
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will get a much better sense of Newton’s Method if we can draw tangent lines.  The following function takes as input an <span class="math notranslate nohighlight">\(x\)</span>-value <code class="docutils literal notranslate"><span class="pre">x0</span></code> and as output returns the function corresponding to the tangent line of <code class="docutils literal notranslate"><span class="pre">f</span></code> at <code class="docutils literal notranslate"><span class="pre">x0</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tang</span><span class="p">(</span><span class="n">x0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">df</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each of our three iterations of Newton’s method, we draw the corresponding tangent line using <code class="docutils literal notranslate"><span class="pre">ax.plot(x,</span> <span class="pre">tang(arr[i])(x))</span></code> and we draw a bullet point at the corresponding root estimate (i.e., where the tangent line crosses the <span class="math notranslate nohighlight">\(x\)</span>-axis) using <code class="docutils literal notranslate"><span class="pre">ax.plot(arr[i+1],0,'ko')</span></code>.  The syntax <code class="docutils literal notranslate"><span class="pre">'ko'</span></code>, standing for “black circle” marker, might look familiar from Matlab.  Instead of letting Matplotlib automatically choose the ranges for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we set them explicitly using <code class="docutils literal notranslate"><span class="pre">ax.set(xlim=(-1,2),</span> <span class="pre">ylim=(-2,3.5))</span></code>.</p>
+<p>It’s worth staring at the resulting plot and understanding how what it shows relates to the values in <code class="docutils literal notranslate"><span class="pre">arr</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tang</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-1.0, 2.0), (-2.0, 3.5)]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_37_1.png" src="../_images/NewtonsMethod_37_1.png" />
+</div>
+</div>
+<p>Let’s use the exact same code but with 10 iterations of Newton’s Method.  Notice how we don’t seem to be converging on the an actual root, even after 10 iterations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tang</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-1.0, 2.0), (-2.0, 3.5)]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_39_1.png" src="../_images/NewtonsMethod_39_1.png" />
+</div>
+</div>
+<p>On the other hand, if we choose a better starting point like -1.5, then we very quickly converge on the actual root.  The following chart includes 10 iterations of Newton’s Method, but most of these iterations are so close to each other that we can’t distinguish between them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tang</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2.0, -1.0), (-2.0, 3.5)]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_41_1.png" src="../_images/NewtonsMethod_41_1.png" />
+</div>
+</div>
+<p>If we instead start at 0 for this function <span class="math notranslate nohighlight">\(f\)</span>, we find another example of what can go wrong when applying Newton’s Method.  In this case, Newton’s Method oscillates forever between 0 and 1, neither of which is anywhere near the actual root.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tang</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2.0, 2.0), (-2.0, 3.5)]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_43_1.png" src="../_images/NewtonsMethod_43_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 1., 0., 1., 0., 1., 0., 1., 0., 1., 0.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 1., 2., 1., 2., 1., 2., 1., 2., 1., 2.])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyzing-newton-s-method">
+<h2>Analyzing Newton’s method<a class="headerlink" href="#analyzing-newton-s-method" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZaT6p2ZAC90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>We’ve seen one starting value where Newton’s Method works well, and we’ve seen two starting values where Newton’s Method does not work well.  Here we are going to investigate Newton’s Method more systematically.</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(f(x) = x^3 - 2x + 2\)</span>.  For each value of <span class="math notranslate nohighlight">\(z\)</span> in <code class="docutils literal notranslate"><span class="pre">np.linspace(-2,2,100)</span></code>, apply Newton’s method 7 times, and call the result <span class="math notranslate nohighlight">\(z_{7}\)</span>.  For how many of these 100 values do we have <span class="math notranslate nohighlight">\(-0.001 \leq f(z_{7}) \leq 0.001\)</span>?</p></li>
+</ul>
+<p>The initial setup is the same as in the previous sections.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="n">newt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we make the array that will hold the 100 starting values we will consider.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will make a <span class="math notranslate nohighlight">\(100 \times 8\)</span> NumPy array to hold the results.  We think of each row as holding a starting value as well as the first 7 applications of Newton’s Method to that starting value.  We initialize all the values to 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reps</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">reps</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We fill in the zeroth column with the starting values, and then we one-by-one fill in the next columns using a for loop.  This code is very similar to what we did above, except instead of applying <code class="docutils literal notranslate"><span class="pre">newt</span></code> to a single entry, here we are applying <code class="docutils literal notranslate"><span class="pre">newt</span></code> to an entire column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+    <span class="n">arr</span><span class="p">[:,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newt</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is what <code class="docutils literal notranslate"><span class="pre">arr</span></code> looks like.  For example, the top row of <code class="docutils literal notranslate"><span class="pre">arr</span></code> is saying that, if we start at <span class="math notranslate nohighlight">\(z_0 = -2\)</span> and apply Newton’s Method 7 times, we reach approximately <span class="math notranslate nohighlight">\(z_7 = -1.76929\)</span>.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.00000000e+00, -1.80000000e+00, -1.76994819e+00,
+        -1.76929266e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.95959596e+00, -1.79093206e+00, -1.76962110e+00,
+        -1.76929243e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.91919192e+00, -1.78321559e+00, -1.76942955e+00,
+        -1.76929237e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.87878788e+00, -1.77700676e+00, -1.76933475e+00,
+        -1.76929236e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.83838384e+00, -1.77248656e+00, -1.76929966e+00,
+        -1.76929235e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.79797980e+00, -1.76986592e+00, -1.76929259e+00,
+        -1.76929235e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.75757576e+00, -1.76939218e+00, -1.76929236e+00,
+        -1.76929235e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.71717172e+00, -1.77135720e+00, -1.76929541e+00,
+        -1.76929235e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.67676768e+00, -1.77610789e+00, -1.76932547e+00,
+        -1.76929236e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.63636364e+00, -1.78405978e+00, -1.76944655e+00,
+        -1.76929237e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.59595960e+00, -1.79571479e+00, -1.76978006e+00,
+        -1.76929252e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.55555556e+00, -1.81168492e+00, -1.77052745e+00,
+        -1.76929345e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.51515152e+00, -1.83272408e+00, -1.77199981e+00,
+        -1.76929760e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.47474747e+00, -1.85977167e+00, -1.77465685e+00,
+        -1.76931290e+00, -1.76929235e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.43434343e+00, -1.89401326e+00, -1.77915850e+00,
+        -1.76936154e+00, -1.76929236e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.39393939e+00, -1.93696679e+00, -1.78643431e+00,
+        -1.76949961e+00, -1.76929239e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.35353535e+00, -1.99060765e+00, -1.79777892e+00,
+        -1.76985803e+00, -1.76929258e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.31313131e+00, -2.05755477e+00, -1.81498754e+00,
+        -1.77072260e+00, -1.76929382e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.27272727e+00, -2.14135575e+00, -1.84055561e+00,
+        -1.77268324e+00, -1.76930058e+00, -1.76929235e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.23232323e+00, -2.24693804e+00, -1.87798643e+00,
+        -1.77690004e+00, -1.76933359e+00, -1.76929236e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.19191919e+00, -2.38135163e+00, -1.93228936e+00,
+        -1.78555984e+00, -1.76947918e+00, -1.76929238e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.15151515e+00, -2.55504910e+00, -2.01083181e+00,
+        -1.80264288e+00, -1.77006384e+00, -1.76929278e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.11111111e+00, -2.78421900e+00, -2.12488859e+00,
+        -1.83521470e+00, -1.77220938e+00, -1.76929845e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [-1.07070707e+00, -3.09534448e+00, -2.29267033e+00,
+        -1.89571317e+00, -1.77941316e+00, -1.76936513e+00,
+        -1.76929236e+00, -1.76929235e+00],
+       [-1.03030303e+00, -3.53493070e+00, -2.54579403e+00,
+        -2.00645071e+00, -1.80156357e+00, -1.77001551e+00,
+        -1.76929273e+00, -1.76929235e+00],
+       [-9.89898990e-01, -4.19283168e+00, -2.94481740e+00,
+        -2.20998294e+00, -1.86429691e+00, -1.77518108e+00,
+        -1.76931710e+00, -1.76929235e+00],
+       [-9.49494949e-01, -5.26809655e+00, -3.62311891e+00,
+        -2.59814796e+00, -2.03148836e+00, -1.80791637e+00,
+        -1.77032155e+00, -1.76929311e+00],
+       [-9.09090909e-01, -7.30721003e+00, -4.94570843e+00,
+        -3.41754056e+00, -2.47681584e+00, -1.97445304e+00,
+        -1.79411694e+00, -1.76972357e+00],
+       [-8.68686869e-01, -1.25489622e+01, -8.40579361e+00,
+        -5.66676469e+00, -3.87913658e+00, -2.75233274e+00,
+        -2.10844708e+00, -1.83003047e+00],
+       [-8.28282828e-01, -5.39311359e+01, -3.59625627e+01,
+        -2.39879225e+01, -1.60116576e+01, -1.07048754e+01,
+        -7.18419619e+00, -4.86522360e+00],
+       [-7.87878788e-01,  2.16214141e+01,  1.44334331e+01,
+         9.64996988e+00,  6.47249122e+00,  4.36860038e+00,
+         2.98162239e+00,  2.06782443e+00],
+       [-7.47474747e-01,  8.75499163e+00,  5.87909731e+00,
+         3.97681505e+00,  2.72387826e+00,  1.89646945e+00,
+         1.32445388e+00,  8.11227019e-01],
+       [-7.07070707e-01,  5.41234046e+00,  3.66896797e+00,
+         2.52132147e+00,  1.76065060e+00,  1.22137662e+00,
+         6.64168077e-01,  2.08979749e+00],
+       [-6.66666667e-01,  3.88888889e+00,  2.66603410e+00,
+         1.85781432e+00,  1.29564866e+00,  7.74023344e-01,
+         5.29225028e+00,  3.58981161e+00],
+       [-6.26262626e-01,  3.02561426e+00,  2.09696269e+00,
+         1.46909445e+00,  9.70187358e-01, -2.10728426e-01,
+         1.08138869e+00,  3.50851023e-01],
+       [-5.85858586e-01,  2.47567367e+00,  1.72983568e+00,
+         1.19714636e+00,  6.22490415e-01,  1.81199535e+00,
+         1.26098987e+00,  7.25624810e-01],
+       [-5.45454545e-01,  2.09905020e+00,  1.47056765e+00,
+         9.71633849e-01, -1.98763933e-01,  1.07134095e+00,
+         3.18232191e-01,  1.14111631e+00],
+       [-5.05050505e-01,  1.82839634e+00,  1.27346525e+00,
+         7.43555739e-01,  3.45020712e+00,  2.37727063e+00,
+         1.66306528e+00,  1.14323583e+00],
+       [-4.64646465e-01,  1.62731129e+00,  1.11343008e+00,
+         4.42477131e-01,  1.29313611e+00,  7.70657255e-01,
+         4.96922487e+00,  3.37699055e+00],
+       [-4.24242424e-01,  1.47440442e+00,  9.75388643e-01,
+        -1.68663359e-01,  1.04958485e+00,  2.39488421e-01,
+         1.07910154e+00,  3.43610662e-01],
+       [-3.83838384e-01,  1.35628849e+00,  8.49733800e-01,
+        -4.65204983e+00, -3.23172447e+00, -2.36957020e+00,
+        -1.92727627e+00, -1.78464424e+00],
+       [-3.43434343e-01,  1.26416389e+00,  7.30245184e-01,
+         3.05123116e+00,  2.11391907e+00,  1.48104525e+00,
+         9.81845963e-01, -1.19900269e-01],
+       [-3.03030303e-01,  1.19201601e+00,  6.13193205e-01,
+         1.76479672e+00,  1.22460920e+00,  6.69472450e-01,
+         2.13587312e+00,  1.49646726e+00],
+       [-2.62626263e-01,  1.13560207e+00,  4.97077616e-01,
+         1.39373967e+00,  8.92143634e-01, -1.49537969e+00,
+        -1.84514226e+00, -1.77311649e+00],
+       [-2.22222222e-01,  1.09185185e+00,  3.82690537e-01,
+         1.20969840e+00,  6.44519621e-01,  1.94290031e+00,
+         1.35859771e+00,  8.52433243e-01],
+       [-1.81818182e-01,  1.05849802e+00,  2.73219078e-01,
+         1.10312474e+00,  4.14836015e-01,  1.25172274e+00,
+         7.11895268e-01,  2.66553223e+00],
+       [-1.41414141e-01,  1.03384003e+00,  1.74051236e-01,
+         1.04208023e+00,  2.09298936e-01,  1.06051703e+00,
+         2.80563528e-01,  1.10884021e+00],
+       [-1.01010101e-01,  1.01658906e+00,  9.19650586e-02,
+         1.01206157e+00,  6.82750213e-02,  1.00672095e+00,
+         3.90185922e-02,  1.00222936e+00],
+       [-6.06060606e-02,  1.00576401e+00,  3.36178027e-02,
+         1.00166006e+00,  9.87840470e-03,  1.00014543e+00,
+         8.71955853e-04,  1.00000114e+00],
+       [-2.02020202e-02,  1.00062081e+00,  3.71332121e-03,
+         1.00002063e+00,  1.23781368e-04,  1.00000002e+00,
+         1.37885051e-07,  1.00000000e+00],
+       [ 2.02020202e-02,  1.00060431e+00,  3.61492542e-03,
+         1.00001955e+00,  1.17316569e-04,  1.00000002e+00,
+         1.23858900e-07,  1.00000000e+00],
+       [ 6.06060606e-02,  1.00531632e+00,  3.10739766e-02,
+         1.00142044e+00,  8.46258044e-03,  1.00010683e+00,
+         6.40627796e-04,  1.00000062e+00],
+       [ 1.01010101e-01,  1.01449580e+00,  8.11339231e-02,
+         1.00943313e+00,  5.40602026e-02,  1.00424437e+00,
+         2.49380548e-02,  1.00091821e+00],
+       [ 1.41414141e-01,  1.02800913e+00,  1.47645749e-01,
+         1.03047689e+00,  1.58977231e-01,  1.03522821e+00,
+         1.80153278e-01,  1.04502798e+00],
+       [ 1.81818182e-01,  1.04584980e+00,  2.24678939e-01,
+         1.06965321e+00,  3.12539390e-01,  1.13590519e+00,
+         4.97782800e-01,  1.39524085e+00],
+       [ 2.22222222e-01,  1.06814815e+00,  3.07408149e-01,
+         1.13131327e+00,  4.86987776e-01,  1.37289512e+00,
+         8.68889872e-01, -2.59722977e+00],
+       [ 2.62626263e-01,  1.09519343e+00,  3.92441041e-01,
+         1.22181852e+00,  6.64896525e-01,  2.09594177e+00,
+         1.46837377e+00,  9.69478766e-01],
+       [ 3.03030303e-01,  1.12747281e+00,  4.77769474e-01,
+         1.35483044e+00,  8.48023211e-01, -4.95648203e+00,
+        -3.42438586e+00, -2.48081406e+00],
+       [ 3.43434343e-01,  1.16573570e+00,  5.62556971e-01,
+         1.56477448e+00,  1.05933958e+00,  2.76293132e-01,
+         1.10549512e+00,  4.21334452e-01],
+       [ 3.83838384e-01,  1.21109854e+00,  6.46916878e-01,
+         1.95908288e+00,  1.37039301e+00,  8.66040962e-01,
+        -2.80266122e+00, -2.13447158e+00],
+       [ 4.24242424e-01,  1.26521822e+00,  7.31770980e-01,
+         3.09068759e+00,  2.14002146e+00,  1.49937511e+00,
+         9.99407793e-01, -3.56379859e-03],
+       [ 4.64646465e-01,  1.33058821e+00,  8.18845144e-01,
+        -7.82770391e+01, -5.21904800e+01, -3.48024160e+01,
+        -2.32149389e+01, -1.54970330e+01],
+       [ 5.05050505e-01,  1.41106821e+00,  9.10869311e-01,
+        -9.98948796e-01, -4.01903504e+00, -2.83775191e+00,
+        -2.15284808e+00, -1.84436813e+00],
+       [ 5.45454545e-01,  1.51289009e+00,  1.01212504e+00,
+         6.86139803e-02,  1.00678672e+00,  3.93879565e-02,
+         1.00227130e+00,  1.34749066e-02],
+       [ 5.85858586e-01,  1.64672381e+00,  1.12970318e+00,
+         4.83144541e-01,  1.36525448e+00,  8.60149412e-01,
+        -3.31202551e+00, -2.41559829e+00],
+       [ 6.26262626e-01,  1.83237831e+00,  1.27648215e+00,
+         7.47802127e-01,  3.60959356e+00,  2.48223775e+00,
+         1.73427248e+00,  1.20065819e+00],
+       [ 6.66666667e-01,  2.11111111e+00,  1.47906865e+00,
+         9.79929417e-01, -1.33997171e-01,  1.03015086e+00,
+         1.57493532e-01,  1.03458666e+00],
+       [ 7.07070707e-01,  2.58521156e+00,  1.80363793e+00,
+         1.25460126e+00,  7.16198954e-01,  2.74355396e+00,
+         1.90959817e+00,  1.33415600e+00],
+       [ 7.47474747e-01,  3.59661518e+00,  2.47369348e+00,
+         1.72849684e+00,  1.19608506e+00,  6.20581591e-01,
+         1.80196241e+00,  1.25331781e+00],
+       [ 7.87878788e-01,  7.41858586e+00,  4.99410616e+00,
+         3.39337826e+00,  2.33982171e+00,  1.63751143e+00,
+         1.12200826e+00,  4.64340933e-01],
+       [ 8.28282828e-01, -1.48478114e+01, -9.93159828e+00,
+        -6.67292539e+00, -4.53143285e+00, -3.15588288e+00,
+        -2.32659456e+00, -1.90938038e+00],
+       [ 8.68686869e-01, -2.61113064e+00, -2.03778989e+00,
+        -1.80958417e+00, -1.77041046e+00, -1.76929325e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [ 9.09090909e-01, -1.03761755e+00, -3.44266052e+00,
+        -2.49150308e+00, -1.98116568e+00, -1.79561389e+00,
+        -1.76977639e+00, -1.76929252e+00],
+       [ 9.49494949e-01, -4.08706234e-01,  1.42542737e+00,
+         9.26007184e-01, -7.19546860e-01,  6.14447620e+00,
+         4.15197471e+00,  2.83910547e+00],
+       [ 9.89898990e-01, -6.38458417e-02,  1.00641391e+00,
+         3.72911176e-02,  1.00203833e+00,  1.21067392e-02,
+         1.00021813e+00,  1.30737305e-03],
+       [ 1.03030303e+00,  1.58186516e-01,  1.03488558e+00,
+         1.78653530e-01,  1.04429414e+00,  2.18385786e-01,
+         1.06583278e+00,  2.99411544e-01],
+       [ 1.07070707e+00,  3.16101609e-01,  1.13915147e+00,
+         5.05270632e-01,  1.41155797e+00,  9.11391114e-01,
+        -9.87872052e-01, -4.23436798e+00],
+       [ 1.11111111e+00,  4.36392915e-01,  1.28355057e+00,
+         7.57620974e-01,  4.06524968e+00,  2.78205426e+00,
+         1.93526117e+00,  1.35301155e+00],
+       [ 1.15151515e+00,  5.32764976e-01,  1.47808842e+00,
+         9.78977278e-01, -1.41115928e-01,  1.03368695e+00,
+         1.73374096e-01,  1.04175933e+00],
+       [ 1.19191919e+00,  6.13016042e-01,  1.76393659e+00,
+         1.22393911e+00,  6.68377506e-01,  2.12610270e+00,
+         1.48961078e+00,  9.90099232e-01],
+       [ 1.23232323e+00,  6.81908103e-01,  2.25755078e+00,
+         1.58103819e+00,  1.07367449e+00,  3.25998976e-01,
+         1.14842883e+00,  5.26047693e-01],
+       [ 1.27272727e+00,  7.42511823e-01,  3.41379640e+00,
+         2.35327848e+00,  1.64670393e+00,  1.12968662e+00,
+         4.83104863e-01,  1.36517643e+00],
+       [ 1.31313131e+00,  7.96894925e-01,  1.04123609e+01,
+         6.97833523e+00,  4.70291660e+00,  3.20163989e+00,
+         2.21333913e+00,  1.55047066e+00],
+       [ 1.35353535e+00,  8.46499785e-01, -5.25675646e+00,
+        -3.61586348e+00, -2.59382463e+00, -2.02939786e+00,
+        -1.80736909e+00, -1.77029315e+00],
+       [ 1.39393939e+00,  8.92362474e-01, -1.48818753e+00,
+        -1.85004035e+00, -1.77360559e+00, -1.76930565e+00,
+        -1.76929235e+00, -1.76929235e+00],
+       [ 1.43434343e+00,  9.35245831e-01, -5.83137473e-01,
+         2.44587023e+00,  1.70966541e+00,  1.18107689e+00,
+         5.92755621e-01,  1.67398490e+00],
+       [ 1.47474747e+00,  9.75723500e-01, -1.66043710e-01,
+         1.04791525e+00,  2.32919980e-01,  1.07483082e+00,
+         3.29803648e-01,  1.15209851e+00],
+       [ 1.51515152e+00,  1.01423479e+00,  7.97688608e-02,
+         1.00912412e+00,  5.23658902e-02,  1.00398608e+00,
+         2.34499722e-02,  1.00081263e+00],
+       [ 1.55555556e+00,  1.05112154e+00,  2.45462063e-01,
+         1.08309815e+00,  3.56194707e-01,  1.17922943e+00,
+         5.89217371e-01,  1.65980849e+00],
+       [ 1.59595960e+00,  1.08665348e+00,  3.67127699e-01,
+         1.19138467e+00,  6.12036749e-01,  1.75920727e+00,
+         1.22024983e+00,  6.62305782e-01],
+       [ 1.63636364e+00,  1.12104608e+00,  4.61937263e-01,
+         1.32578507e+00,  8.12888734e-01,  5.24903769e+01,
+         3.50018118e+01,  2.33467014e+01],
+       [ 1.67676768e+00,  1.15447341e+00,  5.39116520e-01,
+         1.49514654e+00,  9.95389365e-01, -2.83180399e-02,
+         1.00122705e+00,  7.31744098e-03],
+       [ 1.71717172e+00,  1.18707749e+00,  6.04072885e-01,
+         1.72226184e+00,  1.19113269e+00,  6.11574414e-01,
+         1.75698919e+00,  1.21851669e+00],
+       [ 1.75757576e+00,  1.21897520e+00,  6.60190718e-01,
+         2.05721771e+00,  1.44093685e+00,  9.42002486e-01,
+        -4.95680390e-01,  1.77652335e+00],
+       [ 1.79797980e+00,  1.25026354e+00,  7.09699829e-01,
+         2.62810251e+00,  1.83241422e+00,  1.27650934e+00,
+         7.47840244e-01,  3.61111261e+00],
+       [ 1.83838384e+00,  1.28102360e+00,  7.54131332e-01,
+         3.88701543e+00,  2.66480155e+00,  1.85698965e+00,
+         1.29503001e+00,  7.73196448e-01],
+       [ 1.87878788e+00,  1.31132363e+00,  7.94572930e-01,
+         9.40622918e+00,  6.31083609e+00,  4.26182442e+00,
+         2.91137196e+00,  2.02123769e+00],
+       [ 1.91919192e+00,  1.34122141e+00,  8.31819615e-01,
+        -1.12032491e+01, -7.51405549e+00, -5.08117412e+00,
+        -3.50374256e+00, -2.52738502e+00],
+       [ 1.95959596e+00,  1.37076616e+00,  8.66466648e-01,
+        -2.77048628e+00, -2.11778748e+00, -1.83295710e+00,
+        -1.77201911e+00, -1.76929768e+00],
+       [ 2.00000000e+00,  1.40000000e+00,  8.98969072e-01,
+        -1.28877933e+00, -2.10576730e+00, -1.82919995e+00,
+        -1.77171581e+00, -1.76929656e+00]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are interested in the results after the 7 applications of Newton’s Method.  This corresponds to the last column of <code class="docutils literal notranslate"><span class="pre">arr</span></code>.  We store this last column with the variable name <code class="docutils literal notranslate"><span class="pre">results</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get ready to plot the results.  First we plot <span class="math notranslate nohighlight">\(f\)</span> over a slightly larger domain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1133eb8b0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_60_1.png" src="../_images/NewtonsMethod_60_1.png" />
+</div>
+</div>
+<p>Here is the Boolean array corresponding to our condition <span class="math notranslate nohighlight">\(-0.001 \leq f(z_{7}) \leq 0.001\)</span>.  For example, the zeroth entry being <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that <span class="math notranslate nohighlight">\(z_0 = -2\)</span> is a starting value for which this condition is satisfied.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">good_bool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">results</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mf">0.001</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">good_bool</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False,  True,
+        True, False, False, False, False, False, False, False, False,
+       False, False, False,  True, False, False, False, False, False,
+       False, False, False, False, False, False, False, False,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are getting ready to plot the good starting values.  As a first step, we use Boolean indexing to select the starting values where the condition is satisfied: <code class="docutils literal notranslate"><span class="pre">pts</span> <span class="pre">=</span> <span class="pre">z[good_bool]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/NewtonsMethod_65_0.png" src="../_images/NewtonsMethod_65_0.png" />
+</div>
+</div>
+<p>This variable <code class="docutils literal notranslate"><span class="pre">pts</span></code> represents a one-dimensional NumPy array of length 32.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pts</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(32,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we try to add in black bullet points along the <span class="math notranslate nohighlight">\(x\)</span>-axis at all of the good points.  The error message tells us that the error is in the last line <code class="docutils literal notranslate"><span class="pre">ax.plot(pts,</span> <span class="pre">0,</span> <span class="pre">'ko');</span></code>, and that the specific error is “ValueError: x and y must have same first dimension, but have shapes (32,) and (1,)”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/math9f22/lib/python3.10/site-packages/matplotlib/axes/_axes.py:1632,</span> in <span class="ni">Axes.plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1391</span><span class="sd"> Plot y versus x as lines and/or markers.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1392</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1629</span><span class="sd"> (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1630</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1631</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">normalize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1632</span> <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1633</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1634</span>     <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/math9f22/lib/python3.10/site-packages/matplotlib/axes/_base.py:312,</span> in <span class="ni">_process_plot_var_args.__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="n">this</span> <span class="o">+=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="ne">--&gt; </span><span class="mi">312</span> <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_args</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/math9f22/lib/python3.10/site-packages/matplotlib/axes/_base.py:498,</span> in <span class="ni">_process_plot_var_args._plot_args</span><span class="nt">(self, tup, kwargs, return_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">update_units</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">498</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>                      <span class="sa">f</span><span class="s2">&quot;have shapes </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">y</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x and y can be no greater than 2D, but have &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>                      <span class="sa">f</span><span class="s2">&quot;shapes </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (32,) and (1,)
+</pre></div>
+</div>
+<img alt="../_images/NewtonsMethod_69_1.png" src="../_images/NewtonsMethod_69_1.png" />
+</div>
+</div>
+<p>We need to replace the single number <code class="docutils literal notranslate"><span class="pre">0</span></code> with a NumPy array of 32 zeros.  (A length 32 list would also work.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)),</span> <span class="s1">&#39;ko&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/NewtonsMethod_71_0.png" src="../_images/NewtonsMethod_71_0.png" />
+</div>
+</div>
+<p>We make the bullet points a little smaller by setting a <code class="docutils literal notranslate"><span class="pre">markersize</span></code>.  (I just guessed-and-checked values to see what size looked good.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)),</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/NewtonsMethod_73_0.png" src="../_images/NewtonsMethod_73_0.png" />
+</div>
+</div>
+<p>Let’s make a similar plot for the bad points.  Here is a reminder of how <code class="docutils literal notranslate"><span class="pre">good_bool</span></code> looked.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">good_bool</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False,  True,
+        True, False, False, False, False, False, False, False, False,
+       False, False, False,  True, False, False, False, False, False,
+       False, False, False, False, False, False, False, False,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>To take the elementwise negation of this Boolean array in Numpy, we use the tilde symbol <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">good_bool</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False, False, False, False, False, False,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True, False,
+       False,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True, False,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True, False,
+       False])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we use Boolean indexing with <code class="docutils literal notranslate"><span class="pre">~good_bool</span></code> to keep only the bad values from <code class="docutils literal notranslate"><span class="pre">z</span></code>.  We also change the color from black to red, by changing <code class="docutils literal notranslate"><span class="pre">k</span></code> to <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="o">~</span><span class="n">good_bool</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/NewtonsMethod_79_0.png" src="../_images/NewtonsMethod_79_0.png" />
+</div>
+</div>
+<p>Here is the same plot from above with the good values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">pts</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">good_bool</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)),</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/NewtonsMethod_81_0.png" src="../_images/NewtonsMethod_81_0.png" />
+</div>
+</div>
+<p>The plots say that, initially, all the starting values near -2 work well.  Once we pass the local maximum of <span class="math notranslate nohighlight">\(f\)</span>, after which Newton’s Method starts moving us away from the root, we have mostly bad values.  There are a few outliers (good points surrounded by bad points).  It’s worth looking at these outliers and thinking about the corresponding tangent lines.  Can you see why Newton’s Method could work well for these particular values?  If we used more than 7 repetitions, we would see many more “good points” scattered throughout the bad points.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Matplotlib.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Matplotlib</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Week4/Week4-Intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 4</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Christopher Davis<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

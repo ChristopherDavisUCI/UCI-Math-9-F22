@@ -1,0 +1,2434 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Matplotlib &#8212; UC Irvine Math 9 Fall 2022 - Python portion</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Newton’s Method" href="NewtonsMethod.html" />
+    <link rel="prev" title="Pythonic code" href="PythonicCode.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/penguins-rev.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 9 Fall 2022 - Python portion</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    UC Irvine, Math 9, Fall 2022, Python portion
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/PythonDataTypes.html">
+     Python data types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/AlternatingList.html">
+     Alternating list
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/NumPy.html">
+     NumPy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week3-Intro.html">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="PythonicCode.html">
+     Pythonic code
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NewtonsMethod.html">
+     Newton’s Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Pillow.html">
+     Pillow image processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/ObjectOriented.html">
+     Brief introduction to object-oriented programming
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-9-F22/main?urlpath=tree/Week3/Matplotlib.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/ChristopherDavisUCI/UCI-Math-9-F22"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Week3/Matplotlib.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-two-matplotlib-interfaces">
+   The two Matplotlib interfaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-object-oriented-interface">
+     The object-oriented interface
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-state-based-interface">
+     The state-based interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-plots">
+   Multiple plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#replacing-range-len-k-list">
+   Replacing
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     range(len(k_list))
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adjusting-the-appearance">
+   Adjusting the appearance
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matplotlib</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-two-matplotlib-interfaces">
+   The two Matplotlib interfaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-object-oriented-interface">
+     The object-oriented interface
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-state-based-interface">
+     The state-based interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-plots">
+   Multiple plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#replacing-range-len-k-list">
+   Replacing
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     range(len(k_list))
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adjusting-the-appearance">
+   Adjusting the appearance
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EmRM05EeNeM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Matplotlib is the most important plotting library in Python.  There are many nice Python plotting libraries, each with their own strengths. (My personal favorites are Altair and Plotly.)  But no other plotting library is as flexible or as widely used as Matplotlib.</p>
+<p>Typically we do not import the entire Matplotlib library, but instead import its submodule <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.   The standard abbreviation for <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> is <code class="docutils literal notranslate"><span class="pre">plt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following is an equivalent way to import <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.  Here we’ve just commented it out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from matplotlib import pyplot as plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a few different approaches to plotting in Matplotlib.  (That can make Matplotlib harder to learn than for example NumPy. When I was first learning Matplotlib, I found it difficult to internalize its syntax, because the code examples I found online often used different but similar-looking approaches.)  We are going to focus on what is called the <em>object-oriented</em> interface.  We’ll see the main alternative, which is called the <em>state-based</em> interface, in the <a class="reference internal" href="#interfaces"><span class="std std-ref">next section</span></a>.</p>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> to create the figure in which we will do the plotting.  In the following we define the output to be <code class="docutils literal notranslate"><span class="pre">z</span></code>, but using this variable <code class="docutils literal notranslate"><span class="pre">z</span></code> is not standard.  We will see the standard approach a few cells below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_6_0.png" src="../_images/Matplotlib_6_0.png" />
+</div>
+</div>
+<p>This variable <code class="docutils literal notranslate"><span class="pre">z</span></code> now represents a length-2 tuple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>What elements are in this length-2 tuple?  The 0-th element in <code class="docutils literal notranslate"><span class="pre">z</span></code> is what is called a <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object in Matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_11_0.png" src="../_images/Matplotlib_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.figure.Figure
+</pre></div>
+</div>
+</div>
+</div>
+<p>The element <code class="docutils literal notranslate"><span class="pre">z[1]</span></code> is an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object.  (Aside: notice this word “axes” is spelled with an “e”, not with an “i”.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.axes._subplots.AxesSubplot
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rather than assigning <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> as we did above, it is conventional to use what is called “tuple unpacking”, so that the resulting figure gets assigned to the variable <code class="docutils literal notranslate"><span class="pre">fig</span></code> and the resulting axes object gets assigned to the variable <code class="docutils literal notranslate"><span class="pre">ax</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_17_0.png" src="../_images/Matplotlib_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_18_0.png" src="../_images/Matplotlib_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.figure.Figure
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.axes._subplots.AxesSubplot
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s finally time to do some plotting.  We plot by calling the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object.  (The fact that we’re calling a method of an object, as opposed to calling some independent function defined in Matplotlib, is why this approach is called the “object-oriented” interface.)</p>
+<p>As far as what arguments are passed to <code class="docutils literal notranslate"><span class="pre">plot</span></code>, the syntax is extremely similar to Matlab.  (In general, much of the syntax of Matplotlib is similar to, and inspired by, Matlab.)  The first argument should specify the <span class="math notranslate nohighlight">\(x\)</span>-coordinates and the next argument should specify the <span class="math notranslate nohighlight">\(y\)</span>-coordinates.</p>
+<p>Here is an example.  Let’s try to plot <span class="math notranslate nohighlight">\(y = \cos(x)\)</span> for <span class="math notranslate nohighlight">\(x\)</span> from 0 to 6.  We will see how to make it look better in the following cells.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114f45ae0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/Matplotlib_22_1.png" src="../_images/Matplotlib_22_1.png" />
+</div>
+</div>
+<p>One issue with the above (not a visual issue but a coding issue) is that the code is not <em>DRY</em> (which stands for “Don’t Repeat Yourself”).  The fact that we’re repeating <code class="docutils literal notranslate"><span class="pre">range(6)</span></code> twice is a violation of the DRY principle.  We fix that by setting <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">range(6)</span></code> and then using <code class="docutils literal notranslate"><span class="pre">x</span></code> instead of <code class="docutils literal notranslate"><span class="pre">range(6)</span></code>.  This variable name <code class="docutils literal notranslate"><span class="pre">x</span></code> is a natural choice, because in this case <code class="docutils literal notranslate"><span class="pre">x</span></code> represents the <span class="math notranslate nohighlight">\(x\)</span>-coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114fb96c0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/Matplotlib_24_1.png" src="../_images/Matplotlib_24_1.png" />
+</div>
+</div>
+<p>Another small issue with the above code is that we had wanted to plot the curve from 0 to 6, but since <code class="docutils literal notranslate"><span class="pre">range(6)</span></code> stops at 5, we should change <code class="docutils literal notranslate"><span class="pre">range(6)</span></code> to <code class="docutils literal notranslate"><span class="pre">range(7)</span></code>.  Now that our code is more DRY, making this change is less prone to mistakes, because we only have to change <code class="docutils literal notranslate"><span class="pre">6</span></code> to <code class="docutils literal notranslate"><span class="pre">7</span></code> in one place.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1150195a0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/Matplotlib_26_1.png" src="../_images/Matplotlib_26_1.png" />
+</div>
+</div>
+<p>One more minor issue is the <code class="docutils literal notranslate"><span class="pre">[&lt;matplotlib.lines.Line2D</span> <span class="pre">at</span> <span class="pre">0x1150195a0&gt;]</span></code> getting displayed at the top.  We can get rid of that by using a semi-colon <code class="docutils literal notranslate"><span class="pre">;</span></code> after the last line.  (I think this is the only application of semi-colons I know in Python, unlike Matlab, where we used semi-colons all the time.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_28_0.png" src="../_images/Matplotlib_28_0.png" />
+</div>
+</div>
+<p>Let’s get to the real issue now, the fact that the graph doesn’t look good, because it is so jagged.  The reason it looks so jagged is because it is plotting only 7 points and then connecting them with straight lines.  (That’s the exact same as using <code class="docutils literal notranslate"><span class="pre">plot</span></code> in Matlab; the plotted points get connected by straight lines.)  We could try to fix that by using a step size of <code class="docutils literal notranslate"><span class="pre">0.1</span></code>, but we can’t use floats inside of <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: &#39;float&#39; object cannot be interpreted as an integer
+</pre></div>
+</div>
+<img alt="../_images/Matplotlib_30_1.png" src="../_images/Matplotlib_30_1.png" />
+</div>
+</div>
+<p>If we switch from <code class="docutils literal notranslate"><span class="pre">range</span></code> to NumPy’s <code class="docutils literal notranslate"><span class="pre">arange</span></code>, then we can use <code class="docutils literal notranslate"><span class="pre">0.1</span></code> as a step size, and the graph looks much more smooth.  (Comment.  I noticed after recording the video that we’re now going past <code class="docutils literal notranslate"><span class="pre">x=6</span></code>.  I guess this version stops at 6.9.  That wasn’t intentional.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_32_0.png" src="../_images/Matplotlib_32_0.png" />
+</div>
+</div>
+<p>Another option, which looks pretty similar, is to use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to make <code class="docutils literal notranslate"><span class="pre">x</span></code>.  In this case, we specify that there should be 100 (evenly spaced) sample points chosen.  (Again, to match what I asked for above, it would be better to use <code class="docutils literal notranslate"><span class="pre">np.linspace(0,6,100)</span></code>, so it stops at 6 rather than at 7.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_34_0.png" src="../_images/Matplotlib_34_0.png" />
+</div>
+</div>
+</section>
+<section id="the-two-matplotlib-interfaces">
+<span id="interfaces"></span><h2>The two Matplotlib interfaces<a class="headerlink" href="#the-two-matplotlib-interfaces" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c_CvCUHz-IU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>For an overview of these two interfaces, it is worth reading from the Matlab documentation directly.  Reference: <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/lifecycle.html#a-note-on-the-object-oriented-api-vs-pyplot">Matplotlib User Guide: The Lifecycle of a Plot</a>.</p>
+<blockquote>
+<div><p>Matplotlib has two interfaces. The first is an object-oriented (OO) interface. In this case, we utilize an instance of <code class="docutils literal notranslate"><span class="pre">axes.Axes</span></code> in order to render visualizations on an instance of <code class="docutils literal notranslate"><span class="pre">figure.Figure</span></code>. The second is based on MATLAB and uses a state-based interface. <strong>In general, try to use the object-oriented interface over the pyplot interface.</strong></p>
+</div></blockquote>
+<p>In Math 9, we ask that you use the object-oriented interface (as we did in the above section).</p>
+<section id="the-object-oriented-interface">
+<h3>The object-oriented interface<a class="headerlink" href="#the-object-oriented-interface" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a recap of what we did above.  Notice how we are using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method of <code class="docutils literal notranslate"><span class="pre">ax</span></code>, which is an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_39_0.png" src="../_images/Matplotlib_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.axes._subplots.AxesSubplot
+</pre></div>
+</div>
+</div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">fig</span></code> also represents an object.  (The distinction between <code class="docutils literal notranslate"><span class="pre">fig</span></code> and <code class="docutils literal notranslate"><span class="pre">ax</span></code> might be more clear later, where we have a single <code class="docutils literal notranslate"><span class="pre">Figure</span></code> holding multiple <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matplotlib.figure.Figure
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-state-based-interface">
+<h3>The state-based interface<a class="headerlink" href="#the-state-based-interface" title="Permalink to this headline">#</a></h3>
+<p>Here is the atlernative interface.  I would say that in Matplotlib code I see on the internet, this state-based interface is used more often, probably because it is more concise.  Nonetheless, it is recommended (in Math 9 and also in the official Matplotlib documentation) to use the object-oriented interface.  The reason for this recommendation is that the object-oriented interface tends to be more natural as visualizations become more complex.</p>
+<p>In the following state-based interface example, <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> is fairly different from <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code> above.  The expression <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> refers to the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function in the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module.  The expression <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code> refers to the plot method of the object <code class="docutils literal notranslate"><span class="pre">ax</span></code>.  The arguments passed to <code class="docutils literal notranslate"><span class="pre">plot</span></code> are the same in both cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_44_0.png" src="../_images/Matplotlib_44_0.png" />
+</div>
+</div>
+<p>Notice the first line in the documentation for <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
+<blockquote>
+<div><p>Help on function plot in module matplotlib.pyplot:</p>
+</div></blockquote>
+<p>That line reinforces what we were saying above, that this <code class="docutils literal notranslate"><span class="pre">plot</span></code> should be thought of as a function defined in <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, not as a method associated with a particular object.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function plot in module matplotlib.pyplot:
+
+plot(*args, scalex=True, scaley=True, data=None, **kwargs)
+    Plot y versus x as lines and/or markers.
+    
+    Call signatures::
+    
+        plot([x], y, [fmt], *, data=None, **kwargs)
+        plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
+    
+    The coordinates of the points or line nodes are given by *x*, *y*.
+    
+    The optional parameter *fmt* is a convenient way for defining basic
+    formatting like color, marker and linestyle. It&#39;s a shortcut string
+    notation described in the *Notes* section below.
+    
+    &gt;&gt;&gt; plot(x, y)        # plot x and y using default line style and color
+    &gt;&gt;&gt; plot(x, y, &#39;bo&#39;)  # plot x and y using blue circle markers
+    &gt;&gt;&gt; plot(y)           # plot y using x as index array 0..N-1
+    &gt;&gt;&gt; plot(y, &#39;r+&#39;)     # ditto, but with red plusses
+    
+    You can use `.Line2D` properties as keyword arguments for more
+    control on the appearance. Line properties and *fmt* can be mixed.
+    The following two calls yield identical results:
+    
+    &gt;&gt;&gt; plot(x, y, &#39;go--&#39;, linewidth=2, markersize=12)
+    &gt;&gt;&gt; plot(x, y, color=&#39;green&#39;, marker=&#39;o&#39;, linestyle=&#39;dashed&#39;,
+    ...      linewidth=2, markersize=12)
+    
+    When conflicting with *fmt*, keyword arguments take precedence.
+    
+    
+    **Plotting labelled data**
+    
+    There&#39;s a convenient way for plotting objects with labelled data (i.e.
+    data that can be accessed by index ``obj[&#39;y&#39;]``). Instead of giving
+    the data in *x* and *y*, you can provide the object in the *data*
+    parameter and just give the labels for *x* and *y*::
+    
+    &gt;&gt;&gt; plot(&#39;xlabel&#39;, &#39;ylabel&#39;, data=obj)
+    
+    All indexable objects are supported. This could e.g. be a `dict`, a
+    `pandas.DataFrame` or a structured numpy array.
+    
+    
+    **Plotting multiple sets of data**
+    
+    There are various ways to plot multiple sets of data.
+    
+    - The most straight forward way is just to call `plot` multiple times.
+      Example:
+    
+      &gt;&gt;&gt; plot(x1, y1, &#39;bo&#39;)
+      &gt;&gt;&gt; plot(x2, y2, &#39;go&#39;)
+    
+    - If *x* and/or *y* are 2D arrays a separate data set will be drawn
+      for every column. If both *x* and *y* are 2D, they must have the
+      same shape. If only one of them is 2D with shape (N, m) the other
+      must have length N and will be used for every data set m.
+    
+      Example:
+    
+      &gt;&gt;&gt; x = [1, 2, 3]
+      &gt;&gt;&gt; y = np.array([[1, 2], [3, 4], [5, 6]])
+      &gt;&gt;&gt; plot(x, y)
+    
+      is equivalent to:
+    
+      &gt;&gt;&gt; for col in range(y.shape[1]):
+      ...     plot(x, y[:, col])
+    
+    - The third way is to specify multiple sets of *[x]*, *y*, *[fmt]*
+      groups::
+    
+      &gt;&gt;&gt; plot(x1, y1, &#39;g^&#39;, x2, y2, &#39;g-&#39;)
+    
+      In this case, any additional keyword argument applies to all
+      datasets. Also this syntax cannot be combined with the *data*
+      parameter.
+    
+    By default, each line is assigned a different style specified by a
+    &#39;style cycle&#39;. The *fmt* and line property parameters are only
+    necessary if you want explicit deviations from these defaults.
+    Alternatively, you can also change the style cycle using
+    :rc:`axes.prop_cycle`.
+    
+    
+    Parameters
+    ----------
+    x, y : array-like or scalar
+        The horizontal / vertical coordinates of the data points.
+        *x* values are optional and default to ``range(len(y))``.
+    
+        Commonly, these parameters are 1D arrays.
+    
+        They can also be scalars, or two-dimensional (in that case, the
+        columns represent separate data sets).
+    
+        These arguments cannot be passed as keywords.
+    
+    fmt : str, optional
+        A format string, e.g. &#39;ro&#39; for red circles. See the *Notes*
+        section for a full description of the format strings.
+    
+        Format strings are just an abbreviation for quickly setting
+        basic line properties. All of these and more can also be
+        controlled by keyword arguments.
+    
+        This argument cannot be passed as keyword.
+    
+    data : indexable object, optional
+        An object with labelled data. If given, provide the label names to
+        plot in *x* and *y*.
+    
+        .. note::
+            Technically there&#39;s a slight ambiguity in calls where the
+            second label is a valid *fmt*. ``plot(&#39;n&#39;, &#39;o&#39;, data=obj)``
+            could be ``plt(x, y)`` or ``plt(y, fmt)``. In such cases,
+            the former interpretation is chosen, but a warning is issued.
+            You may suppress the warning by adding an empty format string
+            ``plot(&#39;n&#39;, &#39;o&#39;, &#39;&#39;, data=obj)``.
+    
+    Returns
+    -------
+    list of `.Line2D`
+        A list of lines representing the plotted data.
+    
+    Other Parameters
+    ----------------
+    scalex, scaley : bool, default: True
+        These parameters determine if the view limits are adapted to the
+        data limits. The values are passed on to `autoscale_view`.
+    
+    **kwargs : `.Line2D` properties, optional
+        *kwargs* are used to specify properties like a line label (for
+        auto legends), linewidth, antialiasing, marker face color.
+        Example::
+    
+        &gt;&gt;&gt; plot([1, 2, 3], [1, 2, 3], &#39;go-&#39;, label=&#39;line 1&#39;, linewidth=2)
+        &gt;&gt;&gt; plot([1, 2, 3], [1, 4, 9], &#39;rs&#39;, label=&#39;line 2&#39;)
+    
+        If you specify multiple lines with one plot call, the kwargs apply
+        to all those lines. In case the label object is iterable, each
+        element is used as labels for each set of data.
+    
+        Here is a list of available `.Line2D` properties:
+    
+        Properties:
+        agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array
+        alpha: scalar or None
+        animated: bool
+        antialiased or aa: bool
+        clip_box: `.Bbox`
+        clip_on: bool
+        clip_path: Patch or (Path, Transform) or None
+        color or c: color
+        dash_capstyle: `.CapStyle` or {&#39;butt&#39;, &#39;projecting&#39;, &#39;round&#39;}
+        dash_joinstyle: `.JoinStyle` or {&#39;miter&#39;, &#39;round&#39;, &#39;bevel&#39;}
+        dashes: sequence of floats (on/off ink in points) or (None, None)
+        data: (2, N) array or two 1D arrays
+        drawstyle or ds: {&#39;default&#39;, &#39;steps&#39;, &#39;steps-pre&#39;, &#39;steps-mid&#39;, &#39;steps-post&#39;}, default: &#39;default&#39;
+        figure: `.Figure`
+        fillstyle: {&#39;full&#39;, &#39;left&#39;, &#39;right&#39;, &#39;bottom&#39;, &#39;top&#39;, &#39;none&#39;}
+        gid: str
+        in_layout: bool
+        label: object
+        linestyle or ls: {&#39;-&#39;, &#39;--&#39;, &#39;-.&#39;, &#39;:&#39;, &#39;&#39;, (offset, on-off-seq), ...}
+        linewidth or lw: float
+        marker: marker style string, `~.path.Path` or `~.markers.MarkerStyle`
+        markeredgecolor or mec: color
+        markeredgewidth or mew: float
+        markerfacecolor or mfc: color
+        markerfacecoloralt or mfcalt: color
+        markersize or ms: float
+        markevery: None or int or (int, int) or slice or list[int] or float or (float, float) or list[bool]
+        path_effects: `.AbstractPathEffect`
+        picker: float or callable[[Artist, Event], tuple[bool, dict]]
+        pickradius: float
+        rasterized: bool
+        sketch_params: (scale: float, length: float, randomness: float)
+        snap: bool or None
+        solid_capstyle: `.CapStyle` or {&#39;butt&#39;, &#39;projecting&#39;, &#39;round&#39;}
+        solid_joinstyle: `.JoinStyle` or {&#39;miter&#39;, &#39;round&#39;, &#39;bevel&#39;}
+        transform: unknown
+        url: str
+        visible: bool
+        xdata: 1D array
+        ydata: 1D array
+        zorder: float
+    
+    See Also
+    --------
+    scatter : XY scatter plot with markers of varying size and/or color (
+        sometimes also called bubble chart).
+    
+    Notes
+    -----
+    **Format Strings**
+    
+    A format string consists of a part for color, marker and line::
+    
+        fmt = &#39;[marker][line][color]&#39;
+    
+    Each of them is optional. If not provided, the value from the style
+    cycle is used. Exception: If ``line`` is given, but no ``marker``,
+    the data will be a line without markers.
+    
+    Other combinations such as ``[color][marker][line]`` are also
+    supported, but note that their parsing may be ambiguous.
+    
+    **Markers**
+    
+    =============   ===============================
+    character       description
+    =============   ===============================
+    ``&#39;.&#39;``         point marker
+    ``&#39;,&#39;``         pixel marker
+    ``&#39;o&#39;``         circle marker
+    ``&#39;v&#39;``         triangle_down marker
+    ``&#39;^&#39;``         triangle_up marker
+    ``&#39;&lt;&#39;``         triangle_left marker
+    ``&#39;&gt;&#39;``         triangle_right marker
+    ``&#39;1&#39;``         tri_down marker
+    ``&#39;2&#39;``         tri_up marker
+    ``&#39;3&#39;``         tri_left marker
+    ``&#39;4&#39;``         tri_right marker
+    ``&#39;8&#39;``         octagon marker
+    ``&#39;s&#39;``         square marker
+    ``&#39;p&#39;``         pentagon marker
+    ``&#39;P&#39;``         plus (filled) marker
+    ``&#39;*&#39;``         star marker
+    ``&#39;h&#39;``         hexagon1 marker
+    ``&#39;H&#39;``         hexagon2 marker
+    ``&#39;+&#39;``         plus marker
+    ``&#39;x&#39;``         x marker
+    ``&#39;X&#39;``         x (filled) marker
+    ``&#39;D&#39;``         diamond marker
+    ``&#39;d&#39;``         thin_diamond marker
+    ``&#39;|&#39;``         vline marker
+    ``&#39;_&#39;``         hline marker
+    =============   ===============================
+    
+    **Line Styles**
+    
+    =============    ===============================
+    character        description
+    =============    ===============================
+    ``&#39;-&#39;``          solid line style
+    ``&#39;--&#39;``         dashed line style
+    ``&#39;-.&#39;``         dash-dot line style
+    ``&#39;:&#39;``          dotted line style
+    =============    ===============================
+    
+    Example format strings::
+    
+        &#39;b&#39;    # blue markers with default shape
+        &#39;or&#39;   # red circles
+        &#39;-g&#39;   # green solid line
+        &#39;--&#39;   # dashed line with default color
+        &#39;^k:&#39;  # black triangle_up markers connected by a dotted line
+    
+    **Colors**
+    
+    The supported color abbreviations are the single letter codes
+    
+    =============    ===============================
+    character        color
+    =============    ===============================
+    ``&#39;b&#39;``          blue
+    ``&#39;g&#39;``          green
+    ``&#39;r&#39;``          red
+    ``&#39;c&#39;``          cyan
+    ``&#39;m&#39;``          magenta
+    ``&#39;y&#39;``          yellow
+    ``&#39;k&#39;``          black
+    ``&#39;w&#39;``          white
+    =============    ===============================
+    
+    and the ``&#39;CN&#39;`` colors that index into the default property cycle.
+    
+    If the color is the only part of the format string, you can
+    additionally use any  `matplotlib.colors` spec, e.g. full names
+    (``&#39;green&#39;``) or hex strings (``&#39;#008000&#39;``).
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t do anything more with this state-based approach, but it is good to know it exists so that you can recognize when it is being used.</p>
+</section>
+</section>
+<section id="multiple-plots">
+<h2>Multiple plots<a class="headerlink" href="#multiple-plots" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5jhO9CBRGR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>We’ve seen an example of making a single plot.  Here we’ll see two examples of making multiple plots.  In the first example, we will make all the plots on a single axes object (I think it really is spelled “axes”, not “axis”, in Matplotlib), and in the second example we will make six different plots.</p>
+<p>Plot <span class="math notranslate nohighlight">\(y = \cos(kx)\)</span> for <span class="math notranslate nohighlight">\(k = 1, 2, 3, 5, 7, 10\)</span> between <span class="math notranslate nohighlight">\(x = 0\)</span> and <span class="math notranslate nohighlight">\(x = 2\pi\)</span></p>
+<ul class="simple">
+<li><p>on a single axes;</p></li>
+<li><p>on multiple axes.</p></li>
+</ul>
+<p><strong>Warning</strong>.  The images we make in this section will not look very good.  We’ll see a few ways to customize the style later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A common mistake is try typing <code class="docutils literal notranslate"><span class="pre">pi</span></code> on its own, but <code class="docutils literal notranslate"><span class="pre">pi</span></code> is not defined in Python.  We will use <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> to get access to <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve often tried to avoid using for loops in Math 9, but this is an example where I think using a for loop is the most natural approach.  We have a single axes object, <code class="docutils literal notranslate"><span class="pre">ax</span></code>, and we call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method on it six times.  We use lambda functions to quickly define the six functions we’re plotting.  (Side comment: be sure to use <code class="docutils literal notranslate"><span class="pre">k*x</span></code> instead of <code class="docutils literal notranslate"><span class="pre">kx</span></code>.  If you type <code class="docutils literal notranslate"><span class="pre">kx</span></code>, Python will look for a variable with the name <code class="docutils literal notranslate"><span class="pre">kx</span></code>.  Another side comment: we defined <code class="docutils literal notranslate"><span class="pre">x</span></code> above and we use <code class="docutils literal notranslate"><span class="pre">x</span></code> as the variable in our lambda function.  That is fine, they don’t conflict, but it is good to be concerned about that.  The reason this works is because one of the two <code class="docutils literal notranslate"><span class="pre">x</span></code> variables is only defined inside a function.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_list</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_54_0.png" src="../_images/Matplotlib_54_0.png" />
+</div>
+</div>
+<p>Now let’s see how to make these same six plots on different axes.</p>
+<p>So far, we’ve been using <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code>, with empty parentheses, but we can also pass some arguments to this <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function.  The name <code class="docutils literal notranslate"><span class="pre">subplots</span></code>, especially the “s” at the end of it, already hints that we can make multiple subplots in a single figure.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function subplots in module matplotlib.pyplot:
+
+subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)
+    Create a figure and a set of subplots.
+    
+    This utility wrapper makes it convenient to create common layouts of
+    subplots, including the enclosing figure object, in a single call.
+    
+    Parameters
+    ----------
+    nrows, ncols : int, default: 1
+        Number of rows/columns of the subplot grid.
+    
+    sharex, sharey : bool or {&#39;none&#39;, &#39;all&#39;, &#39;row&#39;, &#39;col&#39;}, default: False
+        Controls sharing of properties among x (*sharex*) or y (*sharey*)
+        axes:
+    
+        - True or &#39;all&#39;: x- or y-axis will be shared among all subplots.
+        - False or &#39;none&#39;: each subplot x- or y-axis will be independent.
+        - &#39;row&#39;: each subplot row will share an x- or y-axis.
+        - &#39;col&#39;: each subplot column will share an x- or y-axis.
+    
+        When subplots have a shared x-axis along a column, only the x tick
+        labels of the bottom subplot are created. Similarly, when subplots
+        have a shared y-axis along a row, only the y tick labels of the first
+        column subplot are created. To later turn other subplots&#39; ticklabels
+        on, use `~matplotlib.axes.Axes.tick_params`.
+    
+        When subplots have a shared axis that has units, calling
+        `~matplotlib.axis.Axis.set_units` will update each axis with the
+        new units.
+    
+    squeeze : bool, default: True
+        - If True, extra dimensions are squeezed out from the returned
+          array of `~matplotlib.axes.Axes`:
+    
+          - if only one subplot is constructed (nrows=ncols=1), the
+            resulting single Axes object is returned as a scalar.
+          - for Nx1 or 1xM subplots, the returned object is a 1D numpy
+            object array of Axes objects.
+          - for NxM, subplots with N&gt;1 and M&gt;1 are returned as a 2D array.
+    
+        - If False, no squeezing at all is done: the returned Axes object is
+          always a 2D array containing Axes instances, even if it ends up
+          being 1x1.
+    
+    subplot_kw : dict, optional
+        Dict with keywords passed to the
+        `~matplotlib.figure.Figure.add_subplot` call used to create each
+        subplot.
+    
+    gridspec_kw : dict, optional
+        Dict with keywords passed to the `~matplotlib.gridspec.GridSpec`
+        constructor used to create the grid the subplots are placed on.
+    
+    **fig_kw
+        All additional keyword arguments are passed to the
+        `.pyplot.figure` call.
+    
+    Returns
+    -------
+    fig : `~.figure.Figure`
+    
+    ax : `.axes.Axes` or array of Axes
+        *ax* can be either a single `~matplotlib.axes.Axes` object or an
+        array of Axes objects if more than one subplot was created.  The
+        dimensions of the resulting array can be controlled with the squeeze
+        keyword, see above.
+    
+        Typical idioms for handling the return value are::
+    
+            # using the variable ax for single a Axes
+            fig, ax = plt.subplots()
+    
+            # using the variable axs for multiple Axes
+            fig, axs = plt.subplots(2, 2)
+    
+            # using tuple unpacking for multiple Axes
+            fig, (ax1, ax2) = plt.subplots(1, 2)
+            fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
+    
+        The names ``ax`` and pluralized ``axs`` are preferred over ``axes``
+        because for the latter it&#39;s not clear if it refers to a single
+        `~.axes.Axes` instance or a collection of these.
+    
+    See Also
+    --------
+    .pyplot.figure
+    .pyplot.subplot
+    .pyplot.axes
+    .Figure.subplots
+    .Figure.add_subplot
+    
+    Examples
+    --------
+    ::
+    
+        # First create some toy data:
+        x = np.linspace(0, 2*np.pi, 400)
+        y = np.sin(x**2)
+    
+        # Create just a figure and only one subplot
+        fig, ax = plt.subplots()
+        ax.plot(x, y)
+        ax.set_title(&#39;Simple plot&#39;)
+    
+        # Create two subplots and unpack the output array immediately
+        f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+        ax1.plot(x, y)
+        ax1.set_title(&#39;Sharing Y axis&#39;)
+        ax2.scatter(x, y)
+    
+        # Create four polar axes and access them through the returned array
+        fig, axs = plt.subplots(2, 2, subplot_kw=dict(projection=&quot;polar&quot;))
+        axs[0, 0].plot(x, y)
+        axs[1, 1].scatter(x, y)
+    
+        # Share a X axis with each column of subplots
+        plt.subplots(2, 2, sharex=&#39;col&#39;)
+    
+        # Share a Y axis with each row of subplots
+        plt.subplots(2, 2, sharey=&#39;row&#39;)
+    
+        # Share both X and Y axes with all subplots
+        plt.subplots(2, 2, sharex=&#39;all&#39;, sharey=&#39;all&#39;)
+    
+        # Note that this is the same as
+        plt.subplots(2, 2, sharex=True, sharey=True)
+    
+        # Create figure number 10 with a single subplot
+        # and clears it if it already exists.
+        fig, ax = plt.subplots(num=10, clear=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following, <code class="docutils literal notranslate"><span class="pre">plt.subplots(3,2)</span></code>, the <code class="docutils literal notranslate"><span class="pre">3</span></code> specifies that there should be three rows of axes and the <code class="docutils literal notranslate"><span class="pre">2</span></code> specifies that there should be two columns of axes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_58_0.png" src="../_images/Matplotlib_58_0.png" />
+</div>
+</div>
+<p>Previously, when we used <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code>, the variable <code class="docutils literal notranslate"><span class="pre">ax</span></code> represented an <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object.  In this case, where we are using <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">axs</span> <span class="pre">=</span> <span class="pre">plt.subplots(3,2)</span></code>, the variable <code class="docutils literal notranslate"><span class="pre">axs</span></code> represents a NumPy array.  (I found that quite surprising when I first learned it, since NumPy is an external library and not part of standard Python.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>The shape of <code class="docutils literal notranslate"><span class="pre">axs</span></code> is <code class="docutils literal notranslate"><span class="pre">(3,2)</span></code>, the same numbers as we passed to <code class="docutils literal notranslate"><span class="pre">subplots</span></code>.  This corresponds to our figure holding a 3-by-2 grid of axes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The entries in <code class="docutils literal notranslate"><span class="pre">axs</span></code> are themselves <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects.  For example, <code class="docutils literal notranslate"><span class="pre">axs[1,1]</span></code> will correspond to the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object in row 1, column 1 (where we start counting at 0).  We would like to iterate through these six axes objects, and that will be easier to do if we have a “flattened” version of <code class="docutils literal notranslate"><span class="pre">axs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;,
+       &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">axs_flat</span></code> to access all the subplots using a single index, with values <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">5</span></code>.  If we wanted to access for example <code class="docutils literal notranslate"><span class="pre">axs_flat[4]</span></code> using the original two-dimensional NumPy array <code class="docutils literal notranslate"><span class="pre">axs</span></code>, we would have to use two indices, <code class="docutils literal notranslate"><span class="pre">axs[2,0]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs_flat</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method on these individual <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects, just like we did in the previous sections.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs_flat</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x115590c10&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">fig</span></code> still holds six subplots, and one of these subplots now has a simple line plot drawn on it.  (The <code class="docutils literal notranslate"><span class="pre">[3,1,4]</span></code> are viewed as the <span class="math notranslate nohighlight">\(y\)</span>-values, when only one input argument is given.  Again, this convention is the same as in Matlab.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_71_0.png" src="../_images/Matplotlib_71_0.png" />
+</div>
+</div>
+<p>If we tried to access the 4-th element of the original two-dimensional NumPy array <code class="docutils literal notranslate"><span class="pre">axs</span></code>, an error would be raised.  The following is trying to find the 4-th row of <code class="docutils literal notranslate"><span class="pre">axs</span></code>, but <code class="docutils literal notranslate"><span class="pre">axs</span></code> does not have a 4-th row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [15],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">axs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: index 4 is out of bounds for axis 0 with size 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to pair the coefficient <code class="docutils literal notranslate"><span class="pre">k_list[0]</span></code> with the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object <code class="docutils literal notranslate"><span class="pre">axs_flat[0]</span></code>, and to pair <code class="docutils literal notranslate"><span class="pre">k_list[1]</span></code> with <code class="docutils literal notranslate"><span class="pre">axs_flat[1]</span></code>, and so on.  The approach we use here is pretty un-Pythonic; we will see a better approach in the <a class="reference internal" href="#replacing-rangelen"><span class="std std-ref">next section</span></a>.  We will also see later how to make the style look a little more modern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">)):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_75_0.png" src="../_images/Matplotlib_75_0.png" />
+</div>
+</div>
+</section>
+<section id="replacing-range-len-k-list">
+<span id="replacing-rangelen"></span><h2>Replacing <code class="docutils literal notranslate"><span class="pre">range(len(k_list))</span></code><a class="headerlink" href="#replacing-range-len-k-list" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GsnFPJ95WA0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>In the previous section, we used <code class="docutils literal notranslate"><span class="pre">range(len(k_list))</span></code> to get the indices of elements in <code class="docutils literal notranslate"><span class="pre">k_list</span></code>.  This was definitely more robust than just typing <code class="docutils literal notranslate"><span class="pre">range(6)</span></code>, but it was not the Pythonic way to get these indices.  We will see a better way to get those indices, using the function <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.</p>
+<p>In our specific case, we never use the indices themselves; we only use them to access the corresponding elements in <code class="docutils literal notranslate"><span class="pre">axs_flat</span></code>.  So for our particular use-case here, it is more Pythonic to skip the indices entirely and use <code class="docutils literal notranslate"><span class="pre">zip</span></code>.</p>
+<p>We start by copy-pasting the final code form above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">)):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_81_0.png" src="../_images/Matplotlib_81_0.png" />
+</div>
+</div>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">k_list</span></code> was our (somewhat random) list of coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 5, 7, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want both the index <code class="docutils literal notranslate"><span class="pre">i</span></code> and the corresponding entry <code class="docutils literal notranslate"><span class="pre">k</span></code>, the most Pythonic approach is to use the function <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.  Here is an example, but do you see what mistake we have made?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of i is </span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of k is </span><span class="si">{k}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of i is {i}
+The value of k is {k}
+The value of i is {i}
+The value of k is {k}
+The value of i is {i}
+The value of k is {k}
+The value of i is {i}
+The value of k is {k}
+The value of i is {i}
+The value of k is {k}
+The value of i is {i}
+The value of k is {k}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We were using f-string syntax, but we forgot to put the <code class="docutils literal notranslate"><span class="pre">f</span></code> before the quotation marks.</p>
+<p>Notice how, for example, the index <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">4</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">7</span></code> inside of <code class="docutils literal notranslate"><span class="pre">𝑘_list</span> <span class="pre">=</span> <span class="pre">[1,2,3,5,7,10]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of i is </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of k is </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of i is 0
+The value of k is 1
+The value of i is 1
+The value of k is 2
+The value of i is 2
+The value of k is 3
+The value of i is 3
+The value of k is 5
+The value of i is 4
+The value of k is 7
+The value of i is 5
+The value of k is 10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the for loop gives us access to both the index <code class="docutils literal notranslate"><span class="pre">i</span></code> and the corresponding value of <code class="docutils literal notranslate"><span class="pre">k</span></code>, we can remove the <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">k_list[i]</span></code> portion of the above code.  Maybe more importantly, we can replace the awkward-looking <code class="docutils literal notranslate"><span class="pre">range(len(k_list))</span></code> portion with the more natural <code class="docutils literal notranslate"><span class="pre">enumerate(k_list)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_list</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_89_0.png" src="../_images/Matplotlib_89_0.png" />
+</div>
+</div>
+<p>Because we never actually used the <code class="docutils literal notranslate"><span class="pre">i</span></code> on its own (we only used it to find the corresponding element in <code class="docutils literal notranslate"><span class="pre">axs_flat</span></code>), it is even more Pythonic to use <code class="docutils literal notranslate"><span class="pre">zip</span></code> instead of <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.</p>
+<p>Let’s introduce <code class="docutils literal notranslate"><span class="pre">zip</span></code> in an easier example.  What <code class="docutils literal notranslate"><span class="pre">zip</span></code> will do is group the 0-th items together, the 1-st items together, and so on.  For example, in the following, <code class="docutils literal notranslate"><span class="pre">10</span></code> and <code class="docutils literal notranslate"><span class="pre">4</span></code> get grouped together, because <code class="docutils literal notranslate"><span class="pre">a_list[1]</span></code> is <code class="docutils literal notranslate"><span class="pre">10</span></code> and <code class="docutils literal notranslate"><span class="pre">b_list[1]</span></code> is <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">b_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">b_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 3
+10 4
+2 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object actually produced by <code class="docutils literal notranslate"><span class="pre">zip</span></code> is a new type of object (a <code class="docutils literal notranslate"><span class="pre">zip</span></code> object!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">zip</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">b_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;zip at 0x1156b8ac0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">b_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zip
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we can convert this <code class="docutils literal notranslate"><span class="pre">zip</span></code> object to for example a list, and then it is more clear how to think about <code class="docutils literal notranslate"><span class="pre">zip(a_list,</span> <span class="pre">b_list)</span></code>.  The list version is a list of length-2 tuples, where each tuple contains an element from <code class="docutils literal notranslate"><span class="pre">a_list</span></code> and the corresponding element from <code class="docutils literal notranslate"><span class="pre">b_list</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">b_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(7, 3), (10, 4), (2, 5)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s now pretty much effortless to make our six plots using <code class="docutils literal notranslate"><span class="pre">zip</span></code>.  Notice how we are able to remove the line <code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">axs_flat[i]</span></code> from the for loop, since <code class="docutils literal notranslate"><span class="pre">ax</span></code> is getting automatically assigned by the for loop statement <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">k,ax</span> <span class="pre">in</span> <span class="pre">zip(k_list,</span> <span class="pre">axs_flat):</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_98_0.png" src="../_images/Matplotlib_98_0.png" />
+</div>
+</div>
+<p>We’ve now seen three different approaches of making these six plots, one approach using <code class="docutils literal notranslate"><span class="pre">range</span></code>, one approach using <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and one approach using <code class="docutils literal notranslate"><span class="pre">zip</span></code>.  All three are important to know, but in this particular example, the <code class="docutils literal notranslate"><span class="pre">zip</span></code> approach is the most Pythonic.</p>
+</section>
+<section id="adjusting-the-appearance">
+<h2>Adjusting the appearance<a class="headerlink" href="#adjusting-the-appearance" title="Permalink to this headline">#</a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ASPmNW6ibQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>The plots we’ve made so far look pretty old-fashioned in comparison to modern plotting libraries.  This section will be a quick introduction to some of the ways we can adjust the style of our Matplotlib plots.  (The plots still will not look great after making these changes.  I recommend browsing the <a class="reference external" href="https://matplotlib.org/stable/gallery/index">Matplotlib example gallery</a> to see some beautiful visualizations that can be made using Matplotlib.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is our starting code.  The code itself I think is good; it is the final visualization that I want us to improve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_103_0.png" src="../_images/Matplotlib_103_0.png" />
+</div>
+</div>
+<p>The first improvement we are going to make is to call the <code class="docutils literal notranslate"><span class="pre">tight_layout</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object.  I’ve never understood why it is called <code class="docutils literal notranslate"><span class="pre">tight_layout</span></code>, but this will spread out the subplots, so that the axis numbers are not getting cut off by the adjacent plots.</p>
+<p>Don’t worry about memorizing any of the styling code from this section.  The important thing is to be aware these stylizations exist, and to understand what they are doing when you see the code.</p>
+<p>The following code works, but there is something a little strange about it.  Do you see what is strange?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_105_0.png" src="../_images/Matplotlib_105_0.png" />
+</div>
+</div>
+<p>Since there is only one <code class="docutils literal notranslate"><span class="pre">Figure</span></code> object in this chart, it is a little strange that we are calling <code class="docutils literal notranslate"><span class="pre">fig.tight_layout()</span></code> inside the for loop, so it is getting called six times.  It makes more sense to call it outside of the for loop.  We add a line break and we remove the indentation.  The line break is just for readability; removing the indentation is what takes <code class="docutils literal notranslate"><span class="pre">fig.tight_layout()</span></code> out of the for loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_107_0.png" src="../_images/Matplotlib_107_0.png" />
+</div>
+</div>
+<p>Next we add a legend to the chart.  We do this in two stages.  In stage one, we add a <code class="docutils literal notranslate"><span class="pre">label</span></code> to each of the subplots, using an f-string.  In stage two, we tell Matplotlib to display the label in a legend, using the <code class="docutils literal notranslate"><span class="pre">legend</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object.</p>
+<p>(For many of these customizations, I expect there are many different ways to create the same effect, and I don’t necessarily claim the way introduced here is best.  One overall complaint I have about Matplotlib is that there are often many different ways to do the same thing.  That may sound like a good thing, but I find it makes the methods harder to learn.)</p>
+<p>Here only one legend gets displayed.  Do you see what we did wrong?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_109_0.png" src="../_images/Matplotlib_109_0.png" />
+</div>
+</div>
+<p>The mistake above was the opposite of the mistake we made with <code class="docutils literal notranslate"><span class="pre">fig.tight_layout()</span></code>.  Above we were calling <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> outside of the for loop, but there are six different <code class="docutils literal notranslate"><span class="pre">Axes</span></code> objects, each represented by the variable name <code class="docutils literal notranslate"><span class="pre">ax</span></code>, so we need to call this <code class="docutils literal notranslate"><span class="pre">legend</span></code> method within the for loop.</p>
+<p>The following works, but the image looks pretty strange, because the Matplotlib is choosing different default locations for the legend for each of the six subplots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_111_0.png" src="../_images/Matplotlib_111_0.png" />
+</div>
+</div>
+<p>Let’s specify that the legend should always be in the upper-right by passing <code class="docutils literal notranslate"><span class="pre">loc=&quot;upper</span> <span class="pre">right&quot;</span></code> as an argument to the <code class="docutils literal notranslate"><span class="pre">legend</span></code> method.  (Definitely do not bother memorizing for example that it needs to be <code class="docutils literal notranslate"><span class="pre">&quot;upper</span> <span class="pre">right&quot;</span></code> with a space between the words.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_113_0.png" src="../_images/Matplotlib_113_0.png" />
+</div>
+</div>
+<p>The next portion is about some options for changing colors.  Usually we work with <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>, but here we are working with a different submodule, the <code class="docutils literal notranslate"><span class="pre">colors</span></code> submodule.  For now we will just import a single dictionary from <code class="docutils literal notranslate"><span class="pre">matplotlib.colors</span></code>.  I knew this variable name with “TA”, but I didn’t exactly remember the name, so I typed <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">matplotlib.colors</span> <span class="pre">import</span> <span class="pre">TA</span></code> and hit the tab key, and it autocompleted for me.  The name of <code class="docutils literal notranslate"><span class="pre">TABLEAU_COLORS</span></code> is not very easy to type, so we will give it the abbreviation <code class="docutils literal notranslate"><span class="pre">tcolors</span></code>.  (Most abbreviations we use in Math 9 are standard, and it would be a mistake to use anything else.  This <code class="docutils literal notranslate"><span class="pre">tcolors</span></code> is an exception; we just made up that abbreviation, and it would be fine to use a different one.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">TABLEAU_COLORS</span> <span class="k">as</span> <span class="n">tcolors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcolors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tab:blue&#39;: &#39;#1f77b4&#39;,
+ &#39;tab:orange&#39;: &#39;#ff7f0e&#39;,
+ &#39;tab:green&#39;: &#39;#2ca02c&#39;,
+ &#39;tab:red&#39;: &#39;#d62728&#39;,
+ &#39;tab:purple&#39;: &#39;#9467bd&#39;,
+ &#39;tab:brown&#39;: &#39;#8c564b&#39;,
+ &#39;tab:pink&#39;: &#39;#e377c2&#39;,
+ &#39;tab:gray&#39;: &#39;#7f7f7f&#39;,
+ &#39;tab:olive&#39;: &#39;#bcbd22&#39;,
+ &#39;tab:cyan&#39;: &#39;#17becf&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The colors here are the colors used by default in Matplotlib.  For example, if we make two plots on the same axes, the first plot will be in the color “tab:blue” and the second plot will be in the color “tab:orange”.</p>
+<p>We will just use the keys from this dictionary.  We can access those keys by using the <code class="docutils literal notranslate"><span class="pre">keys</span></code> method of a dictionary object.  This method returns something similar to a list, but notice that the object returned is not a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;tab:blue&#39;, &#39;tab:orange&#39;, &#39;tab:green&#39;, &#39;tab:red&#39;, &#39;tab:purple&#39;, &#39;tab:brown&#39;, &#39;tab:pink&#39;, &#39;tab:gray&#39;, &#39;tab:olive&#39;, &#39;tab:cyan&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not surprisingly, there is also a corresponding <code class="docutils literal notranslate"><span class="pre">values</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcolors</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([&#39;#1f77b4&#39;, &#39;#ff7f0e&#39;, &#39;#2ca02c&#39;, &#39;#d62728&#39;, &#39;#9467bd&#39;, &#39;#8c564b&#39;, &#39;#e377c2&#39;, &#39;#7f7f7f&#39;, &#39;#bcbd22&#39;, &#39;#17becf&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try to get access to these colors.  Read the following error message (especially the last line of the error message and maybe the arrow showing where the error occurred).  Do you see what we did wrong?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [12],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: too many values to unpack (expected 2)
+</pre></div>
+</div>
+<img alt="../_images/Matplotlib_122_1.png" src="../_images/Matplotlib_122_1.png" />
+</div>
+</div>
+<p>Do you understand what the error message is telling us?  I had originally thought that <code class="docutils literal notranslate"><span class="pre">zip</span></code> needed to be applied to things of all the same length, but I was wrong, and in this case having <code class="docutils literal notranslate"><span class="pre">tcolors.keys()</span></code> be length longer than length 6 is no problem.</p>
+<p>The problem is that when we do tuple unpacking using for example <code class="docutils literal notranslate"><span class="pre">k,ax</span> <span class="pre">in</span> <span class="pre">...</span></code>, there needs to be two values in each tuple, one which will get assigned to <code class="docutils literal notranslate"><span class="pre">k</span></code> and one which will get assigned to <code class="docutils literal notranslate"><span class="pre">ax</span></code>.  When we zip together three different objects, as in <code class="docutils literal notranslate"><span class="pre">zip(k_list,</span> <span class="pre">axs_flat,</span> <span class="pre">tcolors.keys())</span></code>, then we need to provide three variable names.  The keyword name for color is <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<p>If you go through these colors and compare them to the (messy) chart above where we made all of the plots on a single <code class="docutils literal notranslate"><span class="pre">Axes</span></code> object, the colors should be the same, because these colors should be the same as the default colors used by Matplotlib, and in the same order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_124_0.png" src="../_images/Matplotlib_124_0.png" />
+</div>
+</div>
+<p>Next let’s see how to add a title.  There are a few different approaches.  Here we add a title to each subplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;y = cos(kx)&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_126_0.png" src="../_images/Matplotlib_126_0.png" />
+</div>
+</div>
+<p>Here we add a title to the entire figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;y = cos(kx)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_128_0.png" src="../_images/Matplotlib_128_0.png" />
+</div>
+</div>
+<p>The default styling in Matplotlib can be replaced with a variety of different pre-defined options.  I think big improvements can be made by setting different styles.  The following line will change all future Matplotlib calls until you restart the kernel.  The style option I use most often is “seaborn-darkgrid”.  (Seaborn itself is a very nice plotting library; Seaborn is built on Matplotlib.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code is verbatim the same as the code above.  I think the resulting figure looks a lot nicer with the Seaborn styling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;y = cos(kx)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_132_0.png" src="../_images/Matplotlib_132_0.png" />
+</div>
+</div>
+<p>Here is a list of all the available plotting styles.  (<strong>Challenge</strong>.  Can you use a for loop to display the above figure in each of these different styles?  My attempt to do that failed.)</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">available</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;,
+ &#39;_classic_test_patch&#39;,
+ &#39;_mpl-gallery&#39;,
+ &#39;_mpl-gallery-nogrid&#39;,
+ &#39;bmh&#39;,
+ &#39;classic&#39;,
+ &#39;dark_background&#39;,
+ &#39;fast&#39;,
+ &#39;fivethirtyeight&#39;,
+ &#39;ggplot&#39;,
+ &#39;grayscale&#39;,
+ &#39;seaborn&#39;,
+ &#39;seaborn-bright&#39;,
+ &#39;seaborn-colorblind&#39;,
+ &#39;seaborn-dark&#39;,
+ &#39;seaborn-dark-palette&#39;,
+ &#39;seaborn-darkgrid&#39;,
+ &#39;seaborn-deep&#39;,
+ &#39;seaborn-muted&#39;,
+ &#39;seaborn-notebook&#39;,
+ &#39;seaborn-paper&#39;,
+ &#39;seaborn-pastel&#39;,
+ &#39;seaborn-poster&#39;,
+ &#39;seaborn-talk&#39;,
+ &#39;seaborn-ticks&#39;,
+ &#39;seaborn-white&#39;,
+ &#39;seaborn-whitegrid&#39;,
+ &#39;tableau-colorblind10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is another pre-defined style I like, called “ggplot”.  (The “gg” in “ggplot” stands for “grammar of graphics”, which is an approach towards plotting used by many of my favorite Python plotting libraries, such as Altair, Plotly, and Seaborn.  The original ggplot plotting library was I believe for the R programming language.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">tcolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;y = cos(kx)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_137_0.png" src="../_images/Matplotlib_137_0.png" />
+</div>
+</div>
+<p>As one last example, let’s choose random colors.  There are only 10 colors that are part of the <code class="docutils literal notranslate"><span class="pre">TABLEAU_COLORS</span></code> dictionary, but there are many more that are part of the <code class="docutils literal notranslate"><span class="pre">CSS4_COLORS</span></code> dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">TABLEAU_COLORS</span> <span class="k">as</span> <span class="n">tcolors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tcolors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">TABLEAU_COLORS</span> <span class="k">as</span> <span class="n">tcolors</span><span class="p">,</span> <span class="n">CSS4_COLORS</span> <span class="k">as</span> <span class="n">ccolors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ccolors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148
+</pre></div>
+</div>
+</div>
+</div>
+<p>These <code class="docutils literal notranslate"><span class="pre">CSS4_COLORS</span></code> include color names that are recognized in html, for example.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ccolors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;aliceblue&#39;: &#39;#F0F8FF&#39;,
+ &#39;antiquewhite&#39;: &#39;#FAEBD7&#39;,
+ &#39;aqua&#39;: &#39;#00FFFF&#39;,
+ &#39;aquamarine&#39;: &#39;#7FFFD4&#39;,
+ &#39;azure&#39;: &#39;#F0FFFF&#39;,
+ &#39;beige&#39;: &#39;#F5F5DC&#39;,
+ &#39;bisque&#39;: &#39;#FFE4C4&#39;,
+ &#39;black&#39;: &#39;#000000&#39;,
+ &#39;blanchedalmond&#39;: &#39;#FFEBCD&#39;,
+ &#39;blue&#39;: &#39;#0000FF&#39;,
+ &#39;blueviolet&#39;: &#39;#8A2BE2&#39;,
+ &#39;brown&#39;: &#39;#A52A2A&#39;,
+ &#39;burlywood&#39;: &#39;#DEB887&#39;,
+ &#39;cadetblue&#39;: &#39;#5F9EA0&#39;,
+ &#39;chartreuse&#39;: &#39;#7FFF00&#39;,
+ &#39;chocolate&#39;: &#39;#D2691E&#39;,
+ &#39;coral&#39;: &#39;#FF7F50&#39;,
+ &#39;cornflowerblue&#39;: &#39;#6495ED&#39;,
+ &#39;cornsilk&#39;: &#39;#FFF8DC&#39;,
+ &#39;crimson&#39;: &#39;#DC143C&#39;,
+ &#39;cyan&#39;: &#39;#00FFFF&#39;,
+ &#39;darkblue&#39;: &#39;#00008B&#39;,
+ &#39;darkcyan&#39;: &#39;#008B8B&#39;,
+ &#39;darkgoldenrod&#39;: &#39;#B8860B&#39;,
+ &#39;darkgray&#39;: &#39;#A9A9A9&#39;,
+ &#39;darkgreen&#39;: &#39;#006400&#39;,
+ &#39;darkgrey&#39;: &#39;#A9A9A9&#39;,
+ &#39;darkkhaki&#39;: &#39;#BDB76B&#39;,
+ &#39;darkmagenta&#39;: &#39;#8B008B&#39;,
+ &#39;darkolivegreen&#39;: &#39;#556B2F&#39;,
+ &#39;darkorange&#39;: &#39;#FF8C00&#39;,
+ &#39;darkorchid&#39;: &#39;#9932CC&#39;,
+ &#39;darkred&#39;: &#39;#8B0000&#39;,
+ &#39;darksalmon&#39;: &#39;#E9967A&#39;,
+ &#39;darkseagreen&#39;: &#39;#8FBC8F&#39;,
+ &#39;darkslateblue&#39;: &#39;#483D8B&#39;,
+ &#39;darkslategray&#39;: &#39;#2F4F4F&#39;,
+ &#39;darkslategrey&#39;: &#39;#2F4F4F&#39;,
+ &#39;darkturquoise&#39;: &#39;#00CED1&#39;,
+ &#39;darkviolet&#39;: &#39;#9400D3&#39;,
+ &#39;deeppink&#39;: &#39;#FF1493&#39;,
+ &#39;deepskyblue&#39;: &#39;#00BFFF&#39;,
+ &#39;dimgray&#39;: &#39;#696969&#39;,
+ &#39;dimgrey&#39;: &#39;#696969&#39;,
+ &#39;dodgerblue&#39;: &#39;#1E90FF&#39;,
+ &#39;firebrick&#39;: &#39;#B22222&#39;,
+ &#39;floralwhite&#39;: &#39;#FFFAF0&#39;,
+ &#39;forestgreen&#39;: &#39;#228B22&#39;,
+ &#39;fuchsia&#39;: &#39;#FF00FF&#39;,
+ &#39;gainsboro&#39;: &#39;#DCDCDC&#39;,
+ &#39;ghostwhite&#39;: &#39;#F8F8FF&#39;,
+ &#39;gold&#39;: &#39;#FFD700&#39;,
+ &#39;goldenrod&#39;: &#39;#DAA520&#39;,
+ &#39;gray&#39;: &#39;#808080&#39;,
+ &#39;green&#39;: &#39;#008000&#39;,
+ &#39;greenyellow&#39;: &#39;#ADFF2F&#39;,
+ &#39;grey&#39;: &#39;#808080&#39;,
+ &#39;honeydew&#39;: &#39;#F0FFF0&#39;,
+ &#39;hotpink&#39;: &#39;#FF69B4&#39;,
+ &#39;indianred&#39;: &#39;#CD5C5C&#39;,
+ &#39;indigo&#39;: &#39;#4B0082&#39;,
+ &#39;ivory&#39;: &#39;#FFFFF0&#39;,
+ &#39;khaki&#39;: &#39;#F0E68C&#39;,
+ &#39;lavender&#39;: &#39;#E6E6FA&#39;,
+ &#39;lavenderblush&#39;: &#39;#FFF0F5&#39;,
+ &#39;lawngreen&#39;: &#39;#7CFC00&#39;,
+ &#39;lemonchiffon&#39;: &#39;#FFFACD&#39;,
+ &#39;lightblue&#39;: &#39;#ADD8E6&#39;,
+ &#39;lightcoral&#39;: &#39;#F08080&#39;,
+ &#39;lightcyan&#39;: &#39;#E0FFFF&#39;,
+ &#39;lightgoldenrodyellow&#39;: &#39;#FAFAD2&#39;,
+ &#39;lightgray&#39;: &#39;#D3D3D3&#39;,
+ &#39;lightgreen&#39;: &#39;#90EE90&#39;,
+ &#39;lightgrey&#39;: &#39;#D3D3D3&#39;,
+ &#39;lightpink&#39;: &#39;#FFB6C1&#39;,
+ &#39;lightsalmon&#39;: &#39;#FFA07A&#39;,
+ &#39;lightseagreen&#39;: &#39;#20B2AA&#39;,
+ &#39;lightskyblue&#39;: &#39;#87CEFA&#39;,
+ &#39;lightslategray&#39;: &#39;#778899&#39;,
+ &#39;lightslategrey&#39;: &#39;#778899&#39;,
+ &#39;lightsteelblue&#39;: &#39;#B0C4DE&#39;,
+ &#39;lightyellow&#39;: &#39;#FFFFE0&#39;,
+ &#39;lime&#39;: &#39;#00FF00&#39;,
+ &#39;limegreen&#39;: &#39;#32CD32&#39;,
+ &#39;linen&#39;: &#39;#FAF0E6&#39;,
+ &#39;magenta&#39;: &#39;#FF00FF&#39;,
+ &#39;maroon&#39;: &#39;#800000&#39;,
+ &#39;mediumaquamarine&#39;: &#39;#66CDAA&#39;,
+ &#39;mediumblue&#39;: &#39;#0000CD&#39;,
+ &#39;mediumorchid&#39;: &#39;#BA55D3&#39;,
+ &#39;mediumpurple&#39;: &#39;#9370DB&#39;,
+ &#39;mediumseagreen&#39;: &#39;#3CB371&#39;,
+ &#39;mediumslateblue&#39;: &#39;#7B68EE&#39;,
+ &#39;mediumspringgreen&#39;: &#39;#00FA9A&#39;,
+ &#39;mediumturquoise&#39;: &#39;#48D1CC&#39;,
+ &#39;mediumvioletred&#39;: &#39;#C71585&#39;,
+ &#39;midnightblue&#39;: &#39;#191970&#39;,
+ &#39;mintcream&#39;: &#39;#F5FFFA&#39;,
+ &#39;mistyrose&#39;: &#39;#FFE4E1&#39;,
+ &#39;moccasin&#39;: &#39;#FFE4B5&#39;,
+ &#39;navajowhite&#39;: &#39;#FFDEAD&#39;,
+ &#39;navy&#39;: &#39;#000080&#39;,
+ &#39;oldlace&#39;: &#39;#FDF5E6&#39;,
+ &#39;olive&#39;: &#39;#808000&#39;,
+ &#39;olivedrab&#39;: &#39;#6B8E23&#39;,
+ &#39;orange&#39;: &#39;#FFA500&#39;,
+ &#39;orangered&#39;: &#39;#FF4500&#39;,
+ &#39;orchid&#39;: &#39;#DA70D6&#39;,
+ &#39;palegoldenrod&#39;: &#39;#EEE8AA&#39;,
+ &#39;palegreen&#39;: &#39;#98FB98&#39;,
+ &#39;paleturquoise&#39;: &#39;#AFEEEE&#39;,
+ &#39;palevioletred&#39;: &#39;#DB7093&#39;,
+ &#39;papayawhip&#39;: &#39;#FFEFD5&#39;,
+ &#39;peachpuff&#39;: &#39;#FFDAB9&#39;,
+ &#39;peru&#39;: &#39;#CD853F&#39;,
+ &#39;pink&#39;: &#39;#FFC0CB&#39;,
+ &#39;plum&#39;: &#39;#DDA0DD&#39;,
+ &#39;powderblue&#39;: &#39;#B0E0E6&#39;,
+ &#39;purple&#39;: &#39;#800080&#39;,
+ &#39;rebeccapurple&#39;: &#39;#663399&#39;,
+ &#39;red&#39;: &#39;#FF0000&#39;,
+ &#39;rosybrown&#39;: &#39;#BC8F8F&#39;,
+ &#39;royalblue&#39;: &#39;#4169E1&#39;,
+ &#39;saddlebrown&#39;: &#39;#8B4513&#39;,
+ &#39;salmon&#39;: &#39;#FA8072&#39;,
+ &#39;sandybrown&#39;: &#39;#F4A460&#39;,
+ &#39;seagreen&#39;: &#39;#2E8B57&#39;,
+ &#39;seashell&#39;: &#39;#FFF5EE&#39;,
+ &#39;sienna&#39;: &#39;#A0522D&#39;,
+ &#39;silver&#39;: &#39;#C0C0C0&#39;,
+ &#39;skyblue&#39;: &#39;#87CEEB&#39;,
+ &#39;slateblue&#39;: &#39;#6A5ACD&#39;,
+ &#39;slategray&#39;: &#39;#708090&#39;,
+ &#39;slategrey&#39;: &#39;#708090&#39;,
+ &#39;snow&#39;: &#39;#FFFAFA&#39;,
+ &#39;springgreen&#39;: &#39;#00FF7F&#39;,
+ &#39;steelblue&#39;: &#39;#4682B4&#39;,
+ &#39;tan&#39;: &#39;#D2B48C&#39;,
+ &#39;teal&#39;: &#39;#008080&#39;,
+ &#39;thistle&#39;: &#39;#D8BFD8&#39;,
+ &#39;tomato&#39;: &#39;#FF6347&#39;,
+ &#39;turquoise&#39;: &#39;#40E0D0&#39;,
+ &#39;violet&#39;: &#39;#EE82EE&#39;,
+ &#39;wheat&#39;: &#39;#F5DEB3&#39;,
+ &#39;white&#39;: &#39;#FFFFFF&#39;,
+ &#39;whitesmoke&#39;: &#39;#F5F5F5&#39;,
+ &#39;yellow&#39;: &#39;#FFFF00&#39;,
+ &#39;yellowgreen&#39;: &#39;#9ACD32&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see how we can choose six random colors from this <code class="docutils literal notranslate"><span class="pre">CSS4_COLORS</span></code> dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">choice</span></code> method of <code class="docutils literal notranslate"><span class="pre">rng</span></code> to choose six of these random colors.  It is not obvious to me why the following does not work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">ccolors</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File _generator.pyx:712,</span> in <span class="ni">numpy.random._generator.Generator.choice</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: &#39;dict_keys&#39; object cannot be interpreted as an integer
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [29],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">ccolors</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">))</span>
+
+<span class="nn">File _generator.pyx:714,</span> in <span class="ni">numpy.random._generator.Generator.choice</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: a must be a sequence or an integer, not &lt;class &#39;dict_keys&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To fix the error, we convert <code class="docutils literal notranslate"><span class="pre">ccolors.keys()</span></code> to a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ccolors</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the six colors chosen in this case.  (If you run the code, you’ll get different colors, because we haven’t specified a <code class="docutils literal notranslate"><span class="pre">seed</span></code> when we instantiated the random number generator.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;saddlebrown&#39;, &#39;gold&#39;, &#39;darkorchid&#39;, &#39;floralwhite&#39;,
+       &#39;lightslategrey&#39;, &#39;darkgrey&#39;], dtype=&#39;&lt;U20&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we are using the randomly chosen colors.  We replace the <code class="docutils literal notranslate"><span class="pre">tcolors.keys()</span></code> in the <code class="docutils literal notranslate"><span class="pre">zip</span></code> with our <code class="docutils literal notranslate"><span class="pre">colors</span></code> NumPy array we just created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">𝑘_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs_flat</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">k_list</span><span class="p">,</span> <span class="n">axs_flat</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;y = cos(kx)&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Matplotlib_154_0.png" src="../_images/Matplotlib_154_0.png" />
+</div>
+</div>
+<p>There is certainly much more we could do involving customizations of Matplotlib plots, but we are going to go on to a new topic, Newton’s Method.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="PythonicCode.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Pythonic code</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="NewtonsMethod.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Newton’s Method</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Christopher Davis<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
