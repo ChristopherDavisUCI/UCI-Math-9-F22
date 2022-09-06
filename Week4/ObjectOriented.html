@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Brief introduction to object-oriented programming &#8212; UC Irvine Math 9 Fall 2022 - Python portion</title>
+    <title>Brief introduction to object-oriented programming &#8212; UC Irvine Math 9</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -98,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/penguins-rev.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">UC Irvine Math 9 Fall 2022 - Python portion</h1>
+      <h1 class="site-logo" id="site-title">UC Irvine Math 9</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    UC Irvine, Math 9, Fall 2022, Python portion
+                    UC Irvine, Math 9, Introduction to Programming for Numerical Analysis (Python portion)
                 </a>
             </li>
         </ul>
@@ -448,15 +448,20 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="brief-introduction-to-object-oriented-programming">
 <h1>Brief introduction to object-oriented programming<a class="headerlink" href="#brief-introduction-to-object-oriented-programming" title="Permalink to this headline">#</a></h1>
+<p>Object-oriented programming (OOP) is a substantial topic.  One could take an entire yearlong course learning the theory of object-oriented programming.  In this short notebook, we will just briefly introduce some aspects of object-oriented programming in the context of Python.</p>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZNpqFcOtY7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="cell docutils container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZNpqFcOtY7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>In this section, we will review two examples of object-oriented programming we have already seen earlier in the course.</p>
+<p>The first example that comes to mind is our way of plotting in Matplotlib.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Here is the <strong>non</strong>-object oriented programming approach to plotting in Matplotlib.  (This is called the <em>state-based interface</em>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
@@ -467,9 +472,10 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114d0c0d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/ObjectOriented_3_1.png" src="../_images/ObjectOriented_3_1.png" />
+<img alt="../_images/ObjectOriented_4_1.png" src="../_images/ObjectOriented_4_1.png" />
 </div>
 </div>
+<p>Here is the object-oriented approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -481,9 +487,14 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x114eb5a80&gt;]
 </pre></div>
 </div>
-<img alt="../_images/ObjectOriented_4_1.png" src="../_images/ObjectOriented_4_1.png" />
+<img alt="../_images/ObjectOriented_6_1.png" src="../_images/ObjectOriented_6_1.png" />
 </div>
 </div>
+<p>The two approaches look very similar.  In the state-based interface, we call <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>, in the object-oriented interface, we call <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code>.</p>
+<p>Notice the first sentence in the help documentation for <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
+<blockquote>
+<div><p>Help on function plot in module matplotlib.pyplot</p>
+</div></blockquote>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
@@ -778,6 +789,11 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 </div>
 </div>
 </div>
+<p>Compare that to the the documentation for <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">plot(*args,</span> <span class="pre">...)</span></code> method of <code class="docutils literal notranslate"><span class="pre">matplotlib.axes._subplots.AxesSubplot</span></code> instance</p>
+</div></blockquote>
+<p>It is a subtle difference.  The first, <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>, is a stand-alone function defined by <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>.  The second, <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code>, is a method attached to a specific object, <code class="docutils literal notranslate"><span class="pre">ax</span></code>.  The object-oriented approach probably seems less natural when you first encounter it, but once you get used to it, the object-oriented approach can make complex tasks significantly more streamlined.  (In the <a class="reference internal" href="#pathlib"><span class="std std-ref">next section</span></a>, we will see how using a more specialized object than a string can also simplify a relatively straightforward task.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
@@ -790,7 +806,7 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
 </pre></div>
@@ -1084,6 +1100,7 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs) method of matplotlib.
 </div>
 </div>
 </div>
+<p>Another situation where we have seen the object-oriented approach was when producing random numbers in NumPy.  Before I learned this approach, I would have expected that there was some stand-alone function to produce random numbers.  Instead of using functions, we use methods which are attached to a random number generator object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1091,6 +1108,7 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs) method of matplotlib.
 </div>
 </div>
 </div>
+<p>Here we are <em>instantiating</em> (“creating an instance of”) a random number generator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
@@ -1098,6 +1116,7 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs) method of matplotlib.
 </div>
 </div>
 </div>
+<p>In this case, the <em>object</em> in our <em>object-oriented programming</em> is a <code class="docutils literal notranslate"><span class="pre">Generator</span></code> object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
@@ -1110,6 +1129,7 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs) method of matplotlib.
 </div>
 </div>
 </div>
+<p>This next line, <code class="docutils literal notranslate"><span class="pre">rng.random(5)</span></code>, is calling the <code class="docutils literal notranslate"><span class="pre">random</span></code> method of the object <code class="docutils literal notranslate"><span class="pre">rng</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -1122,7 +1142,12 @@ plot(*args, scalex=True, scaley=True, data=None, **kwargs) method of matplotlib.
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Again, if we read the beginning of the help documentation for <code class="docutils literal notranslate"><span class="pre">rng.random</span></code>, we see the language reinforcing that we are using the object-oriented approach.</p>
+<blockquote>
+<div><p>random(…) method of <code class="docutils literal notranslate"><span class="pre">numpy.random._generator.Generator</span></code> instance</p>
+</div></blockquote>
+<p>In our specific case, <code class="docutils literal notranslate"><span class="pre">rng</span></code> is the <code class="docutils literal notranslate"><span class="pre">numpy.random._generator.Generator</span></code> instance, and we are calling its <code class="docutils literal notranslate"><span class="pre">random</span></code> method to produce a length-5 array of random numbers.</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">)</span>
 </pre></div>
@@ -1182,13 +1207,18 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>In summary, those were two examples of where we have used the object-oriented approach earlier in the class.  In <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code>, the <code class="docutils literal notranslate"><span class="pre">ax</span></code> was the object.  In <code class="docutils literal notranslate"><span class="pre">rng.random</span></code>, the <code class="docutils literal notranslate"><span class="pre">rng</span></code> was the object.</p>
+<p>In the next section, we will see how the <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> library (which we have not yet seen), and its object-oriented approach, simplifies some tasks in comparison to the functions available to us from the <code class="docutils literal notranslate"><span class="pre">os</span></code> library.</p>
 </section>
 <section id="os-vs-pathlib">
 <span id="pathlib"></span><h2>os vs. pathlib<a class="headerlink" href="#os-vs-pathlib" title="Permalink to this headline">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MWyGxW7UCSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Here is a relatively straightforward task:</p>
 <ul class="simple">
 <li><p>Find all files (as opposed to folders) in <code class="docutils literal notranslate"><span class="pre">/Users/christopherdavis/Documents/GitHub/UCI-Math-9-F22</span></code>.</p></li>
 </ul>
+<p>Based on what we have seen so far, the <code class="docutils literal notranslate"><span class="pre">os</span></code> module is the most obvious tool to use for accomplishing this task. We will see, however, that by instead using the <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> module, we can accomplish the task more easily.  The reason <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> makes this task easier is because it utilizes an object-oriented approach.</p>
+<p>But let’s start by seeing how we would start work on this task using <code class="docutils literal notranslate"><span class="pre">os</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1196,6 +1226,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>The obvious function to use is <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/Users/christopherdavis/Documents/GitHub/UCI-Math-9-F22&quot;</span><span class="p">)</span>
@@ -1220,6 +1251,8 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Which of these represent files and which represent folders?  For example, are you confident whether <code class="docutils literal notranslate"><span class="pre">&quot;.gitignore&quot;</span></code> is a file or a folder?  What about <code class="docutils literal notranslate"><span class="pre">&quot;LICENSE&quot;</span></code>?  What about <code class="docutils literal notranslate"><span class="pre">&quot;_build&quot;</span></code>?</p>
+<p>Let’s save the list returned by <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;/Users/christopherdavis/Documents/GitHub/UCI-Math-9-F22&quot;</span><span class="p">)</span>
@@ -1227,6 +1260,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>There is certainly no method we can call on any of these objects to determine if these represent files or folders, because they are just strings.  Let’s verify that they really are nothing more than strings using list comprehension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">]</span>
@@ -1239,6 +1273,9 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
+<p>Our lives would be much easier if, instead of returning a list of plain strings, <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> returned a list of some more specialized objects on which we could call a method to help us determine if they represent files or folders.  If you agree that would make things easier, then you already have a good intuition for the simplifications provided by the object-oriented approach.</p>
+<p>There is an alternative to <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> that we can access using a different library, <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>.  The module <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> is a relatively recent addition to Python: it was introduced to Python in Python 3.4, and currently (in Summer 2022) these notes are being written using Python 3.10.</p>
+<p>Similarly to how we only imported <code class="docutils literal notranslate"><span class="pre">Image</span></code> from <code class="docutils literal notranslate"><span class="pre">PIL</span></code>, we will only import <code class="docutils literal notranslate"><span class="pre">Path</span></code> from <code class="docutils literal notranslate"><span class="pre">pathlib</span></code>.  This will give us access to a new type of object, <code class="docutils literal notranslate"><span class="pre">Path</span></code> objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -1246,7 +1283,8 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>The syntax shown in the documentation, <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Path(PurePath)</span></code>, is an indication of how new types of objects are defined in Python.  (We will define our own new types of objects in the next section.)</p>
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">Path</span><span class="p">)</span>
 </pre></div>
@@ -1579,6 +1617,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>In the next line, we are instantiating a new <code class="docutils literal notranslate"><span class="pre">Path</span></code> object <code class="docutils literal notranslate"><span class="pre">p</span></code>.  Sometimes when we instantiate a new object, like when we call <code class="docutils literal notranslate"><span class="pre">np.random.default_rng()</span></code>, we do not pass any arguments.  In this case, we are passing one argument, the string <code class="docutils literal notranslate"><span class="pre">&quot;/Users/christopherdavis/Documents/GitHub/UCI-Math-9-F22&quot;</span></code> representing what path we want <code class="docutils literal notranslate"><span class="pre">p</span></code> to represent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Users/christopherdavis/Documents/GitHub/UCI-Math-9-F22&quot;</span><span class="p">)</span>
@@ -1586,6 +1625,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Let’s check the type of <code class="docutils literal notranslate"><span class="pre">p</span></code> to make sure it really is a new type of object.  (I haven’t looked up what <code class="docutils literal notranslate"><span class="pre">PosixPath</span></code> represents; for now, I’m just thinking of it as the same as <code class="docutils literal notranslate"><span class="pre">Path</span></code>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -1598,6 +1638,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>This object <code class="docutils literal notranslate"><span class="pre">p</span></code> has a method <code class="docutils literal notranslate"><span class="pre">iterdir</span></code>, which is analogous to <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
@@ -1610,6 +1651,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>One difference between <code class="docutils literal notranslate"><span class="pre">p.iterdir</span></code> and <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> is that <code class="docutils literal notranslate"><span class="pre">p.iterdir</span></code> returns what is called a “generator object” as opposed to a list, but it is easy enough to convert that generator into a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
@@ -1634,6 +1676,8 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">iterdir</span></code> list is showing full paths.  If we want to just see the last portion, the file name or the folder name, we can get the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute of each of the listed objects.  The following list should be the exact same as our <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> list from above (possibly in a different order).</p>
+<p>(Aside: Notice in the following <code class="docutils literal notranslate"><span class="pre">[x.name</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">p.iterdir()]</span></code> we are not converting <code class="docutils literal notranslate"><span class="pre">p.iterdir()</span></code> to a list.  A common temptation to new Python programmers would be to instead write <code class="docutils literal notranslate"><span class="pre">[x.name</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">list(p.iterdir())]</span></code>, so that we are iterating through a more familiar object (a list instead of a generator).  But there is no reason to make that conversion in this context.  If all we want to do is iterate through <code class="docutils literal notranslate"><span class="pre">p.iterdir()</span></code>, then the generator object is just as good as (or better than) a list.  The name itself, with the letters “iter”, is emphasizing that the object produced is good for iterating.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()]</span>
@@ -1658,6 +1702,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The fundamental difference between <code class="docutils literal notranslate"><span class="pre">p.iterdir</span></code> and <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> is that <code class="docutils literal notranslate"><span class="pre">p.iterdir</span></code> produces <code class="docutils literal notranslate"><span class="pre">PosixPath</span></code> objects, the same as <code class="docutils literal notranslate"><span class="pre">p</span></code> was, not strings.  (The <code class="docutils literal notranslate"><span class="pre">x.name</span></code> attributes are probably strings, but the <code class="docutils literal notranslate"><span class="pre">x</span></code> variables themselves are more useful.)  This will make our task of differentiating between files and folders much easier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()]</span>
@@ -1682,6 +1727,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The fact that <code class="docutils literal notranslate"><span class="pre">x</span></code> is a <code class="docutils literal notranslate"><span class="pre">Path</span></code> instead of a string gives us access to all sorts of extra methods and attributes.  Most relevant to our task is the <code class="docutils literal notranslate"><span class="pre">is_file</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()]</span>
@@ -1706,6 +1752,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>If we want a list containing the files (as opposed to the folders), we can use the following.  Here we are only keeping the <code class="docutils literal notranslate"><span class="pre">x</span></code> values that represent files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">()]</span>
@@ -1724,10 +1771,13 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The task itself (finding files) was not the important point in this section.  Instead the important point was how using the object-oriented approach, in particular using these specialized <code class="docutils literal notranslate"><span class="pre">Path</span></code> objects as opposed to plain strings, made the task much easier.</p>
 </section>
 <section id="defining-a-namedcolor-class">
 <h2>Defining a NamedColor class<a class="headerlink" href="#defining-a-namedcolor-class" title="Permalink to this headline">#</a></h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pWkvLx0E-RM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="cell docutils container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pWkvLx0E-RM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>To do object-oriented programming, we need to know how to define our own types of objects.  Such custom objects can have whatever methods and attributes we want.  Here is an example of defining a <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class; we specify that all objects of this type will have a <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute and an <code class="docutils literal notranslate"><span class="pre">rgb</span></code> attribute.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Blue&quot;</span>
@@ -1736,6 +1786,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Here is an example of instantiating an object of type <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code>; we give it the variable name <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">()</span>
@@ -1743,6 +1794,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">x</span></code> does indeed have the prescribed attributes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">name</span>
@@ -1767,6 +1819,10 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>So far, <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> is a silly class, because objects of this type always represent the same color.  To give the class more flexibility, we specify that when an object of class <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> is created, two arguments should be passed, and those arguments will specify the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute and the <code class="docutils literal notranslate"><span class="pre">rgb</span></code> attribute.</p>
+<p>There is a lot going on in the next example and you shouldn’t expect to internalize it all at once.</p>
+<p>Firstly, we are defining a <code class="docutils literal notranslate"><span class="pre">method</span></code> with the name <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.  This is an example of what is called a “dunder method”, which is short for “double underscore method”.  (The letters “init” are surrounded on both sides by two underscores, so there are four underscores total in <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.)  These dunder methods are extremely common in Python, and often have special meanings.  We have been using dunder methods all the time, even without realizing it.  In the particular case of <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, this method is called every time a new object is instantiated.</p>
+<p>Another confusing aspect of this example, is that all the methods we define will take a variable <code class="docutils literal notranslate"><span class="pre">self</span></code> as their first input argument.  (You could give it another variable name, but it is conventional and least confusing to use <code class="docutils literal notranslate"><span class="pre">self</span></code>.)  This <code class="docutils literal notranslate"><span class="pre">self</span></code> variable is not explicitly passed by us when we call our methods; Python will do that automatically.  This <code class="docutils literal notranslate"><span class="pre">self</span></code> variable represents the object itself (for example, in the above lines, <code class="docutils literal notranslate"><span class="pre">self</span></code> would represent the same thing as <code class="docutils literal notranslate"><span class="pre">x</span></code>).  When I was learning object-oriented programming, I found this <code class="docutils literal notranslate"><span class="pre">self</span></code> argument pretty confusing.  For now, I recommend just memorizing that the initial argument to the methods we define in our class definitions is <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
@@ -1777,6 +1833,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Now if we try to create an instance of type <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code>, using the exact same code as we used above, we will get an error about two missing positional arguments.  The <code class="docutils literal notranslate"><span class="pre">self</span></code> argument was passed automatically by Python, but the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">rgb_tuple</span></code> arguments are missing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">()</span>
@@ -1794,6 +1851,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Here is a way to instantiate a <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object that matches our current definition.  Notice that we can pass <code class="docutils literal notranslate"><span class="pre">&quot;Red&quot;</span></code>, we don’t need to pass it as <code class="docutils literal notranslate"><span class="pre">name=&quot;Red&quot;</span></code>; that is what Python meant above when it referred to <code class="docutils literal notranslate"><span class="pre">name</span></code> as a <em>positional</em> argument (as opposed to a <em>keyword</em> argument).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
@@ -1801,6 +1859,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The above line <code class="docutils literal notranslate"><span class="pre">self.rgb</span> <span class="pre">=</span> <span class="pre">rgb_tuple</span></code> is what assures that <code class="docutils literal notranslate"><span class="pre">x.rgb</span></code> has the value we passed.  (Usually I would name both sides <code class="docutils literal notranslate"><span class="pre">rgb</span></code>, but my hope is that having two different names, <code class="docutils literal notranslate"><span class="pre">rgb</span></code> and <code class="docutils literal notranslate"><span class="pre">rgb_tuple</span></code>, helps to differentiate their roles.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">rgb</span>
@@ -1813,6 +1872,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>It is pretty inconvenient to have to pass the the numerical RGB values.  We will make use of a function <code class="docutils literal notranslate"><span class="pre">to_rgb</span></code> from Matplotlib’s <code class="docutils literal notranslate"><span class="pre">colors</span></code> submodule, which can convert string names to RGB triples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">to_rgb</span>
@@ -1832,6 +1892,8 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We have been working with RGB triples which are integers between 0 and 255 (inclusive).  It’s clear that Matplotlib is using a different normalization (floats between 0 and 1).  We will do the conversion between these normalizations ourselves.</p>
+<p>Here is a warm-up list comprehension.  All it does is turn the tuple <code class="docutils literal notranslate"><span class="pre">(1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code> into the list <code class="docutils literal notranslate"><span class="pre">[1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_rgb</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">)]</span>
@@ -1844,6 +1906,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>One way to convert from floats between 0 and 1 to integers between 0 and 255, is to use the function which sends <code class="docutils literal notranslate"><span class="pre">x</span></code> to <code class="docutils literal notranslate"><span class="pre">round(x*255)</span></code> (making use of the built-in <code class="docutils literal notranslate"><span class="pre">round</span></code> function in Python).  Incorporating this into our list comprehension, we see our “usual” RGB triple for red, <code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_rgb</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">)]</span>
@@ -1856,6 +1919,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>The next big step is to provide a default value of <code class="docutils literal notranslate"><span class="pre">None</span></code> for the <code class="docutils literal notranslate"><span class="pre">rgb_tuple</span></code> input argument; this enables the user to leave the <code class="docutils literal notranslate"><span class="pre">rgb_tuple</span></code> input argument blank when instantiating a <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object.  In that case, where <code class="docutils literal notranslate"><span class="pre">rgb_tuple</span></code> is left blank, we will make use of Matplotlib’s <code class="docutils literal notranslate"><span class="pre">to_rgb</span></code> function, as above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
@@ -1869,6 +1933,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Let’s try it out.  Notice how in the following example, we pass only one input argument to <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span>
@@ -1876,6 +1941,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Not surprisingly, the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute has been correctly set as <code class="docutils literal notranslate"><span class="pre">&quot;Orange&quot;</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">name</span>
@@ -1888,6 +1954,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>More importantly, the <code class="docutils literal notranslate"><span class="pre">rgb</span></code> attribute has also been set.  This is an indication that our code above is working as desired.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">rgb</span>
@@ -1900,6 +1967,8 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Let’s add one more method to <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code>, which will give us a nice way to <code class="docutils literal notranslate"><span class="pre">print</span></code> our <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> objects.</p>
+<p>Let’s start with something similar to, but different from, printing.  We just evaluate <code class="docutils literal notranslate"><span class="pre">z</span></code>, our orange <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object, on its own.  The string displayed after we evaluate <code class="docutils literal notranslate"><span class="pre">z</span></code> is not very readable.  (About the only helpful thing in the result is that we can see <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> appear.)  Secretly, when <code class="docutils literal notranslate"><span class="pre">z</span></code> is evaluated on its own line, another “dunder” method is called, in this case, the dunder method which is called is <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>.  We won’t adjust that method here, but you can if you want to!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span>
@@ -1912,6 +1981,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Now let’s try printing <code class="docutils literal notranslate"><span class="pre">z</span></code>.  The response is very similar to the previous cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -1924,6 +1994,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>When <code class="docutils literal notranslate"><span class="pre">print(z)</span></code> is called, the dunder method <code class="docutils literal notranslate"><span class="pre">__str__</span></code> on <code class="docutils literal notranslate"><span class="pre">z</span></code> is called, and the resulting string gets displayed.  We are going to redefine that <code class="docutils literal notranslate"><span class="pre">__str__</span></code> dunder method here.  We will have it return the string we want displayed.  Notice that, like usual with object methods, we need to include <code class="docutils literal notranslate"><span class="pre">self</span></code> as the first argument.  We don’t need to include any other arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
@@ -1940,6 +2011,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Let’s try it out.  We definitely need to create a new object (changing the definition of the <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class will not affect any existing <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> objects).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span>
@@ -1947,6 +2019,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Because we have not adjusted the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> dunder method, when we evaluate <code class="docutils literal notranslate"><span class="pre">z</span></code> on its own, the result is very similar to the results above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span>
@@ -1959,6 +2032,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>But now when we evaluate <code class="docutils literal notranslate"><span class="pre">print(z)</span></code>, our custom <code class="docutils literal notranslate"><span class="pre">__str__</span></code> dunder method is called, and we see the following informative message.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -1974,7 +2048,11 @@ class Path(PurePath)
 </section>
 <section id="defining-the-class-in-a-separate-file">
 <h2>Defining the class in a separate file<a class="headerlink" href="#defining-the-class-in-a-separate-file" title="Permalink to this headline">#</a></h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QDvHYd5J2wU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="cell docutils container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QDvHYd5J2wU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>In this final section of the course, we will see how to define <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> in a separate Python (.py) file, and then how to import the definition into a Jupyter notebook.</p>
+<p><strong>Warning</strong>.  Because we are working in two separate files in this notebook, watching the corresponding video may be less confusing.</p>
+<p>An annoying thing when doing this combined programming between external Python files and a Jupyter notebook, is that by default, changes in the external Python file will not be updated in the Jupyter notebook unless you restart the kernel. (Even if you import the file again, that is not enough.)  To get around this, we will make use of the following Jupyter magic.  The <code class="docutils literal notranslate"><span class="pre">2</span></code> in the second line, <code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">2</span></code>, indicates that every time we run a cell in this Jupyter notebook, Jupyter should check to see if any external files were updated, and re-import them if necessary.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
@@ -1982,6 +2060,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We have restarted the kernel just before executing the above cell.  To verify that none of the definitions from the previous section carry over, we try to create a <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object.  It is good that this raises an error; our goal here is to move the definition of the <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class to an external file named <code class="docutils literal notranslate"><span class="pre">math9colors.py</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span>
@@ -1999,6 +2078,28 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Here in the right-hand margin is the starting code for the external file <code class="docutils literal notranslate"><span class="pre">math9colors.py</span></code>.  To make it easier for Python to locate this file, we’ve put it in the same directory as our current Jupyter notebook.  The code itself is just the relevant portions from the previous section.</p>
+<div class="cell tag_margin docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### current contents of the file `math9colors.py`</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">to_rgb</span>
+
+<span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">rgb_tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rgb_tuple</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rgb_tuple</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb_tuple</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;The color </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> with RGB value </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now import the <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class from the <code class="docutils literal notranslate"><span class="pre">math9colors.py</span></code> file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math9colors</span> <span class="kn">import</span> <span class="n">NamedColor</span>
@@ -2006,6 +2107,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Now the following line, which failed earlier, will work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span>
@@ -2013,6 +2115,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>And all the functionality from the previous section should now be present.  For example, we can <code class="docutils literal notranslate"><span class="pre">print(z)</span></code>, and the dunder method <code class="docutils literal notranslate"><span class="pre">__str__</span></code> that we defined will be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -2025,6 +2128,8 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We haven’t done anything too serious with <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> yet; it’s hard to see how this class would be useful.  Let’s implement something more advanced, so we can use this <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class to set colors in a Pillow image.</p>
+<p>As precursors, we import <code class="docutils literal notranslate"><span class="pre">Image</span></code> from Pillow and import NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -2033,6 +2138,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We will eventually use <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> to set some colors in an image.  Here we import a sample image and get its corresponding NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;penguins.jpg&quot;</span><span class="p">)</span>
@@ -2041,6 +2147,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>To set colors in the array, we need a copy which is not read-only.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2048,6 +2155,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">z</span></code> represents one of our <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> objects.  If we try to set some pixels of <code class="docutils literal notranslate"><span class="pre">A</span></code> to be this <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object, we get the following error.  (The error itself was pretty indecipherable to me when I first saw it.  It took more Google searches than usual to understand why this particular error was being raised.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
@@ -2065,6 +2173,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>If we try to convert <code class="docutils literal notranslate"><span class="pre">z</span></code> to a NumPy array, it works without error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
@@ -2077,6 +2186,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>However, if we try to convert <code class="docutils literal notranslate"><span class="pre">z</span></code> to a NumPy array with <code class="docutils literal notranslate"><span class="pre">dtype=np.uint8</span></code>, then we see the exact same error as above.  (This <code class="docutils literal notranslate"><span class="pre">dtype</span></code> was not chosen randomly; it is exactly the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> that appears when we convert Pillow images to NumPy arrays.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
@@ -2094,6 +2204,31 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We need to tell Python how our object <code class="docutils literal notranslate"><span class="pre">z</span></code> can be converted to a NumPy array.  We do this, again, with a dunder method, this time the <code class="docutils literal notranslate"><span class="pre">__array__</span></code> dunder method.  There is only one obvious way to convert a <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> object like <code class="docutils literal notranslate"><span class="pre">z</span></code> to a NumPy array, and that is by using its RGB triple. The code is shown in the right-hand margin.</p>
+<div class="cell tag_margin docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### current contents of the file `math9colors.py`</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">to_rgb</span>
+
+<span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">rgb_tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rgb_tuple</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rgb_tuple</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb_tuple</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;The color </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> with RGB value </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A good sign is that a new error shows up, and this one is easy to fix.  Even though we have imported NumPy in this Jupyter notebook, we need to import it in the <code class="docutils literal notranslate"><span class="pre">math9colors.py</span></code> file, so that the code <code class="docutils literal notranslate"><span class="pre">np.array</span></code> makes sense.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
@@ -2115,6 +2250,28 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>We now include the NumPy import.  The final file contents is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">### Final version of the file `math9colors.py`</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">to_rgb</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">NamedColor</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">rgb_tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rgb_tuple</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rgb_tuple</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="n">rgb_tuple</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;The color </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> with RGB value </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rgb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The line above which raised an error now works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
@@ -2122,6 +2279,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Before we display the image, we set some more pixels.  We expect to see an orange square, and below it, a “dark khaki” square.  (Any web color will work, because all web colors are allowed in Matplotlib’s <code class="docutils literal notranslate"><span class="pre">to_rgb</span></code> function.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">150</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">:</span><span class="mi">250</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamedColor</span><span class="p">(</span><span class="s2">&quot;darkkhaki&quot;</span><span class="p">)</span>
@@ -2129,6 +2287,7 @@ class Path(PurePath)
 </div>
 </div>
 </div>
+<p>Here is the resulting image.  It is worth emphasizing that something like <code class="docutils literal notranslate"><span class="pre">A[150:200,</span> <span class="pre">200:250]</span> <span class="pre">=</span> <span class="pre">&quot;darkkhaki&quot;</span></code> would never work; it is essential that we are using our custom <code class="docutils literal notranslate"><span class="pre">NamedColor</span></code> class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -2136,9 +2295,10 @@ class Path(PurePath)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ObjectOriented_66_0.png" src="../_images/ObjectOriented_66_0.png" />
+<img alt="../_images/ObjectOriented_128_0.png" src="../_images/ObjectOriented_128_0.png" />
 </div>
 </div>
+<p>Congratulations on making it to the end of the Python portion of Math 9!  Thank you for these last four weeks, and good luck with whatever programming material you learn next.</p>
 </section>
 </section>
 
