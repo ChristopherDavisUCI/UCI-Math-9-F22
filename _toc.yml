@@ -1,0 +1,19 @@
+format: jb-book
+root: intro
+chapters:
+  - file: Week1/Week1-Intro
+    sections:
+    - file: Week1/PythonDataTypes
+    - file: Week1/AlternatingList
+  - file: Week2/Week2-Intro
+    sections:
+    - file: Week2/NumPy
+  - file: Week3/Week3-Intro
+    sections:
+    - file: Week3/PythonicCode
+    - file: Week3/Matplotlib
+    - file: Week3/NewtonsMethod
+  - file: Week4/Week4-Intro
+    sections:
+    - file: Week4/Pillow
+    - file: Week4/ObjectOriented
