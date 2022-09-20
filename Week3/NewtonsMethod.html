@@ -381,6 +381,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematical-introduction-to-newton-s-method">
+   Mathematical Introduction to Newton’s Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applying-at-a-good-point">
    Applying at a good point
   </a>
@@ -415,6 +420,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematical-introduction-to-newton-s-method">
+   Mathematical Introduction to Newton’s Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applying-at-a-good-point">
    Applying at a good point
   </a>
@@ -442,6 +452,10 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="newton-s-method">
 <h1>Newton’s Method<a class="headerlink" href="#newton-s-method" title="Permalink to this headline">#</a></h1>
 <p>The goal of this notebook is to show some examples of using Python to implement Newton’s Method, which attempts to approximate a root of a given function.</p>
+<section id="mathematical-introduction-to-newton-s-method">
+<h2>Mathematical Introduction to Newton’s Method<a class="headerlink" href="#mathematical-introduction-to-newton-s-method" title="Permalink to this headline">#</a></h2>
+<p>Newton’s Method is a beautiful application of calculus, but for purposes of time, it is a topic which is often skipped over in calculus courses.  Here is a video introducing Newton’s Method, by Yasmeen Baki.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mqf7XumTvbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
 <section id="applying-at-a-good-point">
 <h2>Applying at a good point<a class="headerlink" href="#applying-at-a-good-point" title="Permalink to this headline">#</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O_HhCf9s3F8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -562,7 +576,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1118ca2c0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_21_1.png" src="../_images/NewtonsMethod_21_1.png" />
+<img alt="../_images/NewtonsMethod_22_1.png" src="../_images/NewtonsMethod_22_1.png" />
 </div>
 </div>
 <p>Let’s actually apply <code class="docutils literal notranslate"><span class="pre">f</span></code> to the elements in <code class="docutils literal notranslate"><span class="pre">arr</span></code> and see if the outputs are getting closer and closer to 0.  (One of the reasons we made <code class="docutils literal notranslate"><span class="pre">arr</span></code> as a NumPy array, as opposed to a list, is so that we could make this evaluation using <code class="docutils literal notranslate"><span class="pre">f(arr)</span></code>.  That syntax would not work if <code class="docutils literal notranslate"><span class="pre">arr</span></code> were a list.)  In this case, <code class="docutils literal notranslate"><span class="pre">f(arr[3])</span></code> is <span class="math notranslate nohighlight">\(-0.00006605...\)</span>, so by the third iteration of Newton’s Method, we have indeed gotten very close to an actual root of <span class="math notranslate nohighlight">\(f\)</span>.</p>
@@ -619,7 +633,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1114a84c0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_28_1.png" src="../_images/NewtonsMethod_28_1.png" />
+<img alt="../_images/NewtonsMethod_29_1.png" src="../_images/NewtonsMethod_29_1.png" />
 </div>
 </div>
 <p>Again, this code is all the same as in the previous section, with the exception of the fact that we start here at -0.5 instead of at -1.5.</p>
@@ -701,7 +715,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-1.0, 2.0), (-2.0, 3.5)]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_37_1.png" src="../_images/NewtonsMethod_37_1.png" />
+<img alt="../_images/NewtonsMethod_38_1.png" src="../_images/NewtonsMethod_38_1.png" />
 </div>
 </div>
 <p>Let’s use the exact same code but with 10 iterations of Newton’s Method.  Notice how we don’t seem to be converging on the an actual root, even after 10 iterations.</p>
@@ -732,7 +746,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-1.0, 2.0), (-2.0, 3.5)]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_39_1.png" src="../_images/NewtonsMethod_39_1.png" />
+<img alt="../_images/NewtonsMethod_40_1.png" src="../_images/NewtonsMethod_40_1.png" />
 </div>
 </div>
 <p>On the other hand, if we choose a better starting point like -1.5, then we very quickly converge on the actual root.  The following chart includes 10 iterations of Newton’s Method, but most of these iterations are so close to each other that we can’t distinguish between them.</p>
@@ -763,7 +777,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2.0, -1.0), (-2.0, 3.5)]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_41_1.png" src="../_images/NewtonsMethod_41_1.png" />
+<img alt="../_images/NewtonsMethod_42_1.png" src="../_images/NewtonsMethod_42_1.png" />
 </div>
 </div>
 <p>If we instead start at 0 for this function <span class="math notranslate nohighlight">\(f\)</span>, we find another example of what can go wrong when applying Newton’s Method.  In this case, Newton’s Method oscillates forever between 0 and 1, neither of which is anywhere near the actual root.</p>
@@ -794,7 +808,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2.0, 2.0), (-2.0, 3.5)]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_43_1.png" src="../_images/NewtonsMethod_43_1.png" />
+<img alt="../_images/NewtonsMethod_44_1.png" src="../_images/NewtonsMethod_44_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1210,7 +1224,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1133eb8b0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_60_1.png" src="../_images/NewtonsMethod_60_1.png" />
+<img alt="../_images/NewtonsMethod_61_1.png" src="../_images/NewtonsMethod_61_1.png" />
 </div>
 </div>
 <p>Here is the Boolean array corresponding to our condition <span class="math notranslate nohighlight">\(-0.001 \leq f(z_{7}) \leq 0.001\)</span>.  For example, the zeroth entry being <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that <span class="math notranslate nohighlight">\(z_0 = -2\)</span> is a starting value for which this condition is satisfied.</p>
@@ -1256,7 +1270,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NewtonsMethod_65_0.png" src="../_images/NewtonsMethod_65_0.png" />
+<img alt="../_images/NewtonsMethod_66_0.png" src="../_images/NewtonsMethod_66_0.png" />
 </div>
 </div>
 <p>This variable <code class="docutils literal notranslate"><span class="pre">pts</span></code> represents a one-dimensional NumPy array of length 32.</p>
@@ -1322,7 +1336,7 @@ title="Print to PDF"
 <span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (32,) and (1,)
 </pre></div>
 </div>
-<img alt="../_images/NewtonsMethod_69_1.png" src="../_images/NewtonsMethod_69_1.png" />
+<img alt="../_images/NewtonsMethod_70_1.png" src="../_images/NewtonsMethod_70_1.png" />
 </div>
 </div>
 <p>We need to replace the single number <code class="docutils literal notranslate"><span class="pre">0</span></code> with a NumPy array of 32 zeros.  (A length 32 list would also work.)</p>
@@ -1339,7 +1353,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NewtonsMethod_71_0.png" src="../_images/NewtonsMethod_71_0.png" />
+<img alt="../_images/NewtonsMethod_72_0.png" src="../_images/NewtonsMethod_72_0.png" />
 </div>
 </div>
 <p>We make the bullet points a little smaller by setting a <code class="docutils literal notranslate"><span class="pre">markersize</span></code>.  (I just guessed-and-checked values to see what size looked good.)</p>
@@ -1356,7 +1370,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NewtonsMethod_73_0.png" src="../_images/NewtonsMethod_73_0.png" />
+<img alt="../_images/NewtonsMethod_74_0.png" src="../_images/NewtonsMethod_74_0.png" />
 </div>
 </div>
 <p>Let’s make a similar plot for the bad points.  Here is a reminder of how <code class="docutils literal notranslate"><span class="pre">good_bool</span></code> looked.</p>
@@ -1421,7 +1435,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NewtonsMethod_79_0.png" src="../_images/NewtonsMethod_79_0.png" />
+<img alt="../_images/NewtonsMethod_80_0.png" src="../_images/NewtonsMethod_80_0.png" />
 </div>
 </div>
 <p>Here is the same plot from above with the good values.</p>
@@ -1438,7 +1452,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NewtonsMethod_81_0.png" src="../_images/NewtonsMethod_81_0.png" />
+<img alt="../_images/NewtonsMethod_82_0.png" src="../_images/NewtonsMethod_82_0.png" />
 </div>
 </div>
 <p>The plots say that, initially, all the starting values near -2 work well.  Once we pass the local maximum of <span class="math notranslate nohighlight">\(f\)</span>, after which Newton’s Method starts moving us away from the root, we have mostly bad values.  There are a few outliers (good points surrounded by bad points).  It’s worth looking at these outliers and thinking about the corresponding tangent lines.  Can you see why Newton’s Method could work well for these particular values?  If we used more than 7 repetitions, we would see many more “good points” scattered throughout the bad points.</p>

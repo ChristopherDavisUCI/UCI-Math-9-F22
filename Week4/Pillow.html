@@ -381,6 +381,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pillow-installation">
+   Pillow installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#opening-an-image">
    Opening an image
   </a>
@@ -445,6 +450,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pillow-installation">
+   Pillow installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#opening-an-image">
    Opening an image
   </a>
@@ -502,10 +512,13 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="pillow-image-processing">
 <h1>Pillow image processing<a class="headerlink" href="#pillow-image-processing" title="Permalink to this headline">#</a></h1>
 <p>In this notebook, we will see examples of image processing using the Pillow fork of the PIL library.  Image processing is interesting in its own right, but probably more importantly for Math 9, it provides a way to think about NumPy arrays in a visual way, including three-dimensional NumPy arrays.  (So far, we have only worked with one-dimensional and two-dimensional NumPy arrays, which we think of like vectors and matrices, respectively.)</p>
+<section id="pillow-installation">
+<h2>Pillow installation<a class="headerlink" href="#pillow-installation" title="Permalink to this headline">#</a></h2>
+<p>Before you can import NumPy, you need to install NumPy.  Sounds obvious enough, but for the image processing library we will use, the procedure is slightly different.  See the following video, but briefly, we install the library using the name <code class="docutils literal notranslate"><span class="pre">Pillow</span></code>, and import the library using the name <code class="docutils literal notranslate"><span class="pre">PIL</span></code>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H6yZGRuvBw8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section>
 <section id="opening-an-image">
 <h2>Opening an image<a class="headerlink" href="#opening-an-image" title="Permalink to this headline">#</a></h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ltR6DSTPh-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Before you can import Numpy, you need to install NumPy.  Sounds obvious enough, but for the image processing library we will use, the procedure is slightly different.  See this video, but briefly, we install the library using the name Pillow and import it using the name PIL.</p>
-<p>We will also import the <code class="docutils literal notranslate"><span class="pre">os</span></code> module (which is part of the standard Python library, so it does not need to be installed.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ltR6DSTPh-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>In addition to importing Pillow, we will also import the <code class="docutils literal notranslate"><span class="pre">os</span></code> module (which is part of the standard Python library, so it does not need to be installed).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -522,7 +535,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_5_0.png" src="../_images/Pillow_5_0.png" />
+<img alt="../_images/Pillow_6_0.png" src="../_images/Pillow_6_0.png" />
 </div>
 </div>
 <p>If there are many files you need to access, it is inconvenient to need to have them all in the same folder.  For the rest of this section, we will see some ways to use the <code class="docutils literal notranslate"><span class="pre">os</span></code> module to locate files.  (<a class="reference internal" href="ObjectOriented.html#pathlib"><span class="std std-ref">Later</span></a> we will briefly see a more modern, more object-oriented, approach to locating files, using the <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> module.)</p>
@@ -632,7 +645,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_18_0.png" src="../_images/Pillow_18_0.png" />
+<img alt="../_images/Pillow_19_0.png" src="../_images/Pillow_19_0.png" />
 </div>
 </div>
 <p>As a last example, let’s see two ways to find all the png files in the images folder.  Here is a reminder of all the files in that folder.</p>
@@ -744,7 +757,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_36_0.png" src="../_images/Pillow_36_0.png" />
+<img alt="../_images/Pillow_37_0.png" src="../_images/Pillow_37_0.png" />
 </div>
 </div>
 <p>Because <code class="docutils literal notranslate"><span class="pre">arr</span></code> is a NumPy array, <code class="docutils literal notranslate"><span class="pre">arr</span></code> has all the usual attributes and methods of NumPy arrays.  For example, here is its <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute.  Notice that three different numbers are listed.  I believe this is our first example in Math 9 of a three-dimensional NumPy array.  The number <code class="docutils literal notranslate"><span class="pre">225</span></code> refers to the number of rows, the number <code class="docutils literal notranslate"><span class="pre">399</span></code> refers to the number of columns (notice that the image is wider than it is tall), and the number <code class="docutils literal notranslate"><span class="pre">3</span></code> refers to the RGB  (Red-Green-Blue) values which specify the color of a given pixel.</p>
@@ -820,7 +833,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_47_0.png" src="../_images/Pillow_47_0.png" />
+<img alt="../_images/Pillow_48_0.png" src="../_images/Pillow_48_0.png" />
 </div>
 </div>
 <p>We can convert from a NumPy array (as long as it has a suitable shape and <code class="docutils literal notranslate"><span class="pre">dtype</span></code>) to a Pillow Image using <code class="docutils literal notranslate"><span class="pre">Image.fromarray</span></code>.  Here we make a Pillow Image out of our sliced NumPy array.  Notice how it is the right-most portion of the image, but with every row, and with the colors unchanged.</p>
@@ -831,7 +844,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_49_0.png" src="../_images/Pillow_49_0.png" />
+<img alt="../_images/Pillow_50_0.png" src="../_images/Pillow_50_0.png" />
 </div>
 </div>
 </section>
@@ -862,7 +875,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_53_0.png" src="../_images/Pillow_53_0.png" />
+<img alt="../_images/Pillow_54_0.png" src="../_images/Pillow_54_0.png" />
 </div>
 </div>
 <p>Let’s say we want to change the horizontal band from row 100 to row 150 to the color black, which is represented in RGB values as <code class="docutils literal notranslate"><span class="pre">[0,0,0]</span></code>.</p>
@@ -873,7 +886,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_55_0.png" src="../_images/Pillow_55_0.png" />
+<img alt="../_images/Pillow_56_0.png" src="../_images/Pillow_56_0.png" />
 </div>
 </div>
 <p>The following almost works, but we get an error which says that <code class="docutils literal notranslate"><span class="pre">arr</span></code> is “read-only”.</p>
@@ -965,7 +978,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_71_0.png" src="../_images/Pillow_71_0.png" />
+<img alt="../_images/Pillow_72_0.png" src="../_images/Pillow_72_0.png" />
 </div>
 </div>
 <p>Setting the color to white is almost identical.  White corresponds to the maximum value in each of the red, the green, and the blue slots.  Under Pillow’s normalization, this maximum value is <code class="docutils literal notranslate"><span class="pre">255</span></code>.</p>
@@ -983,7 +996,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_74_0.png" src="../_images/Pillow_74_0.png" />
+<img alt="../_images/Pillow_75_0.png" src="../_images/Pillow_75_0.png" />
 </div>
 </div>
 <p>Let’s next try to set the color of this horizontal band to green, which corresponds in RGB values to <code class="docutils literal notranslate"><span class="pre">[0,255,0]</span></code>.  In order to make this assignment, let’s recall the rules of broadcasting.</p>
@@ -1034,7 +1047,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_81_0.png" src="../_images/Pillow_81_0.png" />
+<img alt="../_images/Pillow_82_0.png" src="../_images/Pillow_82_0.png" />
 </div>
 </div>
 </section>
@@ -1111,7 +1124,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_91_0.png" src="../_images/Pillow_91_0.png" />
+<img alt="../_images/Pillow_92_0.png" src="../_images/Pillow_92_0.png" />
 </div>
 </div>
 <p>Instead of just displaying the Image, let’s assign it to the variable name <code class="docutils literal notranslate"><span class="pre">img</span></code>.</p>
@@ -1130,7 +1143,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_95_0.png" src="../_images/Pillow_95_0.png" />
+<img alt="../_images/Pillow_96_0.png" src="../_images/Pillow_96_0.png" />
 </div>
 </div>
 <p>The only thing I don’t like about the above is the blurry transitions between the colors.  I would rather it just use 50-by-50 pixels of red, 50-by-50 pixels of green, and so on.  If we check the documentation for <code class="docutils literal notranslate"><span class="pre">img.resize</span></code>, we see that there is a <code class="docutils literal notranslate"><span class="pre">resample</span></code> keyword argument which can be used to influence these transitions.</p>
@@ -1293,27 +1306,27 @@ NEAREST
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BICUBIC
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_1.png" src="../_images/Pillow_107_1.png" />
+<img alt="../_images/Pillow_108_1.png" src="../_images/Pillow_108_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BILINEAR
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_3.png" src="../_images/Pillow_107_3.png" />
+<img alt="../_images/Pillow_108_3.png" src="../_images/Pillow_108_3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BOX
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_5.png" src="../_images/Pillow_107_5.png" />
+<img alt="../_images/Pillow_108_5.png" src="../_images/Pillow_108_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HAMMING
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_7.png" src="../_images/Pillow_107_7.png" />
+<img alt="../_images/Pillow_108_7.png" src="../_images/Pillow_108_7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LANCZOS
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_9.png" src="../_images/Pillow_107_9.png" />
+<img alt="../_images/Pillow_108_9.png" src="../_images/Pillow_108_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NEAREST
 </pre></div>
 </div>
-<img alt="../_images/Pillow_107_11.png" src="../_images/Pillow_107_11.png" />
+<img alt="../_images/Pillow_108_11.png" src="../_images/Pillow_108_11.png" />
 </div>
 </div>
 <p>Another approach, that I think is more natural in this case, but which I think will not always work, is to use indexing notation, as in <code class="docutils literal notranslate"><span class="pre">resample=Image.Resampling[s]</span></code>.</p>
@@ -1330,27 +1343,27 @@ NEAREST
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BICUBIC
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_1.png" src="../_images/Pillow_109_1.png" />
+<img alt="../_images/Pillow_110_1.png" src="../_images/Pillow_110_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BILINEAR
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_3.png" src="../_images/Pillow_109_3.png" />
+<img alt="../_images/Pillow_110_3.png" src="../_images/Pillow_110_3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BOX
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_5.png" src="../_images/Pillow_109_5.png" />
+<img alt="../_images/Pillow_110_5.png" src="../_images/Pillow_110_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HAMMING
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_7.png" src="../_images/Pillow_109_7.png" />
+<img alt="../_images/Pillow_110_7.png" src="../_images/Pillow_110_7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LANCZOS
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_9.png" src="../_images/Pillow_109_9.png" />
+<img alt="../_images/Pillow_110_9.png" src="../_images/Pillow_110_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NEAREST
 </pre></div>
 </div>
-<img alt="../_images/Pillow_109_11.png" src="../_images/Pillow_109_11.png" />
+<img alt="../_images/Pillow_110_11.png" src="../_images/Pillow_110_11.png" />
 </div>
 </div>
 </section>
@@ -1644,7 +1657,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_146_0.png" src="../_images/Pillow_146_0.png" />
+<img alt="../_images/Pillow_147_0.png" src="../_images/Pillow_147_0.png" />
 </div>
 </div>
 <p>Here is the new image.  Notice how the blue colors have been replaced by green colors.  What other changes do you notice?</p>
@@ -1655,7 +1668,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_148_0.png" src="../_images/Pillow_148_0.png" />
+<img alt="../_images/Pillow_149_0.png" src="../_images/Pillow_149_0.png" />
 </div>
 </div>
 </section>
@@ -1688,7 +1701,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_154_0.png" src="../_images/Pillow_154_0.png" />
+<img alt="../_images/Pillow_155_0.png" src="../_images/Pillow_155_0.png" />
 </div>
 </div>
 <p>Even though this is a simpler image than the penguins photograph above, this grid is a significantly bigger image, in terms of pixels.</p>
@@ -1874,7 +1887,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_175_0.png" src="../_images/Pillow_175_0.png" />
+<img alt="../_images/Pillow_176_0.png" src="../_images/Pillow_176_0.png" />
 </div>
 </div>
 <p>It suffices to just look at the very top-most row.  If we know where the colors change in the top row, we will also know where they change in every row.</p>
@@ -2197,7 +2210,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_197_0.png" src="../_images/Pillow_197_0.png" />
+<img alt="../_images/Pillow_198_0.png" src="../_images/Pillow_198_0.png" />
 </div>
 </div>
 </section>
@@ -2538,7 +2551,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_236_0.png" src="../_images/Pillow_236_0.png" />
+<img alt="../_images/Pillow_237_0.png" src="../_images/Pillow_237_0.png" />
 </div>
 </div>
 </section>
@@ -2636,7 +2649,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_251_0.png" src="../_images/Pillow_251_0.png" />
+<img alt="../_images/Pillow_252_0.png" src="../_images/Pillow_252_0.png" />
 </div>
 </div>
 <p>To use <code class="docutils literal notranslate"><span class="pre">np.where</span></code>, the first argument should be some Boolean array.  It seems easier to find the black colors than to find the background colors (because there is only one black color but there are two background colors).  Since <code class="docutils literal notranslate"><span class="pre">np.where</span></code> replaces both the <code class="docutils literal notranslate"><span class="pre">True</span></code> values and the <code class="docutils literal notranslate"><span class="pre">False</span></code> values, it doesn’t really matter if we are using <code class="docutils literal notranslate"><span class="pre">mask</span></code> or <code class="docutils literal notranslate"><span class="pre">~mask</span></code> in the following; we would just need to swap the following inputs.</p>
@@ -2877,7 +2890,7 @@ NEAREST
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Pillow_275_0.png" src="../_images/Pillow_275_0.png" />
+<img alt="../_images/Pillow_276_0.png" src="../_images/Pillow_276_0.png" />
 </div>
 </div>
 </section>
